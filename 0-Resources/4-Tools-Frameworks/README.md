@@ -6,12 +6,12 @@ Commonly used tools, frameworks, and libraries.
 
 | Name | Purpose | Link |
 |------|---------|------|
-| vLLM | LLM inference acceleration | https://github.com/vllm-project/vllm |
-| Swift | Model fine-tuning & deployment | https://github.com/modelscope/swift |
-| ms-swift | ModelScope framework | https://swift.readthedocs.io/zh-cn/latest/ |
-| LangChain | LLM application dev | https://github.com/langchain-ai/langchain |
-| Ollama | Local LLM runner | https://github.com/ollama/ollama |
-| PyTorch | Deep learning framework | https://pytorch.org |
+| ms-swift | 微调&部署全链路框架 | [详情](ms-swift.md) · [官方](https://swift.readthedocs.io/zh-cn/latest/) |
+| vLLM | LLM 推理加速 | https://github.com/vllm-project/vllm |
+| Swift | 模型微调&部署 | https://github.com/modelscope/swift |
+| LangChain | LLM 应用开发 | https://github.com/langchain-ai/langchain |
+| Ollama | 本地运行大模型 | https://github.com/ollama/ollama |
+| PyTorch | 深度学习框架 | https://pytorch.org |
 
 ---
 

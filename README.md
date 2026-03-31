@@ -31,9 +31,10 @@
 </details>
 
 <details>
-<summary>4-Tools-Frameworks</summary>
+<summary>4-Tools & Frameworks</summary>
 
-[📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
+- [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md)
+- [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
 
