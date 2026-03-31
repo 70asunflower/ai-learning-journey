@@ -1,10 +1,19 @@
-# 模型笔记
+# Model Notes
 
-按模型系列分类的个人学习笔记。
+Notes organized by model family.
 
-## 目录
+## Qwen Series
 
-- Qwen-Series/ - 通义千问系列
-- Llama-Series/ - Llama 系列
-- CLIP-Series/ - CLIP 系列
-- 其他模型...
+| Topic | File | Date |
+|-------|------|------|
+| Qwen3-VL | [Qwen3-VL.md](./Qwen-Series/Qwen3-VL.md) | 2026-03-31 |
+
+## Llama Series
+
+| Topic | File | Date |
+|-------|------|------|
+| — | — | — |
+
+---
+
+_This file serves as an index. Add your notes as individual markdown files._

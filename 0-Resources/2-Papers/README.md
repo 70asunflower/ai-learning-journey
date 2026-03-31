@@ -1,23 +1,29 @@
-# 重要论文
+# Papers
 
-收集重要论文的 arXiv 链接和个人解读。
+Important papers in AI, with personal notes and arXiv links.
 
-## 格式
+## Collected Papers
+
+_Empty — add your first paper!_
+
+---
+
+## Template
 
 ```markdown
 ---
-title: 论文标题
-authors: 作者
-arxiv: 链接
-date: 阅读日期
+title: Paper Title
+authors: Authors
+arxiv: https://arxiv.org/abs/xxxx.xxxxx
+date: YYYY-MM-DD
 tags: []
 ---
 
-## 核心贡献
+## Core Contribution
 
-## 方法概述
+## Method Summary
 
-## 个人解读
+## Personal Notes
 
-## 相关资源
+## Related Resources
 ```

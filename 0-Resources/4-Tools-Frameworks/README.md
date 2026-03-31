@@ -1,12 +1,18 @@
-# 工具与框架
+# Tools & Frameworks
 
-整理常用框架和工具的使用指南。
+Commonly used tools, frameworks, and libraries.
 
-## 列表
+## Current Stack
 
-| 工具/框架 | 用途 | 官方链接 |
-|-----------|------|----------|
-| vLLM | 大模型推理加速 | https://github.com/vllm-project/vllm |
-| Swift | 模型微调和部署 | https://github.com/modelscope/swift |
-| LangChain | LLM应用开发 | https://github.com/langchain-ai/langchain |
-| Ollama | 本地运行大模型 | https://github.com/ollama/ollama |
+| Name | Purpose | Link |
+|------|---------|------|
+| vLLM | LLM inference acceleration | https://github.com/vllm-project/vllm |
+| Swift | Model fine-tuning & deployment | https://github.com/modelscope/swift |
+| ms-swift | ModelScope framework | https://swift.readthedocs.io/zh-cn/latest/ |
+| LangChain | LLM application dev | https://github.com/langchain-ai/langchain |
+| Ollama | Local LLM runner | https://github.com/ollama/ollama |
+| PyTorch | Deep learning framework | https://pytorch.org |
+
+---
+
+_This file serves as an index. Add detailed tool docs as needed._

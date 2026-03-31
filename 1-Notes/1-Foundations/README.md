@@ -1,11 +1,16 @@
-# 基础概念
+# Foundations
 
-Transformer、注意力机制等基础概念的笔记。
+Core concepts of AI and deep learning.
 
-## 主题列表
+## Topics
 
-- [ ] Transformer 架构
-- [ ] 注意力机制 (Attention)
-- [ ] 位置编码
-- [ ]  Tokenizer
-- [ ] 损失函数
+- [ ] Transformer architecture
+- [ ] Attention mechanisms (Self-Attention, Multi-Head)
+- [ ] Positional encoding (RoPE, Sinusoidal)
+- [ ] Tokenizers (BPE, SentencePiece)
+- [ ] Loss functions (Cross-Entropy, CE)
+- [ ] Optimizers (AdamW, SGD)
+
+---
+
+_This file serves as an index. Add your notes as individual markdown files._

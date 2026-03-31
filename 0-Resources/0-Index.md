@@ -1,44 +1,30 @@
-# 资源索引
+# Resources Index
 
-按类别、模型、日期打标签，快速定位资料。
+Quick-lookup index for all collected resources.
 
-## 官方文档 | #official
+## Official Docs
 
-| 资源 | 标签 | 日期 | 链接 |
-|------|------|------|------|
-| Qwen3-VL 最佳实践 | #vision #deployment #vllm | 2026-03-31 | [查看](1-Official-Docs/Qwen3-VL-Best-Practice.md) |
+| Resource | Tags | Date |
+|----------|------|------|
+| [Qwen3-VL Best Practices](1-Official-Docs/Qwen3-VL-Best-Practice.md) | `#vision #deployment #swift` | 2026-03-31 |
+| [ms-swift Docs](https://swift.readthedocs.io/zh-cn/latest/) | `#framework #fine-tuning #vllm` | 2026-03-31 |
 
-## 论文 | #paper
+## Papers
 
-| 资源 | 标签 | 日期 | 链接 |
-|------|------|------|------|
-| 待添加... | | | |
+_Empty — add your first paper!_
 
-## 教程 | #tutorial
+## Tutorials
 
-| 资源 | 标签 | 日期 | 链接 |
-|------|------|------|------|
-| 待添加... | | | |
+_Empty — add your first tutorial!_
 
-## 工具框架 | #tools
+## Tools & Frameworks
 
-| 资源 | 标签 | 日期 | 链接 |
-|------|------|------|------|
-| 待添加... | | | |
+_Empty — add your first tool!_
 
-## 数据集 | #dataset
+## Datasets
 
-| 资源 | 标签 | 日期 | 链接 |
-|------|------|------|------|
-| 待添加... | | | |
+_Empty — add your first dataset!_
 
 ---
 
-## 标签云
-
-- `#vision` - 视觉模型
-- `#llm` - 大语言模型
-- `#deployment` - 部署相关
-- `#training` - 训练相关
-- `#vllm` - vLLM框架
-- `#swift` - Swift框架
+_Last updated: 2026-03-31_

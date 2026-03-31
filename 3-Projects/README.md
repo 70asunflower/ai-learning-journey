@@ -1,17 +1,24 @@
-# 综合项目
+# Projects
 
-将笔记和资源转化为实际项目。
+Comprehensive projects built from learned resources and notes.
 
-## 项目列表
+## Project List
 
-| 项目 | 描述 | 状态 |
-|------|------|------|
-| 待添加 | | |
+| Project | Description | Status |
+|---------|-------------|--------|
+| — | — | WIP |
 
-## 项目模板
+---
 
-每个项目应包含：
-- `README.md` - 项目说明
-- `requirements.txt` - 依赖
-- 源代码目录
-- 配置文件
+## Project Template
+
+Each project should include:
+
+```
+3-Projects/
+├── my-project/
+│   ├── README.md      # Project description
+│   ├── requirements.txt
+│   ├── src/           # Source code
+│   └── docs/          # Project docs
+```

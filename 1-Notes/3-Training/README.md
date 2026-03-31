@@ -1,11 +1,16 @@
-# 训练技巧
+# Training Techniques
 
-微调实践、训练技巧相关笔记。
+Notes on model training, fine-tuning, and optimization.
 
-## 主题
+## Topics
 
-- 微调方法 (Fine-tuning)
-- LoRA / QLoRA
-- 数据预处理
-- 训练参数调优
-- 显存优化
+- [ ] LoRA / QLoRA
+- [ ] Data preprocessing
+- [ ] Training parameter tuning
+- [ ] Memory optimization
+- [ ] Distributed training (DeepSpeed, FSDP)
+- [ ] GRPO / RLHF
+
+---
+
+_This file serves as an index. Add your notes as individual markdown files._

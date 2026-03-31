@@ -1,11 +1,16 @@
-# 推理部署
+# Inference & Deployment
 
-推理部署、性能优化相关笔记。
+Notes on model deployment and performance optimization.
 
-## 主题
+## Topics
 
-- vLLM 部署
-- TensorRT-LLM
-- 模型量化 (GPTQ/AWQ)
-- 服务化部署
-- 性能优化
+- [ ] vLLM deployment
+- [ ] TensorRT-LLM
+- [ ] Model quantization (GPTQ / AWQ)
+- [ ] Serving deployment (FastAPI, TGI)
+- [ ] Performance profiling & optimization
+- [ ] Edge deployment (Ollama, llama.cpp)
+
+---
+
+_This file serves as an index. Add your notes as individual markdown files._

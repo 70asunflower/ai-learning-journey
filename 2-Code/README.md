@@ -1,20 +1,24 @@
-# 代码示例
+# Code Examples
 
-可运行的代码示例，从资源中提取或自己编写的实验代码。
+Runnable code examples from resources or personal experiments.
 
-## 目录结构
+## Examples
+
+| Example | Description | Date |
+|---------|-------------|------|
+| — | — | — |
+
+---
+
+## Adding a New Example
+
+Create a new directory for each example:
 
 ```
 2-Code/
-├── {model-task}/
-│   ├── main.py
+├── qwen3-vl-inference/
+│   ├── inference.py
 │   ├── requirements.txt
 │   └── README.md
 └── ...
 ```
-
-## 示例列表
-
-| 示例 | 描述 | 关联笔记 |
-|------|------|----------|
-| 待添加 | | |

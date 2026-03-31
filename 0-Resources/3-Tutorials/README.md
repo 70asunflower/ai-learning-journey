@@ -1,10 +1,26 @@
-# 优质教程
+# Tutorials & Blogs
 
-收集优质教程、博客文章、视频课程。
+Quality tutorials, blog posts, and video courses.
 
-## 分类
+## Collected Tutorials
 
-- 入门教程
-- 进阶实战
-- 源码解读
-- 视频课程
+_Empty — add your first tutorial!_
+
+---
+
+## Template
+
+```markdown
+---
+title: Tutorial Title
+source: URL
+date: YYYY-MM-DD
+tags: []
+---
+
+## Summary
+
+## Key Takeaways
+
+## My Notes
+```
