@@ -11,6 +11,7 @@
 - [重要论文](resources-papers.md)
 - [优质教程 & 博客](resources-tutorials.md)
 - [工具 & 框架](resources-tools.md)
+  - [ms-swift](ms-swift.md)
 - [数据集](resources-datasets.md)
 
 ### 📝 个人笔记
