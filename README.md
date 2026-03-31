@@ -26,7 +26,8 @@ _Empty — add your first official doc!_
 <details>
 <summary>3-Tutorials</summary>
 
-[📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
+- [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md)
+- [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
 

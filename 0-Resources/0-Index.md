@@ -12,7 +12,9 @@ _Empty — add your first paper!_
 
 ## Tutorials
 
-_Empty — add your first tutorial!_
+| Resource | Tags | Date |
+|----------|------|------|
+| [self-llm 大模型食用指南](3-Tutorials/self-llm.md) | `#tutorial #getting-started #chinese` | 2026-03-31 |
 
 ## Tools & Frameworks
 

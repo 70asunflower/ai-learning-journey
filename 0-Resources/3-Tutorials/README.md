@@ -4,7 +4,9 @@ Quality tutorials, blog posts, and video courses.
 
 ## Collected Tutorials
 
-_Empty — add your first tutorial!_
+| Resource | Description | Date |
+|----------|-------------|------|
+| [self-llm 开源大模型食用指南](self-llm.md) | DataWhale 大模型入门教程（环境/部署/微调） | 2026-03-31 |
 
 ---
 
