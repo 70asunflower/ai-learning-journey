@@ -9,10 +9,10 @@
 <details open>
 <summary><b>📚 Resources</b></summary>
 
-<details open>
+<details>
 <summary>1-Official-Docs</summary>
 
-- [Qwen3-VL Best Practices](0-Resources/1-Official-Docs/Qwen3-VL-Best-Practice.md)
+_Empty — add your first official doc!_
 
 </details>
 
@@ -63,8 +63,6 @@
 <summary>2-Models</summary>
 
 [📄 Models Index](1-Notes/2-Models/README.md)
-
-- [Qwen3-VL Notes](1-Notes/2-Models/Qwen-Series/Qwen3-VL.md)
 
 </details>
 
