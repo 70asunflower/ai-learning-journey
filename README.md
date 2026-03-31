@@ -16,14 +16,14 @@ _Empty — add your first official doc!_
 
 </details>
 
-<details>
+<details open>
 <summary>2-Papers</summary>
 
 [📄 Papers Index](0-Resources/2-Papers/README.md)
 
 </details>
 
-<details>
+<details open>
 <summary>3-Tutorials</summary>
 
 - [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md) — DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程
@@ -31,7 +31,7 @@ _Empty — add your first official doc!_
 
 </details>
 
-<details>
+<details open>
 <summary>4-Tools & Frameworks</summary>
 
 - [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md) — 魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署
@@ -39,7 +39,7 @@ _Empty — add your first official doc!_
 
 </details>
 
-<details>
+<details open>
 <summary>5-Datasets</summary>
 
 [📄 Datasets Index](0-Resources/5-Datasets/README.md)
@@ -53,28 +53,28 @@ _Empty — add your first official doc!_
 <details open>
 <summary><b>📝 Personal Notes</b></summary>
 
-<details>
+<details open>
 <summary>1-Foundations</summary>
 
 [📄 Foundations Index](1-Notes/1-Foundations/README.md)
 
 </details>
 
-<details>
+<details open>
 <summary>2-Models</summary>
 
 [📄 Models Index](1-Notes/2-Models/README.md)
 
 </details>
 
-<details>
+<details open>
 <summary>3-Training</summary>
 
 [📄 Training Index](1-Notes/3-Training/README.md)
 
 </details>
 
-<details>
+<details open>
 <summary>4-Deployment</summary>
 
 [📄 Deployment Index](1-Notes/4-Deployment/README.md)
