@@ -44,9 +44,7 @@
 
 </details>
 
-<details open>
-<summary>📋 [Resource Index](0-Resources/0-Index.md)</summary>
-</details>
+[📋 Full Resource Index](0-Resources/0-Index.md)
 
 </details>
 
@@ -83,9 +81,7 @@
 
 </details>
 
-<details open>
-<summary>📋 [Note Template](1-Notes/0-Template.md)</summary>
-</details>
+[📋 Note Template](1-Notes/0-Template.md)
 
 </details>
 
@@ -104,16 +100,6 @@ _Empty — add a runnable example!_
 
 _Empty — create your first project!_
 
-</details>
-
-</details>
-
-<details>
-<summary><b>🔧 Utilities</b></summary>
-
-<details open>
-<summary>[Auto-Index Script](scripts/generate_index.py)</summary>
-Auto-generates the resource index by scanning `0-Resources/`.
 </details>
 
 </details>
