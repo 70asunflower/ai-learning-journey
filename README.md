@@ -19,28 +19,28 @@
 <details>
 <summary>2-Papers</summary>
 
-_Empty — add your first paper!_
+[📄 Papers Index](0-Resources/2-Papers/README.md)
 
 </details>
 
 <details>
 <summary>3-Tutorials</summary>
 
-_Empty — add your first tutorial!_
+[📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
 
 <details>
 <summary>4-Tools-Frameworks</summary>
 
-_Empty — add your first tool!_
+[📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
 
 <details>
 <summary>5-Datasets</summary>
 
-_Empty — add your first dataset!_
+[📄 Datasets Index](0-Resources/5-Datasets/README.md)
 
 </details>
 
@@ -56,33 +56,30 @@ _Empty — add your first dataset!_
 <details>
 <summary>1-Foundations</summary>
 
-_Empty — add your first foundation note!_
+[📄 Foundations Index](1-Notes/1-Foundations/README.md)
 
 </details>
 
 <details>
 <summary>2-Models</summary>
 
-<details open>
-<summary>Qwen Series</summary>
+[📄 Models Index](1-Notes/2-Models/README.md)
 
-_Empty — add notes here!_
-
-</details>
+- [Qwen3-VL Notes](1-Notes/2-Models/Qwen-Series/Qwen3-VL.md)
 
 </details>
 
 <details>
 <summary>3-Training</summary>
 
-_Empty — add your first training note!_
+[📄 Training Index](1-Notes/3-Training/README.md)
 
 </details>
 
 <details>
 <summary>4-Deployment</summary>
 
-_Empty — add your first deployment note!_
+[📄 Deployment Index](1-Notes/4-Deployment/README.md)
 
 </details>
 
