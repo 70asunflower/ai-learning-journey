@@ -9,37 +9,116 @@
 <details open>
 <summary><b>📚 Resources</b></summary>
 
-- [Official Docs & Best Practices](0-Resources/1-Official-Docs/README.md)
-  - [Qwen3-VL Best Practices](0-Resources/1-Official-Docs/Qwen3-VL-Best-Practice.md)
-- [Papers](0-Resources/2-Papers/README.md)
-- [Tutorials & Blogs](0-Resources/3-Tutorials/README.md)
-- [Tools & Frameworks](0-Resources/4-Tools-Frameworks/README.md)
-- [Datasets](0-Resources/5-Datasets/README.md)
-- 📋 [Resource Index](0-Resources/0-Index.md)
+<details open>
+<summary>1-Official-Docs</summary>
+
+- [Qwen3-VL Best Practices](0-Resources/1-Official-Docs/Qwen3-VL-Best-Practice.md)
+
+</details>
+
+<details>
+<summary>2-Papers</summary>
+
+_Empty — add your first paper!_
+
+</details>
+
+<details>
+<summary>3-Tutorials</summary>
+
+_Empty — add your first tutorial!_
+
+</details>
+
+<details>
+<summary>4-Tools-Frameworks</summary>
+
+_Empty — add your first tool!_
+
+</details>
+
+<details>
+<summary>5-Datasets</summary>
+
+_Empty — add your first dataset!_
+
+</details>
+
+<details open>
+<summary>📋 [Resource Index](0-Resources/0-Index.md)</summary>
+</details>
+
 </details>
 
 <details open>
 <summary><b>📝 Personal Notes</b></summary>
 
-- [Foundations](1-Notes/1-Foundations/README.md)
-- [Model Notes](1-Notes/2-Models/README.md)
-  - [Qwen Series](1-Notes/2-Models/Qwen-Series/)
-- [Training Techniques](1-Notes/3-Training/README.md)
-- [Inference & Deployment](1-Notes/4-Deployment/README.md)
-- 📋 [Note Template](1-Notes/0-Template.md)
+<details>
+<summary>1-Foundations</summary>
+
+_Empty — add your first foundation note!_
+
+</details>
+
+<details>
+<summary>2-Models</summary>
+
+<details open>
+<summary>Qwen Series</summary>
+
+_Empty — add notes here!_
+
+</details>
+
+</details>
+
+<details>
+<summary>3-Training</summary>
+
+_Empty — add your first training note!_
+
+</details>
+
+<details>
+<summary>4-Deployment</summary>
+
+_Empty — add your first deployment note!_
+
+</details>
+
+<details open>
+<summary>📋 [Note Template](1-Notes/0-Template.md)</summary>
+</details>
+
 </details>
 
 <details>
 <summary><b>💻 Code & Projects</b></summary>
 
-- [Code Examples](2-Code/README.md)
-- [Projects](3-Projects/README.md)
+<details open>
+<summary>[Code Examples](2-Code/README.md)</summary>
+
+_Empty — add a runnable example!_
+
+</details>
+
+<details open>
+<summary>[Projects](3-Projects/README.md)</summary>
+
+_Empty — create your first project!_
+
+</details>
+
 </details>
 
 <details>
 <summary><b>🔧 Utilities</b></summary>
 
-- [Auto-Index Script](scripts/generate_index.py)
+<details open>
+<summary>[Auto-Index Script](scripts/generate_index.py)</summary>
+Auto-generates the resource index by scanning `0-Resources/`.
+</details>
+
 </details>
 
 ---
