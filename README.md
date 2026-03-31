@@ -127,14 +127,52 @@ ai-learning-journey/
 └── scripts/              # Helper scripts
 ```
 
-## 🔄 Workflow
+## 🎯 How to Update (for agents & humans)
 
-1. **Collect** → Discover a resource → Add it to the relevant `0-Resources/` subfolder
-2. **Study** → Read & digest → Record insights in `1-Notes/`
-3. **Practice** → Run & verify → Organize working code into `2-Code/`
+### Adding a New Resource (0-Resources/)
+
+1. Create a `.md` file in the correct subfolder (e.g. `0-Resources/4-Tools-Frameworks/<name>.md`)
+2. Start with this frontmatter:
+   ```markdown
+   ---
+   source: <original URL>
+   date: YYYY-MM-DD
+   tags: [tag1, tag2]
+   ---
+   ```
+3. Write the content: summary, key points, or full doc with source attribution
+4. End with: `_Last updated: YYYY-MM-DD_`
+5. Add it to the table in that folder's `README.md`
+6. Add it to the wiki nav in this file under the correct `<details>` section
+7. Add it to `0-Resources/0-Index.md`
+
+### Adding a New Note (1-Notes/)
+
+1. Create a `.md` file in the correct subfolder (e.g. `1-Notes/2-Models/Qwen-Series/<model>.md`)
+2. Start with the same frontmatter as above
+3. Write your personal understanding, code experiments, gotchas
+4. End with: `_Last updated: YYYY-MM-DD_`
+5. Add the link to the folder's `README.md` index
+6. Add the link to the wiki nav in this file
+
+### Adding to Code Examples (2-Code/)
+
+1. Create a subfolder: `2-Code/<project-name>/`
+2. Include: `main.py`, `requirements.txt`, `README.md`
+3. Add it to `2-Code/README.md` examples table
+
+### Key Rules
+
+- **File names**: lowercase, hyphen-separated (e.g. `qwen3-vl-best-practice.md`)
+- **Wiki nav**: every new file must be linked in this README's navigation
+- **Resource Index**: `0-Index.md` mirrors all resources — keep it in sync
+- **Changelog**: add a new row below for each update
+- **Always include `Last updated`**: every resource/note file ends with `_Last updated: YYYY-MM-DD_`
 
 ## Changelog
 
-| Date       | Content            |
-|------------|--------------------|
-| 2026-03-31 | Repository init    |
+| Date       | Content                                          |
+|------------|--------------------------------------------------|
+| 2026-03-31 | Repository init, wiki navigation, subfolder docs |
+| 2026-03-31 | Added ms-swift framework documentation            |
+| 2026-03-31 | Added "How to Update" section for agents          |
