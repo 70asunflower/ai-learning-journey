@@ -35,6 +35,7 @@ _Empty — add your first official doc!_
 <summary>4-Tools & Frameworks</summary>
 
 - [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md) — 魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署
+- [ModelScope Notebook 免费试用](0-Resources/4-Tools-Frameworks/ModelScope-Notebook.md) — 魔搭云上开发环境，开箱即用 GPU/CPU，提供免费使用时长
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>

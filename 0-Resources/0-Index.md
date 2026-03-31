@@ -21,6 +21,7 @@ _Empty — add your first paper!_
 | Resource | Tags | Date |
 |----------|------|------|
 | [ms-swift](4-Tools-Frameworks/ms-swift.md) | `#framework #fine-tuning #vllm` | 2026-03-31 |
+| [ModelScope Notebook](4-Tools-Frameworks/ModelScope-Notebook.md) | `#cloud #gpu #free-trial #notebook` | 2026-03-31 |
 
 ## Datasets
 
