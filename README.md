@@ -26,7 +26,7 @@ _Empty — add your first official doc!_
 <details>
 <summary>3-Tutorials</summary>
 
-- [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md)
+- [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md) — DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -34,7 +34,7 @@ _Empty — add your first official doc!_
 <details>
 <summary>4-Tools & Frameworks</summary>
 
-- [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md)
+- [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md) — 魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
