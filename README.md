@@ -103,6 +103,8 @@ _Empty — create your first project!_
 
 </details>
 
+</details>
+
 <details open>
 <summary><b>🗃️ Misc</b></summary>
 
