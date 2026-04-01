@@ -103,6 +103,11 @@ _Empty — create your first project!_
 
 </details>
 
+<details open>
+<summary><b>🗃️ Misc</b></summary>
+
+- [Stickies](_misc/personal-tools.md) — Windows 桌面便签工具，富文本+定时提醒+自动关闭
+
 </details>
 
 ---
@@ -124,6 +129,7 @@ ai-learning-journey/
 │   └── 4-Deployment/     # Inference & deployment
 ├── 2-Code/               # Runnable code examples
 ├── 3-Projects/           # Comprehensive projects
+├── _misc/                # Unclassified / personal tools
 └── scripts/              # Helper scripts
 ```
 
