@@ -13,6 +13,7 @@ Commonly used tools, frameworks, and libraries.
 | LangChain | LLM 应用开发 | https://github.com/langchain-ai/langchain |
 | Ollama | 本地运行大模型 | https://github.com/ollama/ollama |
 | PyTorch | 深度学习框架 | https://pytorch.org |
+| TikTokenizer | LLM Tokenizer 可视化交互工具 | [详情](tiktokenizer.md) · [官方](https://tiktokenizer.vercel.app/?encoder=gpt2) |
 
 ---
 
