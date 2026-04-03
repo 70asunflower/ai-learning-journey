@@ -4,7 +4,9 @@ Quick-lookup index for all collected resources.
 
 ## Official Docs
 
-_Empty — add your first official doc!_
+| Resource | Tags | Date |
+|----------|------|------|
+| [CUDA Programming Guide](1-Official-Docs/cuda-programming-guide.md) | `#cuda #nvidia #gpu` | 2026-04-03 |
 
 ## Papers
 

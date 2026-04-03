@@ -12,7 +12,7 @@
 <details>
 <summary>1-Official-Docs</summary>
 
-_Empty — add your first official doc!_
+- [CUDA Programming Guide](0-Resources/1-Official-Docs/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
 
 </details>
 
@@ -185,4 +185,5 @@ ai-learning-journey/
 | 2026-03-31 | Repository init, wiki navigation, subfolder docs |
 | 2026-03-31 | Added ms-swift framework documentation            |
 | 2026-04-02 | Added TikTokenizer — interactive tokenizer visualization tool |
+| 2026-04-03 | Added CUDA Programming Guide                     |
 | 2026-03-31 | Added "How to Update" section for agents          |
