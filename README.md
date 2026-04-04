@@ -27,6 +27,7 @@
 <summary>3-Tutorials</summary>
 
 - [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md) — DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程
+- [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md) — 深度学习、LLM、PyTorch 技术博客
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -186,4 +187,5 @@ ai-learning-journey/
 | 2026-03-31 | Added ms-swift framework documentation            |
 | 2026-04-02 | Added TikTokenizer — interactive tokenizer visualization tool |
 | 2026-04-03 | Added CUDA Programming Guide                     |
+| 2026-04-04 | Added Sebastian Raschka Blog                   |
 | 2026-03-31 | Added "How to Update" section for agents          |

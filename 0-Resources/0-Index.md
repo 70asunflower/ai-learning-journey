@@ -17,6 +17,7 @@ _Empty — add your first paper!_
 | Resource | Tags | Date |
 |----------|------|------|
 | [self-llm 大模型食用指南](3-Tutorials/self-llm.md) | `#tutorial #getting-started #chinese` | 2026-03-31 |
+| [Sebastian Raschka Blog](3-Tutorials/sebastian-raschka-blog.md) | `#blog #deep-learning #llm #pytorch` | 2026-04-04 |
 
 ## Tools & Frameworks
 

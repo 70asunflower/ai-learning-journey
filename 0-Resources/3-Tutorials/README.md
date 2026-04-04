@@ -7,6 +7,7 @@ Quality tutorials, blog posts, and video courses.
 | Resource | Description | Date |
 |----------|-------------|------|
 | [self-llm 开源大模型食用指南](self-llm.md) | DataWhale 大模型入门教程（环境/部署/微调） | 2026-03-31 |
+| [Sebastian Raschka Blog](sebastian-raschka-blog.md) — 深度学习、LLM、PyTorch 技术博客 | `#blog #deep-learning #llm #pytorch` | 2026-04-04 |
 
 ---
 
