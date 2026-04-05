@@ -28,6 +28,7 @@
 
 - [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md) — DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程
 - [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md) — 深度学习、LLM、PyTorch 技术博客
+- [Unsloth LLM 微调指南](0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md) — Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
