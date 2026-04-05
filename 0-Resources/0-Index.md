@@ -27,6 +27,7 @@ _Empty — add your first paper!_
 | [ms-swift](4-Tools-Frameworks/ms-swift.md) | `#framework #fine-tuning #vllm` | 2026-03-31 |
 | [ModelScope Notebook](4-Tools-Frameworks/ModelScope-Notebook.md) | `#cloud #gpu #free-trial #notebook` | 2026-03-31 |
 | [TikTokenizer](4-Tools-Frameworks/tiktokenizer.md) | `#tool #tokenizer #interactive #visualization` | 2026-04-02 |
+| [LlamaFactory](4-Tools-Frameworks/llamafactory.md) | `#framework #fine-tuning #lora #qlora #chinese-doc` | 2026-04-04 |
 
 ## Datasets
 
