@@ -14,6 +14,7 @@ Commonly used tools, frameworks, and libraries.
 | Ollama | 本地运行大模型 | https://github.com/ollama/ollama |
 | PyTorch | 深度学习框架 | https://pytorch.org |
 | TikTokenizer | LLM Tokenizer 可视化交互工具 | [详情](tiktokenizer.md) · [官方](https://tiktokenizer.vercel.app/?encoder=gpt2) |
+| CanIRun.ai | 本地 AI 模型硬件兼容性检测工具 | [详情](canirun.md) · [官方](https://www.canirun.ai/) |
 | LlamaFactory | 100+ LLM/VLM 高效微调框架（LoRA/QLoRA/SFT/DPO） | [详情](llamafactory.md) · [官方](https://llamafactory.readthedocs.io/zh-cn/latest/) |
 
 ---
