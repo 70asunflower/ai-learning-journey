@@ -9,6 +9,7 @@ Quality tutorials, blog posts, and video courses.
 | [self-llm 开源大模型食用指南](self-llm.md) | DataWhale 大模型入门教程（环境/部署/微调） | 2026-03-31 |
 | [Sebastian Raschka Blog](sebastian-raschka-blog.md) | 深度学习、LLM、PyTorch 技术博客 | 2026-04-04 |
 | [Unsloth LLM 微调指南](unsloth-fine-tuning-guide.md) | Unsloth 官方中文微调教程（LoRA/QLoRA/部署） | 2026-04-04 |
+| [10 门"地狱级"CS 公开课](top-10-hell-level-cs-courses.md) | MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统） | 2026-04-21 |
 
 ---
 
