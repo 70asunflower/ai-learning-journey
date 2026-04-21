@@ -20,6 +20,7 @@ _Empty — add your first paper!_
 | [Sebastian Raschka Blog](3-Tutorials/sebastian-raschka-blog.md) | `#blog #deep-learning #llm #pytorch` | 2026-04-04 |
 | [Unsloth LLM 微调指南](3-Tutorials/unsloth-fine-tuning-guide.md) | `#fine-tuning #lora #qlora #unsloth` | 2026-04-04 |
 | [10 门"地狱级"CS 公开课](3-Tutorials/top-10-hell-level-cs-courses.md) | `#cs-courses #systems #database #distributed-systems #os #compiler #deep-learning #tinyml` | 2026-04-21 |
+| [LLM 算法与工程学习路线](3-Tutorials/llm-algorithm-engineering-roadmap.md) | `#llm #training #distributed-training #inference #algorithm #engineering #roadmap` | 2026-04-21 |
 
 ## Tools & Frameworks
 

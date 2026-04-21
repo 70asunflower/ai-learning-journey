@@ -10,6 +10,7 @@ Quality tutorials, blog posts, and video courses.
 | [Sebastian Raschka Blog](sebastian-raschka-blog.md) | 深度学习、LLM、PyTorch 技术博客 | 2026-04-04 |
 | [Unsloth LLM 微调指南](unsloth-fine-tuning-guide.md) | Unsloth 官方中文微调教程（LoRA/QLoRA/部署） | 2026-04-04 |
 | [10 门"地狱级"CS 公开课](top-10-hell-level-cs-courses.md) | MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统） | 2026-04-21 |
+| [LLM 算法与工程学习路线](llm-algorithm-engineering-roadmap.md) | 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层 | 2026-04-21 |
 
 ---
 

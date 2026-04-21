@@ -30,6 +30,7 @@
 - [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md) — 深度学习、LLM、PyTorch 技术博客
 - [Unsloth LLM 微调指南](0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md) — Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程
 - [10 门"地狱级"CS 公开课](0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md) — MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统）
+- [LLM 算法与工程学习路线](0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md) — 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -194,4 +195,5 @@ ai-learning-journey/
 | 2026-04-04 | Added Sebastian Raschka Blog                   |
 | 2026-04-09 | Added CanIRun.ai — 本地 AI 模型硬件兼容性检测工具 |
 | 2026-04-21 | Added 10 门"地狱级"CS 公开课 — MIT/CMU/Stanford 顶尖 CS 系统课合集 |
+| 2026-04-21 | Added LLM 算法与工程学习路线 — 算法/训练/推理/评估完整路线 |
 | 2026-03-31 | Added "How to Update" section for agents          |
