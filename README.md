@@ -116,6 +116,7 @@ _Empty — create your first project!_
 <summary><b>🗃️ Misc</b></summary>
 
 - [Stickies](_misc/personal-tools.md) — Windows 桌面便签工具，富文本+定时提醒+自动关闭
+- [上海交大学生存手册](_misc/survive-sjtu-manual.md) — 交大学生协作编写的非官方生存指南（心态/留学/保研/选课/科研）
 
 </details>
 
@@ -196,4 +197,5 @@ ai-learning-journey/
 | 2026-04-09 | Added CanIRun.ai — 本地 AI 模型硬件兼容性检测工具 |
 | 2026-04-21 | Added 10 门"地狱级"CS 公开课 — MIT/CMU/Stanford 顶尖 CS 系统课合集 |
 | 2026-04-21 | Added LLM 算法与工程学习路线 — 算法/训练/推理/评估完整路线 |
+| 2026-04-22 | Added 上海交大学生存手册 — 心态/留学/保研/选课/科研生存指南 |
 | 2026-03-31 | Added "How to Update" section for agents          |
