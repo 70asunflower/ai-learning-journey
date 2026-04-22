@@ -31,6 +31,7 @@ _Empty — add your first paper!_
 | [TikTokenizer](4-Tools-Frameworks/tiktokenizer.md) | `#tool #tokenizer #interactive #visualization` | 2026-04-02 |
 | [CanIRun.ai](4-Tools-Frameworks/canirun.md) | `#local-ai #compatibility #llama.cpp #ollama #lm-studio` | 2026-04-09 |
 | [LlamaFactory](4-Tools-Frameworks/llamafactory.md) | `#framework #fine-tuning #lora #qlora #chinese-doc` | 2026-04-04 |
+| [GPT Image 2 提示词](4-Tools-Frameworks/gpt-image-2-prompts.md) | `#gpt-image #prompt-engineering #image-generation #ai-art #ui-design` | 2026-04-22 |
 
 ## Datasets
 
@@ -38,4 +39,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-04-21_
+_Last updated: 2026-04-22_

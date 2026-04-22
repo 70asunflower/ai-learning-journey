@@ -43,6 +43,7 @@
 - [TikTokenizer 可视化交互工具](0-Resources/4-Tools-Frameworks/tiktokenizer.md) — 可视化学习 LLM Tokenizer 工作原理的交互工具 (GPT2/CL100K 等编码器)
 - [CanIRun.ai 硬件兼容性检测](0-Resources/4-Tools-Frameworks/canirun.md) — 检测本地 GPU/VRAM/RAM 能跑哪些本地大模型，支持 llama.cpp/Ollama/LM Studio 数据源
 - [LlamaFactory 微调框架](0-Resources/4-Tools-Frameworks/llamafactory.md) — 100+ LLM/VLM 高效微调框架，支持 LoRA/QLoRA/SFT/DPO
+- [GPT Image 2 提示词合集](0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md) — 725+ 精选提示词，JSON 结构化+参数化模板（产品海报/信息图/UI设计/动漫插画）
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
@@ -198,4 +199,5 @@ ai-learning-journey/
 | 2026-04-21 | Added 10 门"地狱级"CS 公开课 — MIT/CMU/Stanford 顶尖 CS 系统课合集 |
 | 2026-04-21 | Added LLM 算法与工程学习路线 — 算法/训练/推理/评估完整路线 |
 | 2026-04-22 | Added 上海交大学生存手册 — 心态/留学/保研/选课/科研生存指南 |
+| 2026-04-22 | Added GPT Image 2 提示词合集 — 725+ 精选提示词（JSON结构化/参数化模板） |
 | 2026-03-31 | Added "How to Update" section for agents          |
