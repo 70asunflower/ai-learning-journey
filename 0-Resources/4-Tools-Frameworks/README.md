@@ -17,6 +17,8 @@ Commonly used tools, frameworks, and libraries.
 | CanIRun.ai | 本地 AI 模型硬件兼容性检测工具 | [详情](canirun.md) · [官方](https://www.canirun.ai/) |
 | LlamaFactory | 100+ LLM/VLM 高效微调框架（LoRA/QLoRA/SFT/DPO） | [详情](llamafactory.md) · [官方](https://llamafactory.readthedocs.io/zh-cn/latest/) |
 | GPT Image 2 提示词 | 725+ 精选提示词（产品海报/信息图/UI设计/动漫插画） | [详情](gpt-image-2-prompts.md) · [官方](https://youmind.com/gpt-image-2-prompts) |
+| nano-vllm | 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching） | [详情](nano-vllm.md) · [官方](https://github.com/GeeeekExplorer/nano-vllm) |
+| mini-sglang | 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存） | [详情](mini-sglang.md) · [官方](https://github.com/sgl-project/mini-sglang) |
 
 ---
 

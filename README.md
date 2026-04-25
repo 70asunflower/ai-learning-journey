@@ -31,6 +31,8 @@
 - [Unsloth LLM 微调指南](0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md) — Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程
 - [10 门"地狱级"CS 公开课](0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md) — MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统）
 - [LLM 算法与工程学习路线](0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md) — 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层
+- [JAX Scaling Book](0-Resources/3-Tutorials/jax-scaling-book.md) — JAX 官方 LLM Scaling 实战书籍，分布式训练全链路
+- [Infinitensor 夏立营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -44,6 +46,8 @@
 - [CanIRun.ai 硬件兼容性检测](0-Resources/4-Tools-Frameworks/canirun.md) — 检测本地 GPU/VRAM/RAM 能跑哪些本地大模型，支持 llama.cpp/Ollama/LM Studio 数据源
 - [LlamaFactory 微调框架](0-Resources/4-Tools-Frameworks/llamafactory.md) — 100+ LLM/VLM 高效微调框架，支持 LoRA/QLoRA/SFT/DPO
 - [GPT Image 2 提示词合集](0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md) — 725+ 精选提示词，JSON 结构化+参数化模板（产品海报/信息图/UI设计/动漫插画）
+- [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) — 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching）
+- [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md) — 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存）
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
@@ -200,4 +204,5 @@ ai-learning-journey/
 | 2026-04-21 | Added LLM 算法与工程学习路线 — 算法/训练/推理/评估完整路线 |
 | 2026-04-22 | Added 上海交大学生存手册 — 心态/留学/保研/选课/科研生存指南 |
 | 2026-04-22 | Added GPT Image 2 提示词合集 — 725+ 精选提示词（JSON结构化/参数化模板） |
+| 2026-04-25 | Added JAX Scaling Book / nano-vllm / mini-sglang / Infinitensor 夏立营 — 推理 infra 全栈资源 |
 | 2026-03-31 | Added "How to Update" section for agents          |
