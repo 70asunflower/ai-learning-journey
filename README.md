@@ -48,6 +48,7 @@
 - [GPT Image 2 提示词合集](0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md) — 725+ 精选提示词，JSON 结构化+参数化模板（产品海报/信息图/UI设计/动漫插画）
 - [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) — 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching）
 - [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md) — 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存）
+- [Open Design](0-Resources/4-Tools-Frameworks/open-design.md) — Claude Design 开源替代，AI 驱动 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统）
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
