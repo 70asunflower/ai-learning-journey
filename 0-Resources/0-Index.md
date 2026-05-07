@@ -23,6 +23,9 @@ _Empty — add your first paper!_
 | [LLM 算法与工程学习路线](3-Tutorials/llm-algorithm-engineering-roadmap.md) | `#llm #training #distributed-training #inference #algorithm #engineering #roadmap` | 2026-04-21 |
 | [JAX Scaling Book](3-Tutorials/jax-scaling-book.md) | `#scaling #distributed-training #jax #llm #book` | 2026-04-25 |
 | [Infinitensor 夏立营 2025](3-Tutorials/infinitensor-winter-camp-2025.md) | `#inference #infrastructure #camp #operator #framework #model` | 2026-04-25 |
+| [Dive into Deep Learning](3-Tutorials/dive-into-deep-learning.md) | `#deep-learning #textbook #pytorch #jupyter #interactive #chinese` | 2026-05-07 |
+| [Build a LLM (From Scratch)](3-Tutorials/llms-from-scratch.md) | `#llm #from-scratch #pytorch #gpt #fine-tuning #lora #textbook` | 2026-05-07 |
+| [Build a Reasoning Model (From Scratch)](3-Tutorials/reasoning-from-scratch.md) | `#reasoning #llm #reinforcement-learning #grpo #distillation #pytorch #textbook` | 2026-05-07 |
 
 ## Tools & Frameworks
 
@@ -44,4 +47,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-05-05_
+_Last updated: 2026-05-07_
