@@ -28,6 +28,7 @@ _Empty — add your first paper!_
 | [Build a Reasoning Model (From Scratch)](3-Tutorials/reasoning-from-scratch.md) | `#reasoning #llm #reinforcement-learning #grpo #distillation #pytorch #textbook` | 2026-05-07 |
 | [强化学习直观理解 (VZstudio)](3-Tutorials/rl-intuitive-explanation-vzstudio.md) | `#reinforcement-learning #rlhf #sft #pre-training #tutorial #video` | 2026-06-05 |
 | [Agent-Learning-Hub (Datawhale)](3-Tutorials/agent-learning-hub.md) | `#ai-agent #agent #tutorial #roadmap #datawhale #mcp #tool-use` | 2026-06-05 |
+| [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#llm-inference #vllm #sglang #kv-cache #continuous-batching #speculation` | 2026-06-05 |
 
 ## Tools & Frameworks
 

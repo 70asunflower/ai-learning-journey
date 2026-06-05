@@ -18,6 +18,7 @@ Quality tutorials, blog posts, and video courses.
 | [Build a Reasoning Model (From Scratch)](reasoning-from-scratch.md) | Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展） | 2026-05-07 |
 | [强化学习直观理解 (VZstudio)](rl-intuitive-explanation-vzstudio.md) | 抖音科普：人移托盘，小鸡啄对得奖励——RL 直观体现，连接 RLHF 对齐 | 2026-06-05 |
 | [Agent-Learning-Hub (Datawhale)](agent-learning-hub.md) | AI Agent 学习路线与资料库，2.9k⭐，8阶段+11项目，可执行清单 | 2026-06-05 |
+| [大模型推理系统入门](llm-inference-system-intro.md) | 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding | 2026-06-05 |
 
 ---
 
