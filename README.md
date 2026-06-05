@@ -37,6 +37,7 @@
 - [Build a LLM (From Scratch)](0-Resources/3-Tutorials/llms-from-scratch.md) — Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars）
 - [Build a Reasoning Model (From Scratch)](0-Resources/3-Tutorials/reasoning-from-scratch.md) — Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展）
 - [强化学习直观理解 (VZstudio)](0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md) — 小鸡啄托盘得奖励——RL 直观体现，连接 RLHF 对齐
+- [Agent-Learning-Hub (Datawhale)](0-Resources/3-Tutorials/agent-learning-hub.md) — AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -214,3 +215,4 @@ ai-learning-journey/
 | 2026-05-07 | Added Dive into Deep Learning / Build a LLM / Build a Reasoning Model tutorials |
 | 2026-05-07 | Added Open Design — AI 驱动设计工具（13 CLI/31 Skills/129 设计系统） |
 | 2026-06-05 | Added 强化学习直观理解 (VZstudio) — 预训练→SFT→RL 三段论 |
+| 2026-06-05 | Added Agent-Learning-Hub (Datawhale) — AI Agent 学习路线 2.9k⭐ |
