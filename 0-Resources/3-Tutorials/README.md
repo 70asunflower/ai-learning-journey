@@ -16,6 +16,7 @@ Quality tutorials, blog posts, and video courses.
 | [Dive into Deep Learning](dive-into-deep-learning.md) | 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF） | 2026-05-07 |
 | [Build a LLM (From Scratch)](llms-from-scratch.md) | Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars） | 2026-05-07 |
 | [Build a Reasoning Model (From Scratch)](reasoning-from-scratch.md) | Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展） | 2026-05-07 |
+| [强化学习直观理解 (VZstudio)](rl-intuitive-explanation-vzstudio.md) | 抖音科普：预训练→SFT→RL 三段论，连接 RLHF 对齐原理 | 2026-06-05 |
 
 ---
 

@@ -26,6 +26,7 @@ _Empty — add your first paper!_
 | [Dive into Deep Learning](3-Tutorials/dive-into-deep-learning.md) | `#deep-learning #textbook #pytorch #jupyter #interactive #chinese` | 2026-05-07 |
 | [Build a LLM (From Scratch)](3-Tutorials/llms-from-scratch.md) | `#llm #from-scratch #pytorch #gpt #fine-tuning #lora #textbook` | 2026-05-07 |
 | [Build a Reasoning Model (From Scratch)](3-Tutorials/reasoning-from-scratch.md) | `#reasoning #llm #reinforcement-learning #grpo #distillation #pytorch #textbook` | 2026-05-07 |
+| [强化学习直观理解 (VZstudio)](3-Tutorials/rl-intuitive-explanation-vzstudio.md) | `#reinforcement-learning #rlhf #sft #pre-training #tutorial #video` | 2026-06-05 |
 
 ## Tools & Frameworks
 
