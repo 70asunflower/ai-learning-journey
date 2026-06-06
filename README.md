@@ -39,6 +39,7 @@
 - [强化学习直观理解 (VZstudio)](0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md) — 小鸡啄托盘得奖励——RL 直观体现，连接 RLHF 对齐
 - [Agent-Learning-Hub (Datawhale)](0-Resources/3-Tutorials/agent-learning-hub.md) — AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单
 - [大模型推理系统入门](0-Resources/3-Tutorials/llm-inference-system-intro.md) — 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding
+- [AI Infra 其实没有多少新东西](0-Resources/3-Tutorials/ai-infra-nothing-new.md) — 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附PDF
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -217,4 +218,6 @@ ai-learning-journey/
 | 2026-05-07 | Added Open Design — AI 驱动设计工具（13 CLI/31 Skills/129 设计系统） |
 | 2026-06-05 | Added 强化学习直观理解 (VZstudio) — 预训练→SFT→RL 三段论 |
 | 2026-06-05 | Added Agent-Learning-Hub (Datawhale) — AI Agent 学习路线 2.9k⭐ |
+| 2026-06-05 | Added 大模型推理系统入门 — 从模型优化到调度优化 |
+| 2026-06-06 | Added AI Infra 其实没有多少新东西 — 腾讯云开发者，附PDF |
 | 2026-06-05 | Added 大模型推理系统入门 — 从模型优化到调度优化 |

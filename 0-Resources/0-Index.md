@@ -29,6 +29,7 @@ _Empty — add your first paper!_
 | [强化学习直观理解 (VZstudio)](3-Tutorials/rl-intuitive-explanation-vzstudio.md) | `#reinforcement-learning #rlhf #sft #pre-training #tutorial #video` | 2026-06-05 |
 | [Agent-Learning-Hub (Datawhale)](3-Tutorials/agent-learning-hub.md) | `#ai-agent #agent #tutorial #roadmap #datawhale #mcp #tool-use` | 2026-06-05 |
 | [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#llm-inference #vllm #sglang #kv-cache #continuous-batching #speculation` | 2026-06-05 |
+| [AI Infra 其实没有多少新东西](3-Tutorials/ai-infra-nothing-new.md) | `#ai-infra #gpu #training #inference #distributed-system #hardware` | 2026-06-06 |
 
 ## Tools & Frameworks
 
