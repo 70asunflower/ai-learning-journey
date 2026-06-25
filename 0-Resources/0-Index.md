@@ -30,6 +30,7 @@ _Empty — add your first paper!_
 | [Agent-Learning-Hub (Datawhale)](3-Tutorials/agent-learning-hub.md) | `#ai-agent #agent #tutorial #roadmap #datawhale #mcp #tool-use` | 2026-06-05 |
 | [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#llm-inference #vllm #sglang #kv-cache #continuous-batching #speculation` | 2026-06-05 |
 | [AI Infra 其实没有多少新东西](3-Tutorials/ai-infra-nothing-new.md) | `#ai-infra #gpu #training #inference #distributed-system #hardware` | 2026-06-06 |
+| [Modern GPU Programming For MLSys](3-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #tirx #kernel-optimization #ml-systems` | 2026-06-25 |
 
 ## Tools & Frameworks
 

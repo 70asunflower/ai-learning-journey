@@ -40,6 +40,7 @@
 - [Agent-Learning-Hub (Datawhale)](0-Resources/3-Tutorials/agent-learning-hub.md) — AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单
 - [大模型推理系统入门](0-Resources/3-Tutorials/llm-inference-system-intro.md) — 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding
 - [AI Infra 其实没有多少新东西](0-Resources/3-Tutorials/ai-infra-nothing-new.md) — 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附PDF
+- [Modern GPU Programming For MLSys](0-Resources/3-Tutorials/mlc-modern-gpu-programming.md) — MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
