@@ -31,6 +31,7 @@ _Empty — add your first paper!_
 | [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#llm-inference #vllm #sglang #kv-cache #continuous-batching #speculation` | 2026-06-05 |
 | [AI Infra 其实没有多少新东西](3-Tutorials/ai-infra-nothing-new.md) | `#ai-infra #gpu #training #inference #distributed-system #hardware` | 2026-06-06 |
 | [Modern GPU Programming For MLSys](3-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #tirx #kernel-optimization #ml-systems` | 2026-06-25 |
+| [CS336 从零构建语言模型 (中文)](3-Tutorials/cs336-language-modeling-from-scratch.md) | `#cs336 #llm #from-scratch #tokenization #pretraining #alignment #chinese-book` | 2026-06-28 |
 
 ## Tools & Frameworks
 
@@ -52,4 +53,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-05-07_
+_Last updated: 2026-06-28_

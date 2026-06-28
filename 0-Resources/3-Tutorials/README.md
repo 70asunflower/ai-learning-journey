@@ -21,6 +21,7 @@ Quality tutorials, blog posts, and video courses.
 | [大模型推理系统入门](llm-inference-system-intro.md) | 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding | 2026-06-05 |
 | [AI Infra 其实没有多少新东西](ai-infra-nothing-new.md) | 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附原文PDF | 2026-06-06 |
 | [Modern GPU Programming For MLSys](mlc-modern-gpu-programming.md) | MLC.ai/CMU 出品：Blackwell 架构 GPU Kernel 实战（TMA/Warp Specialization/FlashAttention 4） | 2026-06-25 |
+| [CS336 从零构建语言模型 (中文)](cs336-language-modeling-from-scratch.md) | 斯坦福 CS336 全17讲改编中文通识读本：分词→预训练→对齐，配20+原创图 | 2026-06-28 |
 
 ---
 
