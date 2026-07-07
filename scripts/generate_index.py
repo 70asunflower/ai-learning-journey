@@ -17,6 +17,26 @@ import re
 import json
 import datetime
 import pathlib
+import subprocess
+
+
+def generated_date() -> str:
+    """Stable 'last updated' date from the latest commit touching README/0-Resources.
+
+    Uses git history instead of today() so regeneration commits are idempotent and
+    the GitHub Actions workflow does not loop forever.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cd", "--date=short",
+             "--", "README.md", "0-Resources"],
+            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
+            capture_output=True, text=True, timeout=20)
+        if out.returncode == 0 and out.stdout.strip():
+            return out.stdout.strip()
+    except Exception:
+        pass
+    return datetime.date.today().isoformat()
 
 REPO = "70asunflower/ai-learning-journey"
 BRANCH = "master"  # default branch of this repo
@@ -130,7 +150,7 @@ for line in readme.splitlines():
 data = {
     "repo": REPO,
     "branch": BRANCH,
-    "generated": datetime.date.today().isoformat(),
+    "generated": generated_date(),
     "categories": categories,
 }
 
