@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Learning Journey · Resource Index</title>
+<style>
+:root{
+  --bg:#0f1117; --panel:rgba(23,26,35,.82); --card:#1b2030; --card-hover:#222a3d;
+  --text:#e7eaf1; --muted:#94a0b4; --accent:#6ea8fe; --accent2:#7ee0c0;
+  --border:#2a3142; --chip:#222a3a; --chip-active:#6ea8fe; --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+[data-theme="light"]{
+  --bg:#f5f7fc; --panel:rgba(255,255,255,.85); --card:#ffffff; --card-hover:#f0f4ff;
+  --text:#1a2233; --muted:#5b6678; --accent:#2f6fed; --accent2:#1aa179;
+  --border:#e4e9f2; --chip:#eef2fa; --chip-active:#2f6fed; --shadow:0 6px 24px rgba(40,60,120,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
+  background:var(--panel);border-bottom:1px solid var(--border)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.h-top{display:flex;align-items:center;gap:14px;padding:16px 0 12px;flex-wrap:wrap}
+.h-top h1{font-size:20px;margin:0;font-weight:700;letter-spacing:.3px}
+.h-top h1 .em{background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.live{font-size:12px;color:var(--muted);border:1px solid var(--border);
+  padding:3px 9px;border-radius:999px;transition:.2s}
+.live:hover{color:var(--accent);border-color:var(--accent)}
+.spacer{flex:1}
+#themeBtn{cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);
+  border-radius:10px;padding:7px 12px;font-size:14px;transition:.2s}
+#themeBtn:hover{border-color:var(--accent);color:var(--accent)}
+#search{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--border);
+  background:var(--card);color:var(--text);font-size:15px;outline:none;transition:.2s}
+#search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(110,168,254,.18)}
+#tagbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 16px}
+.chip{cursor:pointer;font-size:12.5px;padding:5px 11px;border-radius:999px;
+  background:var(--chip);color:var(--muted);border:1px solid transparent;transition:.15s;user-select:none}
+.chip:hover{color:var(--text)}
+.chip.active{background:var(--chip-active);color:#0b0e16;border-color:var(--chip-active);font-weight:600}
+main{padding:8px 0 60px}
+.sec{margin:26px 0 8px}
+.sec h2{font-size:15px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);
+  margin:0 0 14px;display:flex;align-items:center;gap:9px}
+.sec h2 .cnt{font-size:12px;background:var(--chip);color:var(--muted);padding:1px 9px;border-radius:999px;letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 17px;
+  transition:.18s;display:flex;flex-direction:column;gap:8px;min-height:96px}
+.card:hover{background:var(--card-hover);transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}
+.card .t{font-weight:650;font-size:15.5px;display:flex;align-items:center;gap:7px}
+.card .t .arrow{color:var(--accent);opacity:0;transition:.18s;font-size:13px}
+.card:hover .t .arrow{opacity:1}
+.card .d{font-size:13px;color:var(--muted);flex:1}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.card .tag{font-size:11px;color:var(--accent2);background:rgba(126,224,192,.10);
+  border:1px solid rgba(126,224,192,.25);padding:1px 8px;border-radius:999px}
+.card .idx{font-size:10.5px;font-weight:700;letter-spacing:.5px;color:var(--accent);
+  background:rgba(110,168,254,.12);border:1px solid rgba(110,168,254,.3);padding:1px 7px;border-radius:6px}
+.empty{text-align:center;color:var(--muted);padding:50px 0;font-size:15px}
+footer{border-top:1px solid var(--border);color:var(--muted);font-size:12.5px;text-align:center;padding:22px 0 40px}
+footer code{background:var(--chip);padding:2px 7px;border-radius:6px;color:var(--text)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="h-top">
+      <h1><span class="em">AI Learning Journey</span> · Resource Index</h1>
+      <a class="live" href="https://github.com/70asunflower/ai-learning-journey/blob/master/README.md" target="_blank" rel="noopener">🌐 仓库 README</a>
+      <span class="spacer"></span>
+      <button id="themeBtn" title="切换主题">🌙</button>
+    </div>
+    <input id="search" type="text" placeholder="搜索资源 / 描述 / 标签…" autocomplete="off">
+    <div id="tagbar"></div>
+  </div>
+</header>
+<main class="wrap">
+  <div id="app"></div>
+  <div class="empty" id="empty" style="display:none">没有匹配的资源 🤔</div>
+</main>
+<footer class="wrap">
+  由 <code>scripts/generate_index.py</code> 从 README.md 自动生成 · 最后更新 2026-07-07<br>
+  添加资源后改 README，重跑脚本即可同步本页。
+</footer>
+<script>
+const DATA = {"repo": "70asunflower/ai-learning-journey", "branch": "master", "generated": "2026-07-07", "categories": [{"name": "Official Docs", "items": [{"title": "CUDA Programming Guide", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/1-Official-Docs/cuda-programming-guide.md", "desc": "NVIDIA 官方 GPU 并行编程模型文档", "tags": ["cuda", "nvidia", "gpu"], "index": false}]}, {"name": "Papers", "items": [{"title": "📄 Papers Index", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/2-Papers/README.md", "desc": "", "tags": [], "index": true}]}, {"name": "Tutorials", "items": [{"title": "self-llm 大模型食用指南", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/self-llm.md", "desc": "DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程", "tags": ["tutorial", "getting-started", "chinese"], "index": false}, {"title": "Sebastian Raschka Blog", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/sebastian-raschka-blog.md", "desc": "深度学习、LLM、PyTorch 技术博客", "tags": ["blog", "deep-learning", "llm", "pytorch"], "index": false}, {"title": "Unsloth LLM 微调指南", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md", "desc": "Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程", "tags": ["fine-tuning", "lora", "qlora", "unsloth"], "index": false}, {"title": "10 门\"地狱级\"CS 公开课", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md", "desc": "MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统）", "tags": ["cs-courses", "systems", "database", "distributed-systems", "os", "compiler", "deep-learning", "tinyml"], "index": false}, {"title": "LLM 算法与工程学习路线", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md", "desc": "从算法/分布式训练/推理部署/评估的完整路线，含优先级分层", "tags": ["llm", "training", "distributed-training", "inference", "algorithm", "engineering", "roadmap"], "index": false}, {"title": "JAX Scaling Book", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/jax-scaling-book.md", "desc": "JAX 官方 LLM Scaling 实战书籍，分布式训练全链路", "tags": ["scaling", "distributed-training", "jax", "llm", "book"], "index": false}, {"title": "Infinitensor 夏立营 2025", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md", "desc": "推理 infra 全栈训练营，覆盖模型层/框架层/算子层", "tags": ["inference", "infrastructure", "camp", "operator", "framework", "model"], "index": false}, {"title": "Dive into Deep Learning", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/dive-into-deep-learning.md", "desc": "交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF）", "tags": ["deep-learning", "textbook", "pytorch", "jupyter", "interactive", "chinese"], "index": false}, {"title": "Build a LLM (From Scratch)", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/llms-from-scratch.md", "desc": "Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars）", "tags": ["llm", "from-scratch", "pytorch", "gpt", "fine-tuning", "lora", "textbook"], "index": false}, {"title": "Build a Reasoning Model (From Scratch)", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/reasoning-from-scratch.md", "desc": "Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展）", "tags": ["reasoning", "llm", "reinforcement-learning", "grpo", "distillation", "pytorch", "textbook"], "index": false}, {"title": "强化学习直观理解 (VZstudio)", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md", "desc": "小鸡啄托盘得奖励——RL 直观体现，连接 RLHF 对齐", "tags": ["reinforcement-learning", "rlhf", "sft", "pre-training", "tutorial", "video"], "index": false}, {"title": "Agent-Learning-Hub (Datawhale)", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/agent-learning-hub.md", "desc": "AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单", "tags": ["ai-agent", "agent", "tutorial", "roadmap", "datawhale", "mcp", "tool-use"], "index": false}, {"title": "大模型推理系统入门", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/llm-inference-system-intro.md", "desc": "从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding", "tags": ["llm-inference", "vllm", "sglang", "kv-cache", "continuous-batching", "speculation"], "index": false}, {"title": "AI Infra 其实没有多少新东西", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/ai-infra-nothing-new.md", "desc": "腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附PDF", "tags": ["ai-infra", "gpu", "training", "inference", "distributed-system", "hardware"], "index": false}, {"title": "Modern GPU Programming For MLSys", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/mlc-modern-gpu-programming.md", "desc": "MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）", "tags": ["gpu", "cuda", "blackwell", "gemm", "flash-attention", "tirx", "kernel-optimization", "ml-systems"], "index": false}, {"title": "CS336 从零构建语言模型 (中文)", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/cs336-language-modeling-from-scratch.md", "desc": "斯坦福 CS336 全17讲中文通识读本：分词→预训练→对齐", "tags": ["cs336", "llm", "from-scratch", "tokenization", "pretraining", "alignment", "chinese-book"], "index": false}, {"title": "猛猿大模型技术文章导航", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/mengyuan-llm-articles-index.md", "desc": "知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态", "tags": ["llm", "distributed-training", "inference", "rlhf", "diffusion", "multimodal", "transformer", "blog-index", "chinese"], "index": false}, {"title": "📄 Tutorials Index", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/README.md", "desc": "", "tags": [], "index": true}]}, {"name": "Tools & Frameworks", "items": [{"title": "ms-swift 微调部署框架", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/ms-swift.md", "desc": "魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署", "tags": ["framework", "fine-tuning", "vllm"], "index": false}, {"title": "ModelScope Notebook 免费试用", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/ModelScope-Notebook.md", "desc": "魔搭云上开发环境，开箱即用 GPU/CPU，提供免费使用时长", "tags": ["cloud", "gpu", "free-trial", "notebook"], "index": false}, {"title": "TikTokenizer 可视化交互工具", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/tiktokenizer.md", "desc": "可视化学习 LLM Tokenizer 工作原理的交互工具 (GPT2/CL100K 等编码器)", "tags": ["tool", "tokenizer", "interactive", "visualization"], "index": false}, {"title": "CanIRun.ai 硬件兼容性检测", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/canirun.md", "desc": "检测本地 GPU/VRAM/RAM 能跑哪些本地大模型，支持 llama.cpp/Ollama/LM Studio 数据源", "tags": ["local-ai", "compatibility", "llama", "ollama", "lm-studio"], "index": false}, {"title": "LlamaFactory 微调框架", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/llamafactory.md", "desc": "100+ LLM/VLM 高效微调框架，支持 LoRA/QLoRA/SFT/DPO", "tags": ["framework", "fine-tuning", "lora", "qlora", "chinese-doc"], "index": false}, {"title": "GPT Image 2 提示词合集", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md", "desc": "725+ 精选提示词，JSON 结构化+参数化模板（产品海报/信息图/UI设计/动漫插画）", "tags": ["gpt-image", "prompt-engineering", "image-generation", "ai-art", "ui-design"], "index": false}, {"title": "nano-vllm", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/nano-vllm.md", "desc": "极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching）", "tags": ["vllm", "inference", "framework", "llm", "serving"], "index": false}, {"title": "mini-sglang", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/mini-sglang.md", "desc": "极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存）", "tags": ["sglang", "inference", "framework", "llm", "serving"], "index": false}, {"title": "Open Design", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/open-design.md", "desc": "Claude Design 开源替代，AI 驱动 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统）", "tags": ["ai-design", "open-source", "coding-agent", "claude-design", "local-first"], "index": false}, {"title": "📄 Tools Index", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/README.md", "desc": "", "tags": [], "index": true}]}, {"name": "Datasets", "items": [{"title": "📄 Datasets Index", "url": "https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/5-Datasets/README.md", "desc": "", "tags": [], "index": true}]}]};
+const LIVE = "https://github.com/70asunflower/ai-learning-journey/blob/master/README.md";
+const state = { q: "", tags: new Set() };
+
+const allTags = new Set();
+DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => allTags.add(t))));
+const sortedTags = [...allTags].sort();
+
+const app = document.getElementById("app");
+const tagbar = document.getElementById("tagbar");
+const empty = document.getElementById("empty");
+const search = document.getElementById("search");
+
+function tagChips(tags) {
+  if (!tags.length) return "";
+  return '<div class="tags">' + tags.map(t =>
+    `<span class="tag">#${t}</span>`).join("") + "</div>";
+}
+
+function cardHTML(it) {
+  const idx = it.index ? '<span class="idx">INDEX</span>' : "";
+  const desc = it.desc ? `<div class="d">${it.desc}</div>` : "";
+  return `<a class="card" href="${it.url}" target="_blank" rel="noopener">
+    <div class="t">${idx}${it.title}<span class="arrow">↗</span></div>
+    ${desc}${tagChips(it.tags)}</a>`;
+}
+
+function visible(it) {
+  const q = state.q;
+  const txt = (it.title + " " + it.desc + " " + it.tags.join(" ")).toLowerCase();
+  const okQ = !q || txt.includes(q);
+  const okT = state.tags.size === 0 || it.tags.some(t => state.tags.has(t));
+  return okQ && okT;
+}
+
+function renderTags() {
+  tagbar.innerHTML = sortedTags.map(t => {
+    const active = state.tags.has(t) ? " active" : "";
+    return `<span class="chip${active}" data-t="${t}">#${t}</span>`;
+  }).join("");
+  tagbar.querySelectorAll(".chip").forEach(el => {
+    el.onclick = () => {
+      const t = el.dataset.t;
+      if (state.tags.has(t)) state.tags.delete(t); else state.tags.add(t);
+      renderTags(); render();
+    };
+  });
+}
+
+function render() {
+  let html = "";
+  let total = 0;
+  DATA.categories.forEach(c => {
+    const items = c.items.filter(visible);
+    if (!items.length) return;
+    total += items.length;
+    html += `<section class="sec"><h2>${c.name}<span class="cnt">${items.length}</span></h2>
+      <div class="grid">${items.map(cardHTML).join("")}</div></section>`;
+  });
+  app.innerHTML = html;
+  empty.style.display = total ? "none" : "block";
+}
+
+search.addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+
+// theme
+const themeBtn = document.getElementById("themeBtn");
+function applyTheme(t) {
+  document.documentElement.setAttribute("data-theme", t);
+  themeBtn.textContent = t === "dark" ? "🌙" : "☀️";
+  try { localStorage.setItem("alj-theme", t); } catch (e) {}
+}
+themeBtn.onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  applyTheme(cur === "dark" ? "light" : "dark");
+};
+(function () {
+  let t = "dark";
+  try { t = localStorage.getItem("alj-theme") || "dark"; } catch (e) {}
+  applyTheme(t);
+})();
+
+renderTags();
+render();
+</script>
+</body>
+</html>
