@@ -140,7 +140,10 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
 #search{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--border);
   background:var(--card);color:var(--text);font-size:15px;outline:none;transition:.2s}
 #search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(110,168,254,.18)}
-#tagbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 16px}
+#tagbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 16px;
+  max-height:120px;overflow-y:auto;padding-right:6px;
+  transition:max-height .3s ease}
+#tagbar.collapsed{max-height:0;overflow:hidden;padding:0}
 .chip{cursor:pointer;font-size:12.5px;padding:5px 11px;border-radius:999px;
   background:var(--chip);color:var(--muted);border:1px solid transparent;transition:.15s;user-select:none}
 .chip:hover{color:var(--text)}
@@ -251,6 +254,13 @@ function render() {
   });
   app.innerHTML = html;
   empty.style.display = total ? "none" : "block";
+  /* collapse tagbar when searching to give results room */
+  if (state.q) { tagbar.classList.add("collapsed"); }
+  else { tagbar.classList.remove("collapsed"); }
+  /* show result count in search placeholder */
+  search.placeholder = state.q
+    ? `搜索: "${state.q}" — 找到 ${total} 条结果`
+    : "搜索资源 / 描述 / 标签…";
 }
 
 search.addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
