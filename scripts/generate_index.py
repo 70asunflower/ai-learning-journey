@@ -24,6 +24,8 @@ SIBLINGS = [
     {"name": "IC Chip Design", "url": "https://70asunflower.github.io/ic-chip-design-learning/"},
 ]
 
+TITLE = "AI Learning Journey"
+
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
 
@@ -111,7 +113,7 @@ HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Learning Journey · Resource Index</title>
+<title>__TITLE__ · Resource Index</title>
 <style>
 :root{
   --bg:#0f1117; --panel:rgba(23,26,35,.82); --card:#1b2030; --card-hover:#222a3d;
@@ -184,7 +186,7 @@ footer code{background:var(--chip);padding:2px 7px;border-radius:6px;color:var(-
 <header>
   <div class="wrap">
     <div class="h-top">
-      <h1><span class="em">AI Learning Journey</span> · Resource Index</h1>
+      <h1><span class="em">__TITLE__</span> · Resource Index</h1>
       <a class="live" href="__LIVE__" target="_blank" rel="noopener">🌐 仓库 README</a>
       <span class="spacer"></span>
       <button id="themeBtn" title="切换主题">🌙</button>
@@ -306,7 +308,8 @@ html = (HTML
         .replace("__LIVE__", BLOB + "README.md")
         .replace("__SIBLINGS__", "".join(
             f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
-            for s in SIBLINGS)))
+            for s in SIBLINGS))
+        .replace("__TITLE__", TITLE))
 
 out = ROOT / "index.html"
 out.write_text(html, encoding="utf-8")
