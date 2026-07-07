@@ -30,6 +30,10 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
 .live{font-size:12px;color:var(--muted);border:1px solid var(--border);
   padding:3px 9px;border-radius:999px;transition:.2s}
 .live:hover{color:var(--accent);border-color:var(--accent)}
+.sibnav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 0 10px}
+.sib-label{font-size:12px;color:var(--muted)}
+.sib{font-size:12.5px;color:var(--accent);border:1px solid var(--border);padding:3px 10px;border-radius:999px;transition:.15s}
+.sib:hover{border-color:var(--accent);background:rgba(110,168,254,.1)}
 .spacer{flex:1}
 #themeBtn{cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);
   border-radius:10px;padding:7px 12px;font-size:14px;transition:.2s}
@@ -77,6 +81,7 @@ footer code{background:var(--chip);padding:2px 7px;border-radius:6px;color:var(-
       <span class="spacer"></span>
       <button id="themeBtn" title="切换主题">🌙</button>
     </div>
+    <div class="sibnav"><span class="sib-label">姊妹仓库：</span><a class="sib" href="https://70asunflower.github.io/embodied-ai-learning/" target="_blank" rel="noopener">Embodied AI</a><a class="sib" href="https://70asunflower.github.io/ic-chip-design-learning/" target="_blank" rel="noopener">IC Chip Design</a></div>
     <input id="search" type="text" placeholder="搜索资源 / 描述 / 标签…" autocomplete="off">
     <div id="tagbar"></div>
   </div>
@@ -126,6 +131,7 @@ function visible(it) {
 }
 
 function renderTags() {
+  if (sortedTags.length === 0) { tagbar.style.display = "none"; return; }
   tagbar.innerHTML = sortedTags.map(t => {
     const active = state.tags.has(t) ? " active" : "";
     return `<span class="chip${active}" data-t="${t}">#${t}</span>`;

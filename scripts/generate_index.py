@@ -19,6 +19,11 @@ REPO = "70asunflower/ai-learning-journey"
 BRANCH = "master"  # default branch of this repo
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
+SIBLINGS = [
+    {"name": "Embodied AI", "url": "https://70asunflower.github.io/embodied-ai-learning/"},
+    {"name": "IC Chip Design", "url": "https://70asunflower.github.io/ic-chip-design-learning/"},
+]
+
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
 
@@ -133,6 +138,10 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);
 .live{font-size:12px;color:var(--muted);border:1px solid var(--border);
   padding:3px 9px;border-radius:999px;transition:.2s}
 .live:hover{color:var(--accent);border-color:var(--accent)}
+.sibnav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:0 0 10px}
+.sib-label{font-size:12px;color:var(--muted)}
+.sib{font-size:12.5px;color:var(--accent);border:1px solid var(--border);padding:3px 10px;border-radius:999px;transition:.15s}
+.sib:hover{border-color:var(--accent);background:rgba(110,168,254,.1)}
 .spacer{flex:1}
 #themeBtn{cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);
   border-radius:10px;padding:7px 12px;font-size:14px;transition:.2s}
@@ -180,6 +189,7 @@ footer code{background:var(--chip);padding:2px 7px;border-radius:6px;color:var(-
       <span class="spacer"></span>
       <button id="themeBtn" title="切换主题">🌙</button>
     </div>
+    <div class="sibnav"><span class="sib-label">姊妹仓库：</span>__SIBLINGS__</div>
     <input id="search" type="text" placeholder="搜索资源 / 描述 / 标签…" autocomplete="off">
     <div id="tagbar"></div>
   </div>
@@ -229,6 +239,7 @@ function visible(it) {
 }
 
 function renderTags() {
+  if (sortedTags.length === 0) { tagbar.style.display = "none"; return; }
   tagbar.innerHTML = sortedTags.map(t => {
     const active = state.tags.has(t) ? " active" : "";
     return `<span class="chip${active}" data-t="${t}">#${t}</span>`;
@@ -292,7 +303,10 @@ render();
 html = (HTML
         .replace("__DATA__", json.dumps(data, ensure_ascii=False))
         .replace("__DATE__", data["generated"])
-        .replace("__LIVE__", BLOB + "README.md"))
+        .replace("__LIVE__", BLOB + "README.md")
+        .replace("__SIBLINGS__", "".join(
+            f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
+            for s in SIBLINGS)))
 
 out = ROOT / "index.html"
 out.write_text(html, encoding="utf-8")
