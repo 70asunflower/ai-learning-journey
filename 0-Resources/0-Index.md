@@ -7,6 +7,7 @@ Quick-lookup index for all collected resources.
 | Resource | Tags | Date |
 |----------|------|------|
 | [CUDA Programming Guide](1-Official-Docs/cuda-programming-guide.md) | `#cuda #nvidia #gpu` | 2026-04-03 |
+| [vLLM 中文文档](1-Official-Docs/vllm-docs-zh.md) | `#vllm #inference #serving #llm #quantization #lora #documentation #chinese` | 2026-07-07 |
 
 ## Papers
 

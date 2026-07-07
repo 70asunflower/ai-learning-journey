@@ -14,6 +14,7 @@
 | Resource | Tags | Date |
 |----------|------|------|
 | [CUDA Programming Guide](cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档 | `#cuda #nvidia #gpu` | 2026-04-03 |
+| [vLLM 中文文档](vllm-docs-zh.md) — vLLM 官方中文文档（hyper.ai 翻译） | `#vllm #inference #serving #llm #quantization #chinese` | 2026-07-07 |
 
 ## 内容格式
 

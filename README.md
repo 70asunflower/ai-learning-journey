@@ -14,6 +14,7 @@
 <summary>1-Official-Docs</summary>
 
 - [CUDA Programming Guide](0-Resources/1-Official-Docs/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
+- [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md) — vLLM 官方中文文档（hyper.ai 翻译）：安装/量化/LoRA/分布式推理/部署/设计文档/API
 
 </details>
 
