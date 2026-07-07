@@ -43,7 +43,6 @@ BRANCH = "master"  # default branch of this repo
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 SIBLINGS = [
-    {"name": "Embodied AI", "url": "https://70asunflower.github.io/embodied-ai-learning/"},
     {"name": "IC Chip Design", "url": "https://70asunflower.github.io/ic-chip-design-learning/"},
 ]
 
