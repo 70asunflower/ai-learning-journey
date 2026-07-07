@@ -31,6 +31,8 @@ TITLE = "AI Learning Journey"
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
+# Inline marked.js so the page works fully offline / behind GFW (no CDN dependency).
+marked_js = (ROOT / "scripts" / "marked.min.js").read_text(encoding="utf-8")
 
 BLOB = f"https://github.com/{REPO}/blob/{BRANCH}/"
 
@@ -132,7 +134,7 @@ HTML = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__ · Resource Index</title>
-<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+<script>__MARKED__</script>
 <style>
 :root{
   --bg:#fcfcfb; --panel:#ffffff; --card:#ffffff; --card-hover:#f7f7f5;
@@ -453,7 +455,8 @@ html = (HTML
         .replace("__SIBLINGS__", "".join(
             f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
             for s in SIBLINGS))
-        .replace("__TITLE__", TITLE))
+        .replace("__TITLE__", TITLE)
+        .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
 out = ROOT / "index.html"
 out.write_text(html, encoding="utf-8")
