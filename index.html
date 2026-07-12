@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh" data-theme="light">
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  try { document.documentElement.setAttribute("data-theme", localStorage.getItem("alj-theme") || "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+</script>
 <title>AI Learning Journey · Resource Index</title>
+<meta name="description" content="AI Learning Journey — curated learning resources index (books, papers, tutorials, tools).">
+<meta property="og:title" content="AI Learning Journey · Resource Index">
+<meta property="og:description" content="Curated learning resources index.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://70asunflower.github.io/ai-learning-journey/">
+<meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101011" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
 <script>/**
  * marked v12.0.2 - a markdown parser
  * Copyright (c) 2011-2024, Christopher Jeffrey. (MIT Licensed)
@@ -248,6 +259,7 @@ function renderMD(md, base) {
   });
   return div.innerHTML;
 }
+const _mdCache = new Map();
 function openReader(path, title) {
   location.hash = "view/" + encodeURIComponent(path) + "|" + encodeURIComponent(title || "");
 }
@@ -256,12 +268,20 @@ async function showReader(path, title) {
   document.body.style.overflow = "hidden";
   readerTitle.textContent = title || path;
   readerGh.href = currentGithub;
+  const cached = _mdCache.get(path);
+  if (cached) {
+    readerContent.innerHTML = cached;
+    readerContent.scrollTop = 0;
+    return;
+  }
   readerContent.innerHTML = '<div class="loading">加载中…</div>';
   try {
     const res = await fetch(path);
     if (!res.ok) throw new Error("HTTP " + res.status);
     const md = await res.text();
-    readerContent.innerHTML = renderMD(md, baseDirOf(path));
+    const html = renderMD(md, baseDirOf(path));
+    _mdCache.set(path, html);
+    readerContent.innerHTML = html;
     readerContent.scrollTop = 0;
   } catch (e) {
     readerContent.innerHTML = '<div class="fallback">无法在本页加载内容（可能为本地打开或网络限制）。<br>' +
@@ -315,6 +335,12 @@ themeBtn.onclick = () => {
 })();
 
 search.addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+window.addEventListener("keydown", e => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName) && !e.target.isContentEditable) {
+    e.preventDefault();
+    search.focus();
+  }
+});
 
 renderTags();
 render();

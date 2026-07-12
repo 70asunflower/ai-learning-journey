@@ -36,6 +36,15 @@ def generated_date() -> str:
             return out.stdout.strip()
     except Exception:
         pass
+    try:
+        head = subprocess.run(
+            ["git", "log", "-1", "--format=%cd", "--date=short"],
+            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
+            capture_output=True, text=True, timeout=20)
+        if head.returncode == 0 and head.stdout.strip():
+            return head.stdout.strip()
+    except Exception:
+        pass
     return datetime.date.today().isoformat()
 
 REPO = "70asunflower/ai-learning-journey"
@@ -60,6 +69,7 @@ MARKED_JS = r"""/**
 marked_js = MARKED_JS  # inlined from marked.min.js; no CDN / external-file dependency
 
 BLOB = f"https://github.com/{REPO}/blob/{BRANCH}/"
+PAGES_URL = f"https://70asunflower.github.io/{REPO.split('/')[1]}/"
 
 
 def normalize(p: str) -> str:
@@ -154,11 +164,22 @@ data = {
 }
 
 HTML = r"""<!DOCTYPE html>
-<html lang="zh" data-theme="light">
+<html lang="zh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  try { document.documentElement.setAttribute("data-theme", localStorage.getItem("alj-theme") || "light"); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+</script>
 <title>__TITLE__ · Resource Index</title>
+<meta name="description" content="__TITLE__ — curated learning resources index (books, papers, tutorials, tools).">
+<meta property="og:title" content="__TITLE__ · Resource Index">
+<meta property="og:description" content="Curated learning resources index.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="__PAGES_URL__">
+<meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101011" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
 <script>__MARKED__</script>
 <style>
 :root{
@@ -398,6 +419,7 @@ function renderMD(md, base) {
   });
   return div.innerHTML;
 }
+const _mdCache = new Map();
 function openReader(path, title) {
   location.hash = "view/" + encodeURIComponent(path) + "|" + encodeURIComponent(title || "");
 }
@@ -406,12 +428,20 @@ async function showReader(path, title) {
   document.body.style.overflow = "hidden";
   readerTitle.textContent = title || path;
   readerGh.href = currentGithub;
+  const cached = _mdCache.get(path);
+  if (cached) {
+    readerContent.innerHTML = cached;
+    readerContent.scrollTop = 0;
+    return;
+  }
   readerContent.innerHTML = '<div class="loading">加载中…</div>';
   try {
     const res = await fetch(path);
     if (!res.ok) throw new Error("HTTP " + res.status);
     const md = await res.text();
-    readerContent.innerHTML = renderMD(md, baseDirOf(path));
+    const html = renderMD(md, baseDirOf(path));
+    _mdCache.set(path, html);
+    readerContent.innerHTML = html;
     readerContent.scrollTop = 0;
   } catch (e) {
     readerContent.innerHTML = '<div class="fallback">无法在本页加载内容（可能为本地打开或网络限制）。<br>' +
@@ -465,6 +495,12 @@ themeBtn.onclick = () => {
 })();
 
 search.addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+window.addEventListener("keydown", e => {
+  if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName) && !e.target.isContentEditable) {
+    e.preventDefault();
+    search.focus();
+  }
+});
 
 renderTags();
 render();
@@ -481,6 +517,7 @@ html = (HTML
             f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
             for s in SIBLINGS))
         .replace("__TITLE__", TITLE)
+        .replace("__PAGES_URL__", PAGES_URL)
         .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
 out = ROOT / "index.html"
