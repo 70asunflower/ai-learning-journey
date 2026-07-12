@@ -203,6 +203,16 @@ body{margin:0;background:var(--bg);color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+html{color-scheme:light dark}
+[data-theme="dark"]{color-scheme:dark}
+:root{--scrollbar-track:transparent;--scrollbar-thumb:rgba(0,0,0,.18);--scrollbar-thumb-hover:rgba(0,0,0,.32)}
+[data-theme="dark"]{--scrollbar-thumb:rgba(255,255,255,.22);--scrollbar-thumb-hover:rgba(255,255,255,.38)}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:var(--scrollbar-track)}
+*::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:4px;border:2px solid transparent;background-clip:padding-box}
+*::-webkit-scrollbar-thumb:hover{background:var(--scrollbar-thumb-hover)}
+*::-webkit-scrollbar-corner{background:transparent}
+*{scrollbar-width:thin;scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track)}
 header{border-bottom:1px solid var(--border);background:var(--panel)}
 .wrap{max-width:900px;margin:0 auto;padding:0 24px}
 .h-top{display:flex;align-items:center;gap:14px;padding:22px 0 16px;flex-wrap:wrap}
