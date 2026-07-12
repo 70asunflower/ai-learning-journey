@@ -84,8 +84,9 @@ def prettify(cat: str) -> str:
     return cat.replace("-", " ").strip()
 
 
-# ---- 1. tags from 0-Index.md (table: | [Name](path) | #tags | date |) ----
+# ---- 1. tags + date from 0-Index.md (table: | [Name](path) | #tags | date |) ----
 tags_by_path: dict[str, list[str]] = {}
+dates_by_path: dict[str, str] = {}
 for line in index_md.splitlines():
     if not (line.strip().startswith("|") and "](" in line):
         continue
@@ -98,6 +99,8 @@ for line in index_md.splitlines():
     path = normalize(lm.group(1))
     tags = re.findall(r"#([\w\-]+)", cells[1])
     tags_by_path[path] = tags
+    if len(cells) >= 3:
+        dates_by_path[path] = cells[2].strip()
 
 
 # ---- 2. resources from README.md (inside 📚 Resources block) ----
@@ -153,7 +156,8 @@ for line in readme.splitlines():
         categories.append({"name": name, "items": items})
     cat_map[name].append(
         {"title": title, "path": path, "github": github, "external": external,
-         "desc": desc, "tags": tags, "index": is_index}
+         "desc": desc, "tags": tags, "index": is_index,
+         "date": dates_by_path.get(normalize(url), "")}
     )
 
 data = {
@@ -186,11 +190,13 @@ HTML = r"""<!DOCTYPE html>
   --bg:#fcfcfb; --panel:#ffffff; --card:#ffffff; --card-hover:#f7f7f5;
   --text:#1c1c1c; --muted:#9a9a9a; --accent:#2f6df6; --border:#ececec;
   --code:#f4f4f2; --shadow:0 1px 2px rgba(0,0,0,.03);
+  --tk-kw:#8250df; --tk-str:#0a7d3b; --tk-com:#8a8a8a; --tk-num:#0550ae;
 }
 [data-theme="dark"]{
   --bg:#101011; --panel:#171718; --card:#1b1b1d; --card-hover:#232325;
   --text:#e9e9e7; --muted:#8c8c8c; --accent:#6f9bf2; --border:#2a2a2d;
   --code:#212124; --shadow:none;
+  --tk-kw:#d2a8ff; --tk-str:#7ee787; --tk-com:#8b949e; --tk-num:#79c0ff;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);
@@ -271,6 +277,33 @@ footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(-
 .content table{border-collapse:collapse;width:100%;margin:1em 0;font-size:14px}
 .content th,.content td{border:1px solid var(--border);padding:7px 10px;text-align:left}
 .content ul,.content ol{padding-left:1.4em}
+
+/* syntax highlight tokens */
+.content .tok-kw{color:var(--tk-kw);font-weight:600}
+.content .tok-str{color:var(--tk-str)}
+.content .tok-com{color:var(--tk-com);font-style:italic}
+.content .tok-num{color:var(--tk-num)}
+
+/* code copy button */
+.content pre{position:relative}
+.content pre .copy{position:absolute;top:8px;right:8px;font-size:11px;
+  padding:3px 9px;border-radius:6px;border:1px solid var(--border);
+  background:var(--card);color:var(--muted);cursor:pointer;opacity:0;transition:.15s}
+.content pre:hover .copy{opacity:1}
+.content pre .copy:hover{color:var(--accent);border-color:var(--accent)}
+
+/* card date */
+.card .date{font-size:11px;color:var(--muted)}
+
+/* reader reading progress */
+.progress{position:absolute;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:60}
+
+/* smooth theme transition */
+body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
+  {transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
 </style>
 </head>
 <body>
@@ -297,6 +330,7 @@ footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(-
 </footer>
 
 <div class="reader" id="reader">
+  <div class="progress" id="readerProgress"></div>
   <div class="reader-bar">
     <button class="x" id="readerX" title="关闭">×</button>
     <span class="ttl" id="readerTitle"></span>
@@ -323,7 +357,11 @@ const readerContent = document.getElementById("readerContent");
 const readerTitle = document.getElementById("readerTitle");
 const readerGh = document.getElementById("readerGh");
 const readerX = document.getElementById("readerX");
+const readerProgress = document.getElementById("readerProgress");
 let currentGithub = LIVE;
+const NAV_ITEMS = [];
+DATA.categories.forEach(c => c.items.forEach(it => { if (!it.external) NAV_ITEMS.push(it); }));
+let currentPath = "";
 
 function tagChips(tags) {
   if (!tags.length) return "";
@@ -334,10 +372,11 @@ function tagChips(tags) {
 function cardHTML(it) {
   const idx = it.index ? '<span class="idx">INDEX</span>' : "";
   const desc = it.desc ? `<div class="d">${it.desc}</div>` : "";
+  const date = it.date ? `<div class="date">📅 ${it.date}</div>` : "";
   const ext = it.external ? ' target="_blank" rel="noopener"' : '';
   return `<a class="card" href="${it.github}" data-path="${it.path}" data-title="${it.title}" data-gh="${it.github}" data-ext="${it.external ? 1 : 0}"${ext}>
     <div class="t">${idx}${it.title}<span class="arrow">↗</span></div>
-    ${desc}${tagChips(it.tags)}</a>`;
+    ${desc}${date}${tagChips(it.tags)}</a>`;
 }
 
 function visible(it) {
@@ -397,6 +436,22 @@ function resolve(rel, base) {
   if (/^(https?:|#|\/)/.test(rel)) return rel;
   return base + rel;
 }
+function highlightCode(codeEl) {
+  if (codeEl.dataset.hl) return;
+  codeEl.dataset.hl = "1";
+  let s = codeEl.innerHTML;
+  const KW = new Set("if else for while do return function var let const def class import from export public private protected static int float double void struct typedef enum switch case break continue new delete this sizeof unsigned signed long short char bool byte true false null None True False self in not and or with as try except finally raise yield async await lambda goto pass print using namespace template typename auto virtual inline std cout cin endl include define pragma once select where group by order limit insert update delete join on".split(/\s+/));
+  const re = /(^[ \t]*#[^\n]*)|(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|(&quot;(?:[^&]|&(?!quot;))*?&quot;|"[^"\n]*"|'[^'\n]*'|`[^`\n]*`)|(\b\d+(?:\.\d+)?\b)|\b([A-Za-z_]\w*)\b/gm;
+  s = s.replace(re, function (m, com, cstyle, str, num, word) {
+    if (com) return '<span class="tok-com">' + com + "</span>";
+    if (cstyle) return '<span class="tok-com">' + cstyle + "</span>";
+    if (str) return '<span class="tok-str">' + str + "</span>";
+    if (num) return '<span class="tok-num">' + num + "</span>";
+    if (word && KW.has(word)) return '<span class="tok-kw">' + word + "</span>";
+    return m;
+  });
+  codeEl.innerHTML = s;
+}
 function renderMD(md, base) {
   let html;
   if (window.marked) html = marked.parse(md);
@@ -417,6 +472,12 @@ function renderMD(md, base) {
       a.target = "_blank"; a.rel = "noopener";
     }
   });
+  div.querySelectorAll("pre code").forEach(highlightCode);
+  div.querySelectorAll("pre").forEach(pre => {
+    const btn = document.createElement("button");
+    btn.className = "copy"; btn.type = "button"; btn.textContent = "复制";
+    pre.appendChild(btn);
+  });
   return div.innerHTML;
 }
 const _mdCache = new Map();
@@ -428,6 +489,8 @@ async function showReader(path, title) {
   document.body.style.overflow = "hidden";
   readerTitle.textContent = title || path;
   readerGh.href = currentGithub;
+  currentPath = path;
+  readerProgress.style.width = "0%";
   const cached = _mdCache.get(path);
   if (cached) {
     readerContent.innerHTML = cached;
@@ -453,6 +516,19 @@ function closeReader() {
   else { reader.classList.remove("open"); document.body.style.overflow = ""; }
 }
 readerX.addEventListener("click", closeReader);
+readerContent.addEventListener("scroll", () => {
+  const max = readerContent.scrollHeight - readerContent.clientHeight;
+  readerProgress.style.width = (max > 0 ? (readerContent.scrollTop / max) * 100 : 0) + "%";
+});
+readerContent.addEventListener("click", e => {
+  const btn = e.target.closest(".copy");
+  if (!btn) return;
+  const code = btn.parentElement.querySelector("code");
+  const text = code ? code.textContent : "";
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = "已复制"; setTimeout(() => { btn.textContent = "复制"; }, 1200);
+  }).catch(() => {});
+});
 window.addEventListener("hashchange", () => {
   const h = location.hash;
   if (h.startsWith("#view/")) {
@@ -499,6 +575,16 @@ window.addEventListener("keydown", e => {
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName) && !e.target.isContentEditable) {
     e.preventDefault();
     search.focus();
+    return;
+  }
+  if (!reader.classList.contains("open")) return;
+  if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName) || e.target.isContentEditable) return;
+  if (e.key === "j" || e.key === "ArrowRight") {
+    const i = NAV_ITEMS.findIndex(it => it.path === currentPath);
+    if (i >= 0 && i < NAV_ITEMS.length - 1) { e.preventDefault(); openReader(NAV_ITEMS[i + 1].path, NAV_ITEMS[i + 1].title); }
+  } else if (e.key === "k" || e.key === "ArrowLeft") {
+    const i = NAV_ITEMS.findIndex(it => it.path === currentPath);
+    if (i > 0) { e.preventDefault(); openReader(NAV_ITEMS[i - 1].path, NAV_ITEMS[i - 1].title); }
   }
 });
 
