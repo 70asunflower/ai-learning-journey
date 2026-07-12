@@ -171,7 +171,7 @@ function cardHTML(it) {
 
 function visible(it) {
   const q = state.q;
-  const txt = (it.title + " " + it.desc + " " + it.tags.join(" ")).toLowerCase();
+  const txt = (it.title + " " + it.desc + " " + it.tags.join(" ") + " " + (it.github || "")).toLowerCase();
   const okQ = !q || txt.includes(q);
   const okT = state.tags.size === 0 || it.tags.some(t => state.tags.has(t));
   return okQ && okT;
