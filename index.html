@@ -165,7 +165,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
     <div id="tagbar"></div>
   </div>
 </header>
-<div id="filewarn">⚠️ 你正在以 <code>file://</code> 方式本地打开此页面，阅读器无法读取本地 .md 文件。请在本仓库目录运行 <code>python -m http.server 8000</code> 后访问 <a href="http://localhost:8000/">http://localhost:8000/</a>，或打开 <a href="https://70asunflower.github.io/ai-learning-journey/" target="_blank" rel="noopener">GitHub Pages 在线版 ↗</a>。</div>
+<div id="filewarn">⚠️ 你正在以 <code>file://</code> 方式本地打开此页面，阅读器无法读取本地 .md 文件。请在本仓库目录运行 <code>python -m http.server 8000</code> 后访问 <a href="http://localhost:8000/">http://localhost:8000/</a>，或打开 <a href="https://70asunflower.github.io/ai-learning-journey/" target="_blank" rel="noopener">GitHub Pages 在线版 ↗</a>。（直接点击资源会在新标签页打开 GitHub 渲染版）</div>
 <main class="wrap">
   <div id="app"></div>
   <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
@@ -275,6 +275,7 @@ app.addEventListener("click", e => {
   if (card.dataset.ext === "1") return; /* external link: let browser open */
   e.preventDefault();
   currentGithub = card.dataset.gh;
+  if (isFileProtocol()) { window.open(currentGithub, "_blank", "noopener"); return; }
   openReader(card.dataset.path, card.dataset.title);
 });
 
