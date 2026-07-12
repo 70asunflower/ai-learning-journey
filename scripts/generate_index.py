@@ -298,6 +298,15 @@ footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(-
 /* reader reading progress */
 .progress{position:absolute;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:60}
 
+/* file:// protocol warning banner */
+#filewarn{display:none;margin:0;padding:10px 24px;font-size:13px;line-height:1.65;
+  background:#fff4e5;color:#7a4b00;border-bottom:1px solid #f0c36d}
+#filewarn code{background:#fff;padding:1px 6px;border-radius:4px;border:1px solid #f0c36d}
+#filewarn a{color:#b45309;border-bottom:1px solid #b45309}
+[data-theme="dark"] #filewarn{background:#2a2113;color:#e6c089;border-bottom-color:#5a4420}
+[data-theme="dark"] #filewarn code{background:#1b1b1d;border-color:#5a4420}
+[data-theme="dark"] #filewarn a{color:#e6c089}
+
 /* smooth theme transition */
 body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   {transition:background-color .2s ease,color .2s ease,border-color .2s ease}
@@ -320,6 +329,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
     <div id="tagbar"></div>
   </div>
 </header>
+<div id="filewarn">⚠️ 你正在以 <code>file://</code> 方式本地打开此页面，阅读器无法读取本地 .md 文件。请在本仓库目录运行 <code>python -m http.server 8000</code> 后访问 <a href="http://localhost:8000/">http://localhost:8000/</a>，或打开 <a href="__PAGES_URL__" target="_blank" rel="noopener">GitHub Pages 在线版 ↗</a>。</div>
 <main class="wrap">
   <div id="app"></div>
   <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
@@ -342,7 +352,9 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
 <script>
 const DATA = __DATA__;
 const LIVE = "__LIVE__";
+const PAGES = "__PAGES_URL__";
 const state = { q: "", tags: new Set() };
+function isFileProtocol() { return location.protocol === "file:"; }
 
 const allTags = new Set();
 DATA.categories.forEach(c => c.items.forEach(it => it.tags.forEach(t => allTags.add(t))));
@@ -507,8 +519,19 @@ async function showReader(path, title) {
     readerContent.innerHTML = html;
     readerContent.scrollTop = 0;
   } catch (e) {
-    readerContent.innerHTML = '<div class="fallback">无法在本页加载内容（可能为本地打开或网络限制）。<br>' +
-      '<a href="' + currentGithub + '" target="_blank" rel="noopener">在 GitHub 查看原文 ↗</a></div>';
+    if (isFileProtocol()) {
+      readerContent.innerHTML = '<div class="fallback">'
+        + '检测到本地直接打开（<code>file://</code>），浏览器出于安全限制禁止读取本地 .md 文件。<br><br>'
+        + '解决方法（任选其一）：<br>'
+        + '① 在本仓库目录启动本地服务器，再用 http 访问：<br>'
+        + '<code>python -m http.server 8000</code> → 打开 <a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a><br>'
+        + '② 直接访问在线版 GitHub Pages：<br>'
+        + '<a href="' + PAGES + '" target="_blank" rel="noopener">打开在线站点 ↗</a><br><br>'
+        + '或查看 GitHub 原文：<a href="' + currentGithub + '" target="_blank" rel="noopener">在 GitHub 查看原文 ↗</a></div>';
+    } else {
+      readerContent.innerHTML = '<div class="fallback">无法加载内容（网络连接异常或资源尚未部署）。<br>'
+        + '<a href="' + currentGithub + '" target="_blank" rel="noopener">在 GitHub 查看原文 ↗</a></div>';
+    }
   }
 }
 function closeReader() {
@@ -588,6 +611,7 @@ window.addEventListener("keydown", e => {
   }
 });
 
+if (isFileProtocol()) { const fw = document.getElementById("filewarn"); if (fw) fw.style.display = "block"; }
 renderTags();
 render();
 </script>
