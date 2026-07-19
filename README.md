@@ -83,6 +83,7 @@
 <summary>1-Foundations</summary>
 
 [📄 Foundations Index](1-Notes/1-Foundations/README.md)
+- [为什么每一代新芯片都会带来新的算子开发工作？](1-Notes/1-Foundations/why-new-chips-need-new-kernels.md) — 从 Ampere/Hopper/Blackwell 看 GPU 架构更新为何持续改变算子最优实现
 
 </details>
 
@@ -208,6 +209,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-07-19 | Added note: 为什么每一代新芯片都会带来新的算子开发工作？ — GPU/算子开发随架构演进 |
 | 2026-03-31 | Repository init, wiki navigation, subfolder docs |
 | 2026-03-31 | Added ms-swift framework documentation            |
 | 2026-04-02 | Added TikTokenizer — interactive tokenizer visualization tool |

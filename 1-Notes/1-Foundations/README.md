@@ -13,4 +13,10 @@ Core concepts of AI and deep learning.
 
 ---
 
+## Notes
+
+| Topic | File | Date |
+|-------|------|------|
+| 为什么每一代新芯片都会带来新的算子开发工作？ | [why-new-chips-need-new-kernels.md](./why-new-chips-need-new-kernels.md) | 2026-07-19 |
+
 _This file serves as an index. Add your notes as individual markdown files._
