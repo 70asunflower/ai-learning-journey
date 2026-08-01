@@ -15,6 +15,7 @@
 
 - [CUDA Programming Guide](0-Resources/1-Official-Docs/cuda-programming-guide.md) — NVIDIA 官方 GPU 并行编程模型文档
 - [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md) — vLLM 官方中文文档（hyper.ai 翻译）：安装/量化/LoRA/分布式推理/部署/设计文档/API
+- [LLM Inference Handbook (Modular)](0-Resources/1-Official-Docs/llm-inference-handbook.md) — 官方 LLM 推理手册：概念/指标/优化/GPU架构/部署模式（含交互计算器）
 
 </details>
 
@@ -62,6 +63,7 @@
 - [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md) — 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存）
 - [Open Design](0-Resources/4-Tools-Frameworks/open-design.md) — Claude Design 开源替代，AI 驱动 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统）
 - [InferFlux 推理系统可视化](0-Resources/4-Tools-Frameworks/inferflux.md) — 零依赖交互式动画：PD分离模拟/吞吐计算/3D请求生命周期/GPU集合通信（Three.js）
+- [LLM Visualization (bbycroft)](0-Resources/4-Tools-Frameworks/llm-viz.md) — GPT 风格 LLM 推理 3D 交互可视化，逐层看注意力/FFN/词元流动（WebGL）
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
@@ -210,6 +212,8 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-08-01 | Added LLM Visualization (bbycroft) — GPT 风格 LLM 推理 3D 交互可视化（注意力/FFN/词元流动） |
+| 2026-08-01 | Added LLM Inference Handbook (Modular) — 官方 LLM 推理手册：概念/指标/优化/GPU架构/部署（含交互计算器） |
 | 2026-08-01 | Added InferFlux — LLM 推理系统可视化交互工具（PD分离/吞吐计算/3D生命周期/GPU集合通信） |
 | 2026-07-19 | Added note: 为什么每一代新芯片都会带来新的算子开发工作？ — GPU/算子开发随架构演进 |
 | 2026-03-31 | Repository init, wiki navigation, subfolder docs |

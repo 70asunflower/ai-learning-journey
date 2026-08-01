@@ -21,6 +21,7 @@ Commonly used tools, frameworks, and libraries.
 | mini-sglang | 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存） | [详情](mini-sglang.md) · [官方](https://github.com/sgl-project/mini-sglang) |
 | Open Design | Claude Design 开源替代，AI 驱动的 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统） | [详情](open-design.md) · [官方](https://github.com/nexu-io/open-design) |
 | InferFlux | LLM 推理系统可视化交互工具：零依赖单文件 HTML（PD分离模拟/吞吐计算器/3D请求生命周期/GPU集合通信，Three.js） | [详情](inferflux.md) · [官方](https://Abatom.github.io/inferflux/) |
+| LLM Visualization (bbycroft) | GPT 风格 LLM 推理的 3D 交互可视化，逐层查看注意力/FFN/词元流动（WebGL），理解 Transformer 内部机制 | [详情](llm-viz.md) · [官方](https://bbycroft.net/llm) |
 
 ---
 

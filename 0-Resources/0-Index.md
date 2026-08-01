@@ -8,6 +8,7 @@ Quick-lookup index for all collected resources.
 |----------|------|------|
 | [CUDA Programming Guide](1-Official-Docs/cuda-programming-guide.md) | `#cuda #nvidia #gpu` | 2026-04-03 |
 | [vLLM 中文文档](1-Official-Docs/vllm-docs-zh.md) | `#vllm #inference #serving #llm #quantization #lora #documentation #chinese` | 2026-07-07 |
+| [LLM Inference Handbook](1-Official-Docs/llm-inference-handbook.md) | `#inference #handbook #modular #deployment #serving #gpu #optimization #reference` | 2026-08-01 |
 
 ## Papers
 
@@ -49,6 +50,7 @@ _Empty — add your first paper!_
 | [mini-sglang](4-Tools-Frameworks/mini-sglang.md) | `#sglang #inference #framework #llm #serving` | 2026-04-25 |
 | [Open Design](4-Tools-Frameworks/open-design.md) | `#ai-design #open-source #coding-agent #claude-design #local-first` | 2026-05-05 |
 | [InferFlux](4-Tools-Frameworks/inferflux.md) | `#inference #visualization #llm #interactive #simulation #sglang #vllm #threejs` | 2026-08-01 |
+| [LLM Visualization (bbycroft)](4-Tools-Frameworks/llm-viz.md) | `#llm #transformer #visualization #attention #gpt2 #interactive #threejs #interpretability` | 2026-08-01 |
 
 ## Datasets
 
