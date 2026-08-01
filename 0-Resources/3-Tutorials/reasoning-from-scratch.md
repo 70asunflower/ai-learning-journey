@@ -42,4 +42,4 @@ Manning 2025 年出版的 *Build a Reasoning Model (From Scratch)* 官方代码�
 
 ---
 
-*Last updated: 2026-05-07*
+_Last updated: 2026-05-07_

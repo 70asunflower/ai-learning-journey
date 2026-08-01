@@ -1,0 +1,4 @@
+# Normalize line endings to LF across the repo.
+# Prevents the CRLF/LF churn between local (Windows) edits and the Linux CI
+# that regenerates index.html.
+* text=auto eol=lf

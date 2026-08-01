@@ -84,4 +84,4 @@ YouMind 收集整理的 GPT Image 2 提示词库，主要来源于 Twitter/𝕏 
 
 ---
 
-*Last updated: 2026-04-22*
+_Last updated: 2026-04-22_

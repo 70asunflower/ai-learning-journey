@@ -39,4 +39,4 @@ Dive into Deep Learning 是一本由 Amazon/CMU 研究者（Aston Zhang, Zack C.
 
 ---
 
-*Last updated: 2026-05-07*
+_Last updated: 2026-05-07_

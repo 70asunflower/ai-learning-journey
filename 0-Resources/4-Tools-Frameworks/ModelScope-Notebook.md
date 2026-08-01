@@ -52,4 +52,4 @@ ModelScope（魔搭社区）是阿里达摩院开源的 AI 社区平台，提供
 
 ---
 
-*Last updated: 2026-03-31*
+_Last updated: 2026-03-31_

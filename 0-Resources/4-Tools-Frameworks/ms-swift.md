@@ -47,4 +47,4 @@ ms-swift supports 600+ text LLMs and 300+ multi-modal models through the full pi
 
 ---
 
-*Last updated: 2026-03-31*
+_Last updated: 2026-03-31_

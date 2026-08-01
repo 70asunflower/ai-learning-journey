@@ -35,7 +35,7 @@
 - [10 门"地狱级"CS 公开课](0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md) — MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统）
 - [LLM 算法与工程学习路线](0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md) — 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层
 - [JAX Scaling Book](0-Resources/3-Tutorials/jax-scaling-book.md) — JAX 官方 LLM Scaling 实战书籍，分布式训练全链路
-- [Infinitensor 夏立营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
+- [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
 - [Dive into Deep Learning](0-Resources/3-Tutorials/dive-into-deep-learning.md) — 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF）
 - [Build a LLM (From Scratch)](0-Resources/3-Tutorials/llms-from-scratch.md) — Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars）
 - [Build a Reasoning Model (From Scratch)](0-Resources/3-Tutorials/reasoning-from-scratch.md) — Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展）
@@ -226,12 +226,11 @@ ai-learning-journey/
 | 2026-04-21 | Added LLM 算法与工程学习路线 — 算法/训练/推理/评估完整路线 |
 | 2026-04-22 | Added 上海交大学生存手册 — 心态/留学/保研/选课/科研生存指南 |
 | 2026-04-22 | Added GPT Image 2 提示词合集 — 725+ 精选提示词（JSON结构化/参数化模板） |
-| 2026-04-25 | Added JAX Scaling Book / nano-vllm / mini-sglang / Infinitensor 夏立营 — 推理 infra 全栈资源 |
+| 2026-04-25 | Added JAX Scaling Book / nano-vllm / mini-sglang / Infinitensor 冬令营 — 推理 infra 全栈资源 |
 | 2026-03-31 | Added "How to Update" section for agents          |
 | 2026-05-07 | Added Dive into Deep Learning / Build a LLM / Build a Reasoning Model tutorials |
-| 2026-05-07 | Added Open Design — AI 驱动设计工具（13 CLI/31 Skills/129 设计系统） |
+| 2026-05-05 | Added Open Design — AI 驱动设计工具（13 CLI/31 Skills/129 设计系统） |
 | 2026-06-05 | Added 强化学习直观理解 (VZstudio) — 预训练→SFT→RL 三段论 |
 | 2026-06-05 | Added Agent-Learning-Hub (Datawhale) — AI Agent 学习路线 2.9k⭐ |
 | 2026-06-05 | Added 大模型推理系统入门 — 从模型优化到调度优化 |
 | 2026-06-06 | Added AI Infra 其实没有多少新东西 — 腾讯云开发者，附PDF |
-| 2026-06-05 | Added 大模型推理系统入门 — 从模型优化到调度优化 |

@@ -4,7 +4,7 @@ date: 2026-04-25
 tags: [inference, infrastructure, camp, operator, framework, model]
 ---
 
-# Infinitensor 夏立营 2025
+# Infinitensor 冬令营 2025
 
 ## 核心要点（摘要）
 

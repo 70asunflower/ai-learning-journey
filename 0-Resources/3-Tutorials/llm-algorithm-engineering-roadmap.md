@@ -169,4 +169,4 @@ tags: [llm, training, distributed-training, inference, algorithm, engineering, r
 
 ---
 
-*Last updated: 2026-04-21*
+_Last updated: 2026-04-21_

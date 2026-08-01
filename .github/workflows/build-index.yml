@@ -25,6 +25,9 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Consistency check
+        run: python3 scripts/check_consistency.py
+
       - name: Regenerate index.html
         run: python3 scripts/generate_index.py
 

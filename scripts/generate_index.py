@@ -642,7 +642,7 @@ html = (HTML
         .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
 out = ROOT / "index.html"
-out.write_text(html, encoding="utf-8")
+out.write_text(html, encoding="utf-8", newline="\n")
 n_items = sum(len(c["items"]) for c in categories)
 n_tags = len({t for c in categories for it in c["items"] for t in it["tags"]})
 print(f"Wrote {out} — {len(categories)} categories, {n_items} items, {n_tags} tags")

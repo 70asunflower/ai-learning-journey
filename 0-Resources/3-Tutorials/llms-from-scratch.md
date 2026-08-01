@@ -44,4 +44,4 @@ Manning 2024 年出版的 *Build a Large Language Model (From Scratch)* 官方�
 
 ---
 
-*Last updated: 2026-05-07*
+_Last updated: 2026-05-07_
