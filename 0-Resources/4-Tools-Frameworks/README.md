@@ -20,6 +20,7 @@ Commonly used tools, frameworks, and libraries.
 | nano-vllm | 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching） | [详情](nano-vllm.md) · [官方](https://github.com/GeeeekExplorer/nano-vllm) |
 | mini-sglang | 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存） | [详情](mini-sglang.md) · [官方](https://github.com/sgl-project/mini-sglang) |
 | Open Design | Claude Design 开源替代，AI 驱动的 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统） | [详情](open-design.md) · [官方](https://github.com/nexu-io/open-design) |
+| InferFlux | LLM 推理系统可视化交互工具：零依赖单文件 HTML（PD分离模拟/吞吐计算器/3D请求生命周期/GPU集合通信，Three.js） | [详情](inferflux.md) · [官方](https://Abatom.github.io/inferflux/) |
 
 ---
 

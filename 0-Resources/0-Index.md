@@ -48,6 +48,7 @@ _Empty — add your first paper!_
 | [nano-vllm](4-Tools-Frameworks/nano-vllm.md) | `#vllm #inference #framework #llm #serving` | 2026-04-25 |
 | [mini-sglang](4-Tools-Frameworks/mini-sglang.md) | `#sglang #inference #framework #llm #serving` | 2026-04-25 |
 | [Open Design](4-Tools-Frameworks/open-design.md) | `#ai-design #open-source #coding-agent #claude-design #local-first` | 2026-05-05 |
+| [InferFlux](4-Tools-Frameworks/inferflux.md) | `#inference #visualization #llm #interactive #simulation #sglang #vllm #threejs` | 2026-08-01 |
 
 ## Datasets
 
