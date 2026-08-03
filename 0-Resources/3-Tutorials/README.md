@@ -23,6 +23,7 @@ Quality tutorials, blog posts, and video courses.
 | [Modern GPU Programming For MLSys](mlc-modern-gpu-programming.md) | MLC.ai/CMU 出品：Blackwell 架构 GPU Kernel 实战（TMA/Warp Specialization/FlashAttention 4） | 2026-06-25 |
 | [CS336 从零构建语言模型 (中文)](cs336-language-modeling-from-scratch.md) | 斯坦福 CS336 全17讲改编中文通识读本：分词→预训练→对齐，配20+原创图 | 2026-06-28 |
 | [猛猿大模型技术文章导航](mengyuan-llm-articles-index.md) | 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态 | 2026-07-07 |
+| [Infra Seminars 2026](infra-seminars-2026.md) | LCPU 出品 AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL | 2026-08-03 |
 
 ---
 

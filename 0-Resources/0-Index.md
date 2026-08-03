@@ -35,6 +35,7 @@ _Empty — add your first paper!_
 | [Modern GPU Programming For MLSys](3-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #tirx #kernel-optimization #ml-systems` | 2026-06-25 |
 | [CS336 从零构建语言模型 (中文)](3-Tutorials/cs336-language-modeling-from-scratch.md) | `#cs336 #llm #from-scratch #tokenization #pretraining #alignment #chinese-book` | 2026-06-28 |
 | [猛猿大模型技术文章导航](3-Tutorials/mengyuan-llm-articles-index.md) | `#llm #distributed-training #inference #rlhf #diffusion #multimodal #transformer #blog-index #chinese` | 2026-07-07 |
+| [Infra Seminars 2026](3-Tutorials/infra-seminars-2026.md) | `#ai-infra #gpu #cuda #kernel #ml-compiler #tensor-core #llm-inference #rl-systems #course` | 2026-08-03 |
 
 ## Tools & Frameworks
 
@@ -58,4 +59,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-06-28_
+_Last updated: 2026-08-03_
