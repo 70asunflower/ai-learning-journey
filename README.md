@@ -55,7 +55,7 @@
 <summary>4-Tools & Frameworks</summary>
 
 - [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md) — 魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署
-- [ModelScope Notebook 免费试用](0-Resources/4-Tools-Frameworks/ModelScope-Notebook.md) — 魔搭云上开发环境，开箱即用 GPU/CPU，提供免费使用时长
+- [ModelScope Notebook 免费试用](0-Resources/4-Tools-Frameworks/modelscope-notebook.md) — 魔搭云上开发环境，开箱即用 GPU/CPU，提供免费使用时长
 - [TikTokenizer 可视化交互工具](0-Resources/4-Tools-Frameworks/tiktokenizer.md) — 可视化学习 LLM Tokenizer 工作原理的交互工具 (GPT2/CL100K 等编码器)
 - [CanIRun.ai 硬件兼容性检测](0-Resources/4-Tools-Frameworks/canirun.md) — 检测本地 GPU/VRAM/RAM 能跑哪些本地大模型，支持 llama.cpp/Ollama/LM Studio 数据源
 - [LlamaFactory 微调框架](0-Resources/4-Tools-Frameworks/llamafactory.md) — 100+ LLM/VLM 高效微调框架，支持 LoRA/QLoRA/SFT/DPO

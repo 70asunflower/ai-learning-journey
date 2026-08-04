@@ -5,8 +5,8 @@
 ## 文件命名规范
 
 ```
-{ModelName}-{Topic}.md
-例如：Qwen3-VL-Best-Practice.md
+小写、连字符分隔（与根 README "Key Rules" 一致）
+例如：cuda-programming-guide.md / vllm-docs-zh.md / llm-inference-handbook.md
 ```
 
 ## 资源列表

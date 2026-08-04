@@ -74,6 +74,8 @@ def parse_tags(s):
 
 # ---------- disk resources ----------
 disk = {}  # rel -> {title, tags, date, sub}
+# Repo convention (README "Key Rules"): filenames lowercase, hyphen-separated.
+FNAME_OK = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.md$")
 for sub in SUBDIRS:
     d = os.path.join(RES_ROOT, sub)
     if not os.path.isdir(d):
@@ -82,6 +84,8 @@ for sub in SUBDIRS:
         if not fn.endswith(".md") or fn == "README.md":
             continue
         rel = f"0-Resources/{sub}/{fn}"
+        if not FNAME_OK.match(fn):
+            warn(f"{rel}: filename not lowercase-hyphenated (e.g. my-resource.md)")
         with open(os.path.join(d, fn), encoding="utf-8") as f:
             text = f.read()
         fm = parse_frontmatter(text)
@@ -93,6 +97,10 @@ for sub in SUBDIRS:
             warn(f"{rel}: missing '_Last updated: YYYY-MM-DD_' footer")
         if not fm.get("source"):
             warn(f"{rel}: missing 'source' frontmatter")
+        if not fm.get("date"):
+            warn(f"{rel}: missing 'date: YYYY-MM-DD' frontmatter")
+        elif not re.match(r"^\d{4}-\d{2}-\d{2}$", fm.get("date", "")):
+            warn(f"{rel}: 'date' frontmatter not YYYY-MM-DD: {fm.get('date')}")
         disk[rel] = {"title": fm.get("title", ""), "tags": tags, "sub": sub}
 
 

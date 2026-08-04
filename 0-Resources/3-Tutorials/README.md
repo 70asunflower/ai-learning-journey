@@ -12,7 +12,7 @@ Quality tutorials, blog posts, and video courses.
 | [10 门"地狱级"CS 公开课](top-10-hell-level-cs-courses.md) | MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统） | 2026-04-21 |
 | [LLM 算法与工程学习路线](llm-algorithm-engineering-roadmap.md) | 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层 | 2026-04-21 |
 | [JAX Scaling Book](jax-scaling-book.md) | JAX 官方 LLM Scaling 实战书籍，分布式训练全链路 | 2026-04-25 |
-| [Infinitensor 夏立营 2025](infinitensor-winter-camp-2025.md) | 推理 infra 全栈训练营，覆盖模型层/框架层/算子层 | 2026-04-25 |
+| [Infinitensor 冬令营 2025](infinitensor-winter-camp-2025.md) | 推理 infra 全栈训练营，覆盖模型层/框架层/算子层 | 2026-04-25 |
 | [Dive into Deep Learning](dive-into-deep-learning.md) | 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF） | 2026-05-07 |
 | [Build a LLM (From Scratch)](llms-from-scratch.md) | Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars） | 2026-05-07 |
 | [Build a Reasoning Model (From Scratch)](reasoning-from-scratch.md) | Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展） | 2026-05-07 |

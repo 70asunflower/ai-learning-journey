@@ -57,7 +57,7 @@ TIRx 语言参考与编译器内部实现。
 - [CUDA Programming Guide](../1-Official-Docs/cuda-programming-guide.md) — GPU 编程基础，本课程的前置知识
 - [AI Infra 其实没有多少新东西](ai-infra-nothing-new.md) — AI Infra 全局视角，GPU 算子是其中关键一环
 - [大模型推理系统入门](llm-inference-system-intro.md) — 推理系统宏观视角，与本书的 Kernel 级优化互补
-- [Infinitensor 夏立营 2025](infinitensor-winter-camp-2025.md) — 覆盖推理 Infra 的算子层实战
+- [Infinitensor 冬令营 2025](infinitensor-winter-camp-2025.md) — 覆盖推理 Infra 的算子层实战
 
 ## 个人备注
 

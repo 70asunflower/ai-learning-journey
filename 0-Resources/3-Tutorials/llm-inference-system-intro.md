@@ -43,8 +43,8 @@ tags: [llm-inference, vllm, sglang, kv-cache, continuous-batching, speculation, 
 
 此文章的系统级视角与以下资源互补：
 
-- [nano-vllm](https://github.com/70asunflower/ai-learning-journey/blob/main/0-Resources/4-Tools-Frameworks/nano-vllm.md) — vLLM 核心原理（PagedAttention / Continuous Batching）极简实现
-- [mini-sglang](https://github.com/70asunflower/ai-learning-journey/blob/main/0-Resources/4-Tools-Frameworks/mini-sglang.md) — SGLang 另一技术路线（RadixAttention / 前缀缓存）
-- [Infinitensor 夏立营 2025](https://github.com/70asunflower/ai-learning-journey/blob/main/0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营
+- [nano-vllm](https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/nano-vllm.md) — vLLM 核心原理（PagedAttention / Continuous Batching）极简实现
+- [mini-sglang](https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/4-Tools-Frameworks/mini-sglang.md) — SGLang 另一技术路线（RadixAttention / 前缀缓存）
+- [Infinitensor 冬令营 2025](https://github.com/70asunflower/ai-learning-journey/blob/master/0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营
 
 _Last updated: 2026-06-05_

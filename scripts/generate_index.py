@@ -245,6 +245,20 @@ main{padding:6px 0 60px}
 .card .tag{font-size:11px;color:var(--accent);background:transparent;border:1px solid var(--border);padding:1px 8px;border-radius:6px}
 .card .idx{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--accent);
   border:1px solid var(--accent);padding:1px 7px;border-radius:5px}
+.card .ext{font-size:10px;font-weight:600;color:var(--muted);
+  border:1px solid var(--border);padding:1px 6px;border-radius:5px;background:transparent}
+.card:hover .ext{color:var(--accent);border-color:var(--accent)}
+/* reader copy-link button */
+.copy-link{font-size:12px;color:var(--accent);border:1px solid var(--border);background:transparent;
+  border-radius:6px;padding:5px 11px;cursor:pointer;transition:.15s;margin-left:auto}
+.copy-link:hover{border-color:var(--accent)}
+.copy-link.done{color:var(--tk-str);border-color:var(--tk-str)}
+/* back to top */
+#backTop{position:fixed;right:22px;bottom:22px;z-index:40;width:38px;height:38px;border-radius:9px;
+  border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:16px;
+  cursor:pointer;opacity:0;pointer-events:none;transition:.2s;line-height:1}
+#backTop.show{opacity:1;pointer-events:auto}
+#backTop:hover{border-color:var(--accent);color:var(--accent)}
 .empty{text-align:center;color:var(--muted);padding:50px 0;font-size:15px}
 footer{border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;padding:24px 0 44px}
 footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(--text);border:1px solid var(--border)}
@@ -344,10 +358,13 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   <div class="reader-bar">
     <button class="x" id="readerX" title="关闭">×</button>
     <span class="ttl" id="readerTitle"></span>
+    <button class="copy-link" id="readerCopy" title="复制当前资源链接" type="button">复制链接</button>
     <a class="gh" id="readerGh" href="#" target="_blank" rel="noopener">在 GitHub 查看 ↗</a>
   </div>
   <div class="content" id="readerContent"></div>
 </div>
+
+<button id="backTop" title="回到顶部" type="button">↑</button>
 
 <script>
 const DATA = __DATA__;
@@ -389,11 +406,12 @@ function tagChips(tags) {
 
 function cardHTML(it) {
   const idx = it.index ? '<span class="idx">INDEX</span>' : "";
+  const extBadge = it.external ? '<span class="ext" title="外部链接，新窗口打开">EXT</span>' : "";
   const desc = it.desc ? `<div class="d">${esc(it.desc)}</div>` : "";
   const date = it.date ? `<div class="date">📅 ${esc(it.date)}</div>` : "";
   const ext = it.external ? ' target="_blank" rel="noopener"' : '';
   return `<a class="card" href="${esc(it.github)}" data-path="${esc(it.path)}" data-title="${esc(it.title)}" data-gh="${esc(it.github)}" data-ext="${it.external ? 1 : 0}"${ext}>
-    <div class="t">${idx}${esc(it.title)}<span class="arrow">↗</span></div>
+    <div class="t">${idx}${extBadge}${esc(it.title)}<span class="arrow">↗</span></div>
     ${desc}${date}${tagChips(it.tags)}</a>`;
 }
 
@@ -546,6 +564,39 @@ function closeReader() {
   else { reader.classList.remove("open"); document.body.style.overflow = ""; }
 }
 readerX.addEventListener("click", closeReader);
+
+/* copy deep link of the current resource */
+const readerCopy = document.getElementById("readerCopy");
+function copyCurrentLink() {
+  if (!currentPath) return;
+  const link = location.origin + location.pathname +
+    "#view/" + encodeURIComponent(currentPath) + "|" + encodeURIComponent(readerTitle.textContent || "");
+  const done = () => {
+    readerCopy.textContent = "已复制 ✓";
+    readerCopy.classList.add("done");
+    setTimeout(() => { readerCopy.textContent = "复制链接"; readerCopy.classList.remove("done"); }, 1400);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(link).then(done).catch(() => { fallbackCopy(link); done(); });
+  } else { fallbackCopy(link); done(); }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+readerCopy.addEventListener("click", copyCurrentLink);
+
+/* back to top */
+const backTop = document.getElementById("backTop");
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("show", window.scrollY > 600);
+}, { passive: true });
+backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 readerContent.addEventListener("scroll", () => {
   const max = readerContent.scrollHeight - readerContent.clientHeight;
   readerProgress.style.width = (max > 0 ? (readerContent.scrollTop / max) * 100 : 0) + "%";
@@ -609,6 +660,7 @@ window.addEventListener("keydown", e => {
   }
   if (!reader.classList.contains("open")) return;
   if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName) || e.target.isContentEditable) return;
+  if (e.key === "c" || e.key === "C") { copyCurrentLink(); return; }
   if (e.key === "j" || e.key === "ArrowRight") {
     const i = NAV_ITEMS.findIndex(it => it.path === currentPath);
     if (i >= 0 && i < NAV_ITEMS.length - 1) { e.preventDefault(); openReader(NAV_ITEMS[i + 1].path, NAV_ITEMS[i + 1].title); }
