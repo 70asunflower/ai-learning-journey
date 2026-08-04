@@ -30,16 +30,21 @@ Two entry types behave differently and must not be confused:
 
 ## Critical Operational Notes (read before acting)
 
-1. **`gh` CLI is BROKEN in the WorkBuddy sandbox** — its cached token is invalid
-   (`gh auth status` → "token in default is invalid"). Do **NOT** use `gh clone`,
-   `gh api`, `gh pr`, etc. Git push/pull works because Windows Credential Manager
-   holds a valid OAuth token. Push via the credential helper, never via `gh`.
-2. **Push via cached GCM credential** (non-interactive, token never persisted to
-   `.git/config`):
+1. **`gh` CLI is logged in and VALID in the WorkBuddy sandbox** (verified 2026-07-23
+   and used for every successful push since): `gh auth status` reports valid with
+   `repo` scope. Use it as the git credential helper for push/pull:
+   `git -c credential.helper="!gh auth git-credential" push origin master`.
+   Do **NOT** use the Windows GCM token approach below — in the sandbox, reading
+   GCM credentials is blocked, so it fails; `gh` is the reliable path.
+2. **Push via the `gh` credential helper** (non-interactive, token never persisted
+   to `.git/config`):
    ```bash
-   TOKEN=$(printf 'protocol=https\nhost=github.com\n' | git -c credential.helper=manager credential fill 2>/dev/null | sed -n 's/^password=//p')
-   git -c "url.https://70asunflower:$TOKEN@github.com/.insteadOf=https://github.com/" push origin master
+   git -c credential.helper="!gh auth git-credential" push origin master
    ```
+   If push fails with `schannel: failed to receive handshake` (intermittent TLS
+   flakiness), retry with the openssl backend:
+   `git -c http.sslBackend=openssl -c credential.helper="!gh auth git-credential" push origin master`
+   (large payloads may need a retry; the 2nd attempt usually succeeds).
    Always verify `git remote -v` shows a clean `https://github.com/...` (no token).
 3. **Generator is idempotent and only reads the Resources block.** After any change,
    re-run `python scripts/generate_index.py`. For a Resource add, `index.html`
@@ -97,6 +102,9 @@ File: `0-Resources/0-Index.md`
 Add a row under the matching category section:
 `| [<Display Name>](<subfolder>/<name>.md) | #tag1 #tag2 #tag3 | YYYY-MM-DD |`
 Paths are relative to `0-Resources/`. Add the section if missing.
+**Then bump the `_Last updated: YYYY-MM-DD_` footer at the bottom of the file**
+(it is the source of the `generated` date in `index.html`; `check_consistency.py`
+errors if it is missing, so always keep it current).
 
 ### 4. Update root wiki nav + changelog
 File: `README.md` (repo root).
@@ -109,7 +117,8 @@ File: `README.md` (repo root).
 ### 5. Regenerate, commit, push
 Run `python scripts/generate_index.py`; `index.html` SHOULD change. Stage all
 changed files (detail file, subfolder README, `0-Index.md`, root `README.md`,
-`index.html`), commit, push via the GCM credential (see Operational Note 2).
+`index.html`), commit, push via the `gh` credential helper (see Operational
+Note 2).
 
 ## Workflow B — Add a Note (3 places + regen + push)
 
@@ -143,15 +152,15 @@ File: `README.md` (repo root).
 ### 4. Regenerate, commit, push
 Run `python scripts/generate_index.py`; `index.html` should be **unchanged**
 (notes are not web-indexed). Stage the detail file, folder README, and root
-`README.md`; commit; push via GCM credential. Do **not** invent an `index.html`
-diff.
+`README.md`; commit; push via the `gh` credential helper (see Operational
+Note 2). Do **not** invent an `index.html` diff.
 
 ## Verification Checklist
 
 - [ ] Detail file present with correct frontmatter + `_Last updated:` line.
 - [ ] Subfolder README updated.
 - [ ] Root `README.md` nav + changelog updated.
-- [ ] For Resources: `0-Resources/0-Index.md` updated AND `index.html` regenerated.
+- [ ] For Resources: `0-Resources/0-Index.md` updated (row AND `_Last updated` footer) AND `index.html` regenerated.
 - [ ] For Notes: `index.html` confirmed unchanged (no spurious diff).
 - [ ] `git remote -v` clean (no embedded token) before/after push.
 - [ ] Push succeeded to `origin/master`.
@@ -161,4 +170,4 @@ diff.
 - `references/repo-structure.md` — verified folder tree, README block line map,
   `0-Index.md` row format, and frontmatter examples for both schemas.
 - `scripts/publish.sh <repo-path> "<commit-message>"` — regenerates `index.html`,
-  stages, commits, and pushes via the cached GCM credential in one call.
+  stages, commits, and pushes via the `gh` credential helper in one call.

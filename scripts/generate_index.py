@@ -21,28 +21,18 @@ import subprocess
 
 
 def generated_date() -> str:
-    """Stable 'last updated' date from the latest commit touching README/0-Resources.
+    """Stable 'last updated' date from the 0-Index.md `_Last updated` footer.
 
-    Uses git history instead of today() so regeneration commits are idempotent and
-    the GitHub Actions workflow does not loop forever.
+    The footer is hand-maintained and changes together with resource content,
+    so reading it (instead of git history or today()) makes regeneration
+    byte-identical no matter when/where it runs (local before commit, CI after
+    commit). This is what keeps the CI auto-commit loop-free and noise-free.
     """
     try:
-        out = subprocess.run(
-            ["git", "log", "-1", "--format=%cd", "--date=short",
-             "--", "README.md", "0-Resources"],
-            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
-            capture_output=True, text=True, timeout=20)
-        if out.returncode == 0 and out.stdout.strip():
-            return out.stdout.strip()
-    except Exception:
-        pass
-    try:
-        head = subprocess.run(
-            ["git", "log", "-1", "--format=%cd", "--date=short"],
-            cwd=str(pathlib.Path(__file__).resolve().parent.parent),
-            capture_output=True, text=True, timeout=20)
-        if head.returncode == 0 and head.stdout.strip():
-            return head.stdout.strip()
+        idx = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
+        m = re.search(r"_Last updated:\s*(\d{4}-\d{2}-\d{2})_", idx)
+        if m:
+            return m.group(1)
     except Exception:
         pass
     return datetime.date.today().isoformat()
@@ -97,7 +87,7 @@ for line in index_md.splitlines():
     if not lm:
         continue
     path = normalize(lm.group(1))
-    tags = re.findall(r"#([\w\-]+)", cells[1])
+    tags = re.findall(r"#([\w\-.]+)", cells[1])
     tags_by_path[path] = tags
     if len(cells) >= 3:
         dates_by_path[path] = cells[2].strip()
@@ -385,19 +375,25 @@ const NAV_ITEMS = [];
 DATA.categories.forEach(c => c.items.forEach(it => { if (!it.external) NAV_ITEMS.push(it); }));
 let currentPath = "";
 
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
 function tagChips(tags) {
   if (!tags.length) return "";
   return '<div class="tags">' + tags.map(t =>
-    `<span class="tag">#${t}</span>`).join("") + "</div>";
+    `<span class="tag">#${esc(t)}</span>`).join("") + "</div>";
 }
 
 function cardHTML(it) {
   const idx = it.index ? '<span class="idx">INDEX</span>' : "";
-  const desc = it.desc ? `<div class="d">${it.desc}</div>` : "";
-  const date = it.date ? `<div class="date">📅 ${it.date}</div>` : "";
+  const desc = it.desc ? `<div class="d">${esc(it.desc)}</div>` : "";
+  const date = it.date ? `<div class="date">📅 ${esc(it.date)}</div>` : "";
   const ext = it.external ? ' target="_blank" rel="noopener"' : '';
-  return `<a class="card" href="${it.github}" data-path="${it.path}" data-title="${it.title}" data-gh="${it.github}" data-ext="${it.external ? 1 : 0}"${ext}>
-    <div class="t">${idx}${it.title}<span class="arrow">↗</span></div>
+  return `<a class="card" href="${esc(it.github)}" data-path="${esc(it.path)}" data-title="${esc(it.title)}" data-gh="${esc(it.github)}" data-ext="${it.external ? 1 : 0}"${ext}>
+    <div class="t">${idx}${esc(it.title)}<span class="arrow">↗</span></div>
     ${desc}${date}${tagChips(it.tags)}</a>`;
 }
 
@@ -413,7 +409,7 @@ function renderTags() {
   if (sortedTags.length === 0) { tagbar.style.display = "none"; return; }
   tagbar.innerHTML = sortedTags.map(t => {
     const active = state.tags.has(t) ? " active" : "";
-    return `<span class="chip${active}" data-t="${t}">#${t}</span>`;
+    return `<span class="chip${active}" data-t="${esc(t)}">#${esc(t)}</span>`;
   }).join("");
   tagbar.querySelectorAll(".chip").forEach(el => {
     el.onclick = () => {
@@ -431,7 +427,7 @@ function render() {
     const items = c.items.filter(visible);
     if (!items.length) return;
     total += items.length;
-    html += `<section class="sec"><h2>${c.name}<span class="cnt">${items.length}</span></h2>
+    html += `<section class="sec"><h2>${esc(c.name)}<span class="cnt">${items.length}</span></h2>
       <div class="grid">${items.map(cardHTML).join("")}</div></section>`;
   });
   app.innerHTML = html;

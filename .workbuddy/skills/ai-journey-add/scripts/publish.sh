@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # publish.sh — regenerate index.html, commit, and push an ai-learning-journey update
-# in one call. Push uses the cached Windows Credential Manager token (gh is broken
-# in the sandbox), injected via a one-shot insteadOf so it never lands in .git/config.
+# in one call. Push uses the gh CLI as the git credential helper (logged in & valid
+# in the WorkBuddy sandbox since 2026-07-23); falls back to the openssl backend on
+# the intermittent schannel TLS failure. The token never lands in .git/config.
 #
 # Usage:  bash publish.sh <repo-path> "<commit message>"
-# Requires: git, and a python interpreter (override with $PYTHON).
+# Requires: git, gh (logged in), and a python interpreter (override with $PYTHON).
 
 set -euo pipefail
 
@@ -34,17 +35,17 @@ echo "==> commit"
 git -c user.name="70asunflower" -c user.email="1982043113@qq.com" \
   commit -m "$MSG" 2>&1 | tail -6 || echo "NOTE: nothing to commit"
 
-echo "==> extracting cached GCM credential (token not persisted)"
-TOKEN=$(printf 'protocol=https\nhost=github.com\n' | git -c credential.helper=manager credential fill 2>/dev/null | sed -n 's/^password=//p')
-if [ -z "$TOKEN" ]; then
-  echo "ERROR: could not retrieve credential from Git Credential Manager."
-  echo "       Fix on host PC: gh auth login, or ensure a github.com credential exists."
-  exit 1
+echo "==> pushing via gh credential helper"
+GH_PUSH() {
+  git -c credential.helper="!gh auth git-credential" \
+    push origin "$(git branch --show-current)" 2>&1 | tail -12
+}
+if ! GH_PUSH; then
+  echo "==> gh-helper push failed; retrying with openssl backend (schannel workaround)"
+  git -c http.sslBackend=openssl -c credential.helper="!gh auth git-credential" \
+    push origin "$(git branch --show-current)" 2>&1 | tail -12 \
+    || { echo "ERROR: push failed on both attempts"; exit 1; }
 fi
-
-echo "==> pushing via insteadOf rewrite"
-git -c "url.https://70asunflower:$TOKEN@github.com/.insteadOf=https://github.com/" \
-  push origin "$(git branch --show-current)" 2>&1 | tail -12
 
 echo "==> remote URL (must be clean, no token):"
 git remote -v

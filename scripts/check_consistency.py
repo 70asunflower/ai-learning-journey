@@ -101,19 +101,26 @@ index_entries = {}  # normalized rel -> {tags}
 idx_path = os.path.join(RES_ROOT, "0-Index.md")
 if os.path.isfile(idx_path):
     with open(idx_path, encoding="utf-8") as f:
-        for line in f:
-            s = line.strip()
-            if not s.startswith("|"):
-                continue
-            cells = [c.strip() for c in s.strip("|").split("|")]
-            if len(cells) < 3:
-                continue
-            m = re.match(r"^\[([^\]]+)\]\(([^)]+)\)$", cells[0])
-            if not m:
-                continue
-            relp = "0-Resources/" + m.group(2).strip()
-            tags = [_clean_tag(t) for t in cells[1].split() if t.strip()]
-            index_entries[relp] = {"tags": tags}
+        idx_text = f.read()
+    # The `_Last updated` footer is the source of the generated date in
+    # index.html (generate_index.generated_date reads it). If it is missing,
+    # the generator falls back to today() -> CI would produce a diff every run.
+    if not re.search(r"_Last updated:\s*\d{4}-\d{2}-\d{2}_", idx_text):
+        err("0-Resources/0-Index.md: missing '_Last updated: YYYY-MM-DD_' footer "
+            "(required: index.html generated date is derived from it)")
+    for line in idx_text.splitlines():
+        s = line.strip()
+        if not s.startswith("|"):
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        m = re.match(r"^\[([^\]]+)\]\(([^)]+)\)$", cells[0])
+        if not m:
+            continue
+        relp = "0-Resources/" + m.group(2).strip()
+        tags = [_clean_tag(t) for t in cells[1].split() if t.strip()]
+        index_entries[relp] = {"tags": tags}
 
 # ---------- subfolder READMEs ----------
 sub_entries = {sub: set() for sub in SUBDIRS}

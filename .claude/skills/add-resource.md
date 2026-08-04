@@ -60,6 +60,9 @@ Add a row under the correct category section:
 ```
 
 Paths are **relative to `0-Resources/`**. If the target section doesn't exist, add it.
+**Then bump the `_Last updated: YYYY-MM-DD_` footer at the bottom of the file**
+(it is the source of the `generated` date in `index.html`; `check_consistency.py`
+errors if it is missing, so always keep it current).
 
 ### 4. Update wiki navigation
 
