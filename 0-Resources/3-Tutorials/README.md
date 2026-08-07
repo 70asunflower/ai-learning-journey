@@ -24,6 +24,7 @@ Quality tutorials, blog posts, and video courses.
 | [CS336 从零构建语言模型 (中文)](cs336-language-modeling-from-scratch.md) | 斯坦福 CS336 全17讲改编中文通识读本：分词→预训练→对齐，配20+原创图 | 2026-06-28 |
 | [猛猿大模型技术文章导航](mengyuan-llm-articles-index.md) | 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态 | 2026-07-07 |
 | [Infra Seminars 2026](infra-seminars-2026.md) | LCPU 出品 AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL | 2026-08-03 |
+| [The Ultra-Scale Playbook](ultrascale-playbook.md) | HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度） | 2026-08-07 |
 
 ---
 

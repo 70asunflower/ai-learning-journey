@@ -47,6 +47,7 @@
 - [CS336 从零构建语言模型 (中文)](0-Resources/3-Tutorials/cs336-language-modeling-from-scratch.md) — 斯坦福 CS336 全17讲中文通识读本：分词→预训练→对齐
 - [猛猿大模型技术文章导航](0-Resources/3-Tutorials/mengyuan-llm-articles-index.md) — 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态
 - [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md) — LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL
+- [The Ultra-Scale Playbook](0-Resources/3-Tutorials/ultrascale-playbook.md) — HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度）
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -215,6 +216,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-08-07 | Added The Ultra-Scale Playbook — HF/nanotron LLM 训练扩展实战：单卡→512 GPU 的 DP/TP/PP/CP/EP + ZeRO + 混合精度 |
 | 2026-08-03 | Added Infra Seminars 2026 — LCPU AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL |
 | 2026-08-01 | Added LLM Visualization (bbycroft) — GPT 风格 LLM 推理 3D 交互可视化（注意力/FFN/词元流动） |
 | 2026-08-01 | Added LLM Inference Handbook (Modular) — 官方 LLM 推理手册：概念/指标/优化/GPU架构/部署（含交互计算器） |
