@@ -336,6 +336,24 @@ footer code{background:var(--card);padding:2px 7px;border-radius:5px;color:var(-
 [data-theme="dark"] #filewarn code{background:#1b1b1d;border-color:#5a4420}
 [data-theme="dark"] #filewarn a{color:#e6c089}
 
+/* card tag: click to filter */
+.card .tag{cursor:pointer;transition:.15s}
+.card .tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* search keyword highlight */
+mark{background:rgba(255,213,0,.38);color:inherit;border-radius:2px;padding:0 1px}
+[data-theme="dark"] mark{background:rgba(255,193,7,.32)}
+
+/* reader floating TOC */
+.toc{position:fixed;right:16px;top:110px;width:210px;max-height:calc(100vh - 150px);overflow-y:auto;
+  font-size:12px;display:none;z-index:55;border-left:1px solid var(--border);padding-left:10px}
+.toc.show{display:block}
+.toc .toc-t{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px}
+.toc a{display:block;padding:2.5px 0;color:var(--muted);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc a:hover{color:var(--accent)}
+.toc a.lvl3{padding-left:12px;font-size:11.5px}
+@media (max-width:1330px){.toc{display:none!important}}
+
 /* smooth theme transition */
 body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   {transition:background-color .2s ease,color .2s ease,border-color .2s ease}
@@ -401,7 +419,24 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
 const DATA = __DATA__;
 const LIVE = "__LIVE__";
 const PAGES = "__PAGES_URL__";
-const state = { q: "", tags: new Set(), sort: "default", tagMode: "or" };
+const _up = (() => { try { return new URLSearchParams(location.search); } catch (e) { return new URLSearchParams(); } })();
+const state = {
+  q: (_up.get("q") || "").trim().toLowerCase(),
+  tags: new Set((_up.get("tags") || "").split(",").map(s => s.trim()).filter(Boolean)),
+  sort: ["default", "date", "name"].includes(_up.get("sort")) ? _up.get("sort") : "default",
+  tagMode: _up.get("mode") === "and" ? "and" : "or"
+};
+function syncURL() {
+  try {
+    const p = new URLSearchParams();
+    if (state.q) p.set("q", state.q);
+    if (state.tags.size) p.set("tags", [...state.tags].join(","));
+    if (state.sort !== "default") p.set("sort", state.sort);
+    if (state.tagMode !== "or") p.set("mode", state.tagMode);
+    const qs = p.toString();
+    history.replaceState(null, "", qs ? "?" + qs + location.hash : location.pathname + location.hash);
+  } catch (e) {}
+}
 function isFileProtocol() { return location.protocol === "file:"; }
 
 const tagCounts = {};
@@ -435,17 +470,29 @@ function esc(s) {
 function tagChips(tags) {
   if (!tags.length) return "";
   return '<div class="tags">' + tags.map(t =>
-    `<span class="tag">#${esc(t)}</span>`).join("") + "</div>";
+    `<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("") + "</div>";
+}
+
+/* highlight search keywords (input already-escaped text) */
+function hi(s) {
+  const e = esc(s);
+  if (!state.q) return e;
+  const terms = state.q.split(/\s+/).filter(Boolean);
+  if (!terms.length) return e;
+  let re;
+  try { re = new RegExp("(" + terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi"); }
+  catch (err) { return e; }
+  return e.replace(re, "<mark>$1</mark>");
 }
 
 function cardHTML(it, cat) {
   const idx = it.index ? '<span class="idx">INDEX</span>' : "";
   const extBadge = it.external ? '<span class="ext" title="外部链接，新窗口打开">EXT</span>' : "";
-  const desc = it.desc ? `<div class="d">${esc(it.desc)}</div>` : "";
+  const desc = it.desc ? `<div class="d">${hi(it.desc)}</div>` : "";
   const date = it.date ? `<div class="date">📅 ${esc(it.date)}</div>` : "";
   const ext = it.external ? ' target="_blank" rel="noopener"' : '';
   return `<a class="card" style="--cat:${esc(cat)}" href="${esc(it.github)}" data-path="${esc(it.path)}" data-title="${esc(it.title)}" data-gh="${esc(it.github)}" data-ext="${it.external ? 1 : 0}"${ext}>
-    <div class="t">${idx}${extBadge}${esc(it.title)}<span class="arrow">↗</span></div>
+    <div class="t">${idx}${extBadge}${hi(it.title)}<span class="arrow">↗</span></div>
     ${desc}${date}${tagChips(it.tags)}</a>`;
 }
 
@@ -517,11 +564,32 @@ function render() {
   search.placeholder = state.q
     ? `搜索: "${state.q}" — 找到 ${total} 条`
     : "搜索资源 / 描述 / 标签…";
+  syncURL();
+}
+
+/* if an active chip ended up inside the collapsed "更多" section, expand it */
+function ensureActiveChipsVisible() {
+  const restEl = tagbar.querySelector(".tag-rest");
+  if (restEl && restEl.style.display === "none" && restEl.querySelector(".chip.active")) {
+    restEl.style.display = "inline";
+    const moreBtn = tagbar.querySelector("[data-more]");
+    if (moreBtn) moreBtn.textContent = "收起 ▴";
+  }
 }
 
 app.addEventListener("click", e => {
   const card = e.target.closest(".card");
   if (!card) return;
+  /* clicking a tag on a card filters by that tag instead of navigating */
+  const tagEl = e.target.closest(".tag");
+  if (tagEl && tagEl.dataset.t) {
+    e.preventDefault();
+    const t = tagEl.dataset.t;
+    if (state.tags.has(t)) state.tags.delete(t); else state.tags.add(t);
+    renderTags(); ensureActiveChipsVisible(); render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   if (card.dataset.ext === "1") return; /* external link: let browser open */
   e.preventDefault();
   currentGithub = card.dataset.gh;
@@ -580,6 +648,26 @@ function renderMD(md, base) {
   return div.innerHTML;
 }
 const _mdCache = new Map();
+/* floating TOC built from h2/h3 of the loaded document */
+function tocEl() { let t = document.getElementById("readerToc"); if (!t) { t = document.createElement("div"); t.id = "readerToc"; t.className = "toc"; document.body.appendChild(t); } return t; }
+function hideTOC() { tocEl().classList.remove("show"); }
+function buildTOC() {
+  const toc = tocEl();
+  const hs = [...readerContent.querySelectorAll("h2, h3")];
+  if (hs.length < 3) { toc.classList.remove("show"); return; }
+  hs.forEach((h, i) => { h.dataset.toc = i; });
+  toc.innerHTML = '<div class="toc-t">目录</div>' + hs.map((h, i) =>
+    `<a class="${h.tagName === "H3" ? "lvl3" : ""}" data-i="${i}" title="${esc(h.textContent.trim())}">${esc(h.textContent.trim())}</a>`).join("");
+  toc.classList.add("show");
+  toc.querySelectorAll("a").forEach(a => {
+    a.onclick = () => {
+      const h = hs[+a.dataset.i];
+      if (!h) return;
+      const top = h.getBoundingClientRect().top - readerContent.getBoundingClientRect().top + readerContent.scrollTop - 20;
+      readerContent.scrollTo({ top, behavior: "smooth" });
+    };
+  });
+}
 function openReader(path, title) {
   location.hash = "view/" + encodeURIComponent(path) + "|" + encodeURIComponent(title || "");
 }
@@ -590,10 +678,12 @@ async function showReader(path, title) {
   readerGh.href = currentGithub;
   currentPath = path;
   readerProgress.style.width = "0%";
+  hideTOC();
   const cached = _mdCache.get(path);
   if (cached) {
     readerContent.innerHTML = cached;
     readerContent.scrollTop = 0;
+    buildTOC();
     return;
   }
   readerContent.innerHTML = '<div class="loading">加载中…</div>';
@@ -605,6 +695,7 @@ async function showReader(path, title) {
     _mdCache.set(path, html);
     readerContent.innerHTML = html;
     readerContent.scrollTop = 0;
+    buildTOC();
   } catch (e) {
     if (isFileProtocol()) {
       readerContent.innerHTML = '<div class="fallback">'
@@ -622,6 +713,7 @@ async function showReader(path, title) {
   }
 }
 function closeReader() {
+  hideTOC();
   if (location.hash) location.hash = "";
   else { reader.classList.remove("open"); document.body.style.overflow = ""; }
 }
@@ -685,6 +777,7 @@ window.addEventListener("hashchange", () => {
     }
     showReader(path, title);
   } else {
+    hideTOC();
     reader.classList.remove("open");
     document.body.style.overflow = "";
   }
@@ -727,8 +820,13 @@ if (tagModeBtn) tagModeBtn.onclick = () => {
   applyTheme(t);
 })();
 
-search.addEventListener("input", e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+search.addEventListener("input", e => {
+  clearTimeout(search._t);
+  const v = e.target.value;
+  search._t = setTimeout(() => { state.q = v.trim().toLowerCase(); render(); }, 150);
+});
 window.addEventListener("keydown", e => {
+  if (e.key === "Escape" && reader.classList.contains("open")) { e.preventDefault(); closeReader(); return; }
   if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName) && !e.target.isContentEditable) {
     e.preventDefault();
     search.focus();
@@ -752,6 +850,14 @@ if (statsEl) {
   const totalItems = DATA.categories.reduce((s, c) => s + c.items.length, 0);
   statsEl.innerHTML = `<span><b>${totalItems}</b> 资源</span><span><b>${sortedTags.length}</b> 标签</span><span><b>${DATA.generated}</b> 更新</span>`;
 }
+/* restore UI state from URL (search box value, active sort button, tag-mode label) */
+(function initFromURL() {
+  try {
+    search.value = _up.get("q") || "";
+    document.querySelectorAll(".sortbtn").forEach(b => b.classList.toggle("active", b.dataset.sort === state.sort));
+    if (tagModeBtn) tagModeBtn.textContent = "匹配：" + (state.tagMode === "or" ? "任一" : "全部");
+  } catch (e) {}
+})();
 renderTags();
 render();
 </script>
