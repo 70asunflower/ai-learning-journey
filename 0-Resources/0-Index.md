@@ -37,6 +37,7 @@ _Empty — add your first paper!_
 | [猛猿大模型技术文章导航](3-Tutorials/mengyuan-llm-articles-index.md) | `#llm #distributed-training #inference #rlhf #diffusion #multimodal #transformer #blog-index #chinese` | 2026-07-07 |
 | [Infra Seminars 2026](3-Tutorials/infra-seminars-2026.md) | `#ai-infra #gpu #cuda #kernel #ml-compiler #tensor-core #llm-inference #rl-systems #course` | 2026-08-03 |
 | [The Ultra-Scale Playbook](3-Tutorials/ultrascale-playbook.md) | `#distributed-training #llm-training #parallelism #tensor-parallelism #pipeline-parallelism #data-parallelism #zero #context-parallelism #moe #mixed-precision #gpu #scaling #book #huggingface` | 2026-08-07 |
+| [MIT 6.5840 (原 6.824) 分布式系统](3-Tutorials/mit-65840-distributed-systems.md) | `#distributed-systems #raft #mapreduce #go #fault-tolerance #replication #consistency #mit #course` | 2026-09-01 |
 
 ## Tools & Frameworks
 
@@ -60,4 +61,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-08-07_
+_Last updated: 2026-09-01_

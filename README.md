@@ -48,6 +48,7 @@
 - [猛猿大模型技术文章导航](0-Resources/3-Tutorials/mengyuan-llm-articles-index.md) — 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态
 - [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md) — LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL
 - [The Ultra-Scale Playbook](0-Resources/3-Tutorials/ultrascale-playbook.md) — HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度）
+- [MIT 6.5840 (原 6.824) 分布式系统](0-Resources/3-Tutorials/mit-65840-distributed-systems.md) — MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -216,6 +217,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-09-01 | Added MIT 6.5840 (原 6.824) 分布式系统 — Raft/MapReduce/一致性，5 个 Go lab，AI Infra 系统课地基 |
 | 2026-08-07 | Added The Ultra-Scale Playbook — HF/nanotron LLM 训练扩展实战：单卡→512 GPU 的 DP/TP/PP/CP/EP + ZeRO + 混合精度 |
 | 2026-08-03 | Added Infra Seminars 2026 — LCPU AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL |
 | 2026-08-01 | Added LLM Visualization (bbycroft) — GPT 风格 LLM 推理 3D 交互可视化（注意力/FFN/词元流动） |
