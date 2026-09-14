@@ -26,6 +26,8 @@ Quality tutorials, blog posts, and video courses.
 | [Infra Seminars 2026](infra-seminars-2026.md) | LCPU 出品 AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL | 2026-08-03 |
 | [The Ultra-Scale Playbook](ultrascale-playbook.md) | HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度） | 2026-08-07 |
 | [MIT 6.5840 (原 6.824) 分布式系统](mit-65840-distributed-systems.md) | MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab，容错/复制/一致性三大主线 | 2026-09-01 |
+| [深入理解 AI Infra](bojieli-ai-infra-book.md) | 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度 | 2026-09-14 |
+| [深入理解 AI Agent](bojieli-ai-agent-book.md) | 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力，每章配实验 | 2026-09-14 |
 
 ---
 

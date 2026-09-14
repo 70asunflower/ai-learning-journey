@@ -38,6 +38,8 @@ _Empty — add your first paper!_
 | [Infra Seminars 2026](3-Tutorials/infra-seminars-2026.md) | `#ai-infra #gpu #cuda #kernel #ml-compiler #tensor-core #llm-inference #rl-systems #course` | 2026-08-03 |
 | [The Ultra-Scale Playbook](3-Tutorials/ultrascale-playbook.md) | `#distributed-training #llm-training #parallelism #tensor-parallelism #pipeline-parallelism #data-parallelism #zero #context-parallelism #moe #mixed-precision #gpu #scaling #book #huggingface` | 2026-08-07 |
 | [MIT 6.5840 (原 6.824) 分布式系统](3-Tutorials/mit-65840-distributed-systems.md) | `#distributed-systems #raft #mapreduce #go #fault-tolerance #replication #consistency #mit #course` | 2026-09-01 |
+| [深入理解 AI Infra](3-Tutorials/bojieli-ai-infra-book.md) | `#ai-infra #gpu #accelerator #inference #training #kv-cache #networking #scheduling #quantitative-analysis #book #chinese` | 2026-09-14 |
+| [深入理解 AI Agent](3-Tutorials/bojieli-ai-agent-book.md) | `#ai-agent #llm #context-engineering #mcp #rag #multi-agent #sft #reinforcement-learning #coding-agent #evaluation #book #chinese` | 2026-09-14 |
 
 ## Tools & Frameworks
 
@@ -61,4 +63,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-09-01_
+_Last updated: 2026-09-14_
