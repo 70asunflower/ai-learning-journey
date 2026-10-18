@@ -69,6 +69,7 @@
 - [Open Design](0-Resources/4-Tools-Frameworks/open-design.md) — Claude Design 开源替代，AI 驱动 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统）
 - [InferFlux 推理系统可视化](0-Resources/4-Tools-Frameworks/inferflux.md) — 零依赖交互式动画：PD分离模拟/吞吐计算/3D请求生命周期/GPU集合通信（Three.js）
 - [LLM Visualization (bbycroft)](0-Resources/4-Tools-Frameworks/llm-viz.md) — GPT 风格 LLM 推理 3D 交互可视化，逐层看注意力/FFN/词元流动（WebGL）
+- [Compiler Explorer (Godbolt)](0-Resources/4-Tools-Frameworks/compiler-explorer.md) — 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器对比，验证向量化
 - [📄 Tools Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
@@ -219,6 +220,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-10-18 | Added Compiler Explorer (Godbolt) — 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器并行对比 |
 | 2026-09-01 | Added MIT 6.5840 (原 6.824) 分布式系统 — Raft/MapReduce/一致性，5 个 Go lab，AI Infra 系统课地基 |
 | 2026-09-14 | Added 深入理解 AI Infra — 李博杰开源书：数据搬移主线 + 量化估算方法论（12 章） |
 | 2026-09-14 | Added 深入理解 AI Agent — 李博杰开源书 45k+★：Harness 工程 + 上下文工程 + MCP（10 章） |

@@ -22,6 +22,7 @@ Commonly used tools, frameworks, and libraries.
 | Open Design | Claude Design 开源替代，AI 驱动的 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统） | [详情](open-design.md) · [官方](https://github.com/nexu-io/open-design) |
 | InferFlux | LLM 推理系统可视化交互工具：零依赖单文件 HTML（PD分离模拟/吞吐计算器/3D请求生命周期/GPU集合通信，Three.js） | [详情](inferflux.md) · [官方](https://Abatom.github.io/inferflux/) |
 | LLM Visualization (bbycroft) | GPT 风格 LLM 推理的 3D 交互可视化，逐层查看注意力/FFN/词元流动（WebGL），理解 Transformer 内部机制 | [详情](llm-viz.md) · [官方](https://bbycroft.net/llm) |
+| Compiler Explorer (Godbolt) | 在线编译器探索：实时汇编/LLVM IR/AST/优化管线输出，多编译器并行对比，验证向量化与跨架构代码质量 | [详情](compiler-explorer.md) · [官方](https://godbolt.org/) |
 
 ---
 

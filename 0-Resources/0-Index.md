@@ -56,6 +56,7 @@ _Empty — add your first paper!_
 | [Open Design](4-Tools-Frameworks/open-design.md) | `#ai-design #open-source #coding-agent #claude-design #local-first` | 2026-05-05 |
 | [InferFlux](4-Tools-Frameworks/inferflux.md) | `#inference #visualization #llm #interactive #simulation #sglang #vllm #threejs` | 2026-08-01 |
 | [LLM Visualization (bbycroft)](4-Tools-Frameworks/llm-viz.md) | `#llm #transformer #visualization #attention #gpt2 #interactive #threejs #interpretability` | 2026-08-01 |
+| [Compiler Explorer (Godbolt)](4-Tools-Frameworks/compiler-explorer.md) | `#compiler #assembly #llvm-ir #optimization #simd #cpp #rust #cuda #interactive-tool #performance` | 2026-10-18 |
 
 ## Datasets
 
@@ -63,4 +64,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-09-14_
+_Last updated: 2026-10-18_
