@@ -40,6 +40,7 @@ _Empty — add your first paper!_
 | [MIT 6.5840 (原 6.824) 分布式系统](3-Tutorials/mit-65840-distributed-systems.md) | `#distributed-systems #raft #mapreduce #go #fault-tolerance #replication #consistency #mit #course` | 2026-09-01 |
 | [深入理解 AI Infra](3-Tutorials/bojieli-ai-infra-book.md) | `#ai-infra #gpu #accelerator #inference #training #kv-cache #networking #scheduling #quantitative-analysis #book #chinese` | 2026-09-14 |
 | [深入理解 AI Agent](3-Tutorials/bojieli-ai-agent-book.md) | `#ai-agent #llm #context-engineering #mcp #rag #multi-agent #sft #reinforcement-learning #coding-agent #evaluation #book #chinese` | 2026-09-14 |
+| [Machine Learning Systems (Harvard CS249r)](3-Tutorials/machine-learning-systems-book.md) | `#ml-systems #ai-infra #tinyml #fleet-scale #distributed-training #inference #mlops #hardware-acceleration #mit-press #textbook #open-access` | 2026-10-20 |
 
 ## Tools & Frameworks
 
@@ -64,4 +65,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-10-18_
+_Last updated: 2026-10-20_

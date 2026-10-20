@@ -28,6 +28,7 @@ Quality tutorials, blog posts, and video courses.
 | [MIT 6.5840 (原 6.824) 分布式系统](mit-65840-distributed-systems.md) | MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab，容错/复制/一致性三大主线 | 2026-09-01 |
 | [深入理解 AI Infra](bojieli-ai-infra-book.md) | 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度 | 2026-09-14 |
 | [深入理解 AI Agent](bojieli-ai-agent-book.md) | 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力，每章配实验 | 2026-09-14 |
+| [Machine Learning Systems (Harvard CS249r)](machine-learning-systems-book.md) | MIT Press 2026 两卷本：单机→fleet 规模，28 章 + TinyTorch/MLSys·im/Labs 生态，28k★ | 2026-10-20 |
 
 ---
 

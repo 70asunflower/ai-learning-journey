@@ -51,6 +51,7 @@
 - [MIT 6.5840 (原 6.824) 分布式系统](0-Resources/3-Tutorials/mit-65840-distributed-systems.md) — MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab
 - [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md) — 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度
 - [深入理解 AI Agent](0-Resources/3-Tutorials/bojieli-ai-agent-book.md) — 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力
+- [Machine Learning Systems (Harvard CS249r)](0-Resources/3-Tutorials/machine-learning-systems-book.md) — MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -220,6 +221,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-10-20 | Added Machine Learning Systems (Harvard CS249r) — MIT Press 2026 两卷本：单机→fleet 规模 28 章 + 完整课程生态 |
 | 2026-10-18 | Added Compiler Explorer (Godbolt) — 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器并行对比 |
 | 2026-09-01 | Added MIT 6.5840 (原 6.824) 分布式系统 — Raft/MapReduce/一致性，5 个 Go lab，AI Infra 系统课地基 |
 | 2026-09-14 | Added 深入理解 AI Infra — 李博杰开源书：数据搬移主线 + 量化估算方法论（12 章） |
