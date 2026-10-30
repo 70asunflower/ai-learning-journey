@@ -41,6 +41,7 @@ _Empty — add your first paper!_
 | [深入理解 AI Infra](3-Tutorials/bojieli-ai-infra-book.md) | `#ai-infra #gpu #accelerator #inference #training #kv-cache #networking #scheduling #quantitative-analysis #book #chinese` | 2026-09-14 |
 | [深入理解 AI Agent](3-Tutorials/bojieli-ai-agent-book.md) | `#ai-agent #llm #context-engineering #mcp #rag #multi-agent #sft #reinforcement-learning #coding-agent #evaluation #book #chinese` | 2026-09-14 |
 | [Machine Learning Systems (Harvard CS249r)](3-Tutorials/machine-learning-systems-book.md) | `#ml-systems #ai-infra #tinyml #fleet-scale #distributed-training #inference #mlops #hardware-acceleration #mit-press #textbook #open-access` | 2026-10-20 |
+| [Diy-LLM (Datawhale)](3-Tutorials/datawhale-diy-llm.md) | `#cs336 #llm #from-scratch #datawhale #chinese-course #tokenizer #moe #cuda #triton #distributed-training #scaling-laws #inference #alignment #grpo #coursework` | 2026-10-30 |
 
 ## Tools & Frameworks
 
@@ -65,4 +66,4 @@ _Empty — add your first dataset!_
 
 ---
 
-_Last updated: 2026-10-20_
+_Last updated: 2026-10-30_

@@ -29,6 +29,7 @@ Quality tutorials, blog posts, and video courses.
 | [深入理解 AI Infra](bojieli-ai-infra-book.md) | 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度 | 2026-09-14 |
 | [深入理解 AI Agent](bojieli-ai-agent-book.md) | 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力，每章配实验 | 2026-09-14 |
 | [Machine Learning Systems (Harvard CS249r)](machine-learning-systems-book.md) | MIT Press 2026 两卷本：单机→fleet 规模，28 章 + TinyTorch/MLSys·im/Labs 生态，28k★ | 2026-10-20 |
+| [Diy-LLM (Datawhale)](datawhale-diy-llm.md) | CS336 中文本土化实现课：16 章 + 6 个渐进作业（手搓 tokenizer/CUDA-Triton/ZeRO/GRPO），2302★ | 2026-10-30 |
 
 ---
 
