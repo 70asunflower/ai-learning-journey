@@ -12,7 +12,6 @@ generator cannot infer.
 Checks
   * every resource file has complete frontmatter (title/summary/source/date/tags)
   * filenames follow the lowercase-hyphen convention
-  * `_Last updated: YYYY-MM-DD_` footer present
   * no deprecated tag alias (see scripts/tags.json)
   * no dead internal links (markdown `](...)` and HTML `<a href>`)
   * README changelog: no duplicate rows, date-descending
@@ -24,7 +23,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RES_ROOT = os.path.join(ROOT, "0-Resources")
-SUBDIRS = ["1-Official-Docs", "2-Papers", "3-Tutorials", "4-Tools-Frameworks", "5-Datasets"]
+SUBDIRS = ["1-Books", "2-Papers", "3-EDA-Tools", "4-OpenSource-Projects",
+           "5-Courses-Tutorials", "6-Industry-Standards", "7-Videos"]
 REQUIRED = ("title", "summary", "source", "date", "tags")
 FNAME_OK = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.md$")
 
@@ -92,8 +92,9 @@ for sub in SUBDIRS:
                 f"0-Index, the subfolder table, the README nav and index.html)")
         if fm.get("date") and not re.match(r"^\d{4}-\d{2}-\d{2}$", fm["date"]):
             err(f"{rel}: 'date' not YYYY-MM-DD: {fm['date']}")
-        if not re.search(r"_Last updated:\s*\d{4}-\d{2}-\d{2}_", text):
-            warn(f"{rel}: missing '_Last updated: YYYY-MM-DD_' footer")
+        # No `_Last updated` footer check: `date` in frontmatter is the only date
+        # that drives anything. The footer rule was never followed here (0/17
+        # files had one), so a warning on every file would just be noise.
         disk[rel] = {"tags": parse_tags(fm.get("tags"))}
 
 # ---------- tag vocabulary ----------

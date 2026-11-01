@@ -218,6 +218,43 @@ def _fit(s: str, size: float, maxw: float) -> str:
     return s + "…"
 
 
+def _wrap(s: str, size: float, maxw: float, max_lines: int = 2) -> list[str]:
+    """Greedy word wrap; falls back to _fit truncation on the last line."""
+    if _tw(s, size) <= maxw:
+        return [s]
+    words, lines, cur = s.split(" "), [], ""
+    for w in words:
+        cand = f"{cur} {w}".strip()
+        if _tw(cand, size) <= maxw:
+            cur = cand
+            continue
+        if cur:
+            lines.append(cur)
+            cur = w
+        else:                       # single word longer than the box
+            lines.append(_fit(w, size, maxw))
+            cur = ""
+        if len(lines) == max_lines - 1:
+            break
+    if cur:
+        lines.append(cur)
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+    lines[-1] = _fit(lines[-1], size, maxw)
+    return lines
+
+
+def _node_text(x: float, cy: float, title: str, maxw: float, color: str) -> str:
+    """One or two lines of node text, vertically centred on the node box."""
+    lines = _wrap(title, 13, maxw)
+    if len(lines) == 1:
+        return (f'<text x="{x}" y="{cy + 4.5}" font-size="13" fill="{color}">'
+                f'{escape(lines[0])}</text>')
+    spans = "".join(f'<tspan x="{x}" y="{cy - 3 + i * 16}">{escape(l)}</tspan>'
+                    for i, l in enumerate(lines))
+    return f'<text font-size="13" fill="{color}">{spans}</text>'
+
+
 def render_roadmap(by_rel: dict[str, dict], theme: str) -> str:
     t = THEMES[theme]
     e = escape
@@ -256,8 +293,7 @@ def render_roadmap(by_rel: dict[str, dict], theme: str) -> str:
         # first node — tinted with the track colour
         o.append(f'<rect x="{X1}" y="{y + 10}" width="{NW1}" height="42" rx="9" '
                  f'fill="{color}" fill-opacity="0.10" stroke="{color}" stroke-opacity="0.55"/>')
-        o.append(f'<text x="{X1 + 15}" y="{cy + 4.5}" font-size="13" fill="{t["text"]}">'
-                 f'{e(_fit(first["title"], 13, NW1 - 30))}</text>')
+        o.append(_node_text(X1 + 15, cy, first["title"], NW1 - 30, t["text"]))
 
         # arrow
         o.append(f'<line x1="{ARROW_X1}" y1="{cy}" x2="{ARROW_X2 - 7}" y2="{cy}" '
@@ -269,12 +305,11 @@ def render_roadmap(by_rel: dict[str, dict], theme: str) -> str:
         # next node — dashed, reads as "then"
         o.append(f'<rect x="{X2}" y="{y + 10}" width="{NW2}" height="42" rx="9" '
                  f'fill="{t["card"]}" stroke="{t["arrow"]}" stroke-dasharray="4 3"/>')
-        o.append(f'<text x="{X2 + 15}" y="{cy + 4.5}" font-size="13" fill="{t["text"]}">'
-                 f'{e(_fit(nxt["title"], 13, NW2 - 30))}</text>')
+        o.append(_node_text(X2 + 15, cy, nxt["title"], NW2 - 30, t["text"]))
 
     o.append(f'<text x="{PAD}" y="{H - 24}" font-size="11.5" fill="{t["muted"]}">'
              f'完整索引：0-Resources/0-Index.md　·　在线版：'
-             f'70asunflower.github.io/ai-learning-journey</text>')
+             f'{generate_index.PAGES_URL.replace("https://", "").rstrip("/")}</text>')
     o.append("</svg>")
     return "\n".join(o) + "\n"
 
@@ -323,6 +358,7 @@ def build(check: bool = False) -> int:
             continue
         stale.append(p)
         if not check:
+            p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(new, encoding="utf-8", newline="\n")
 
     n_items = sum(len(v) for v in groups.values())

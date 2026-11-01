@@ -24,7 +24,8 @@ the authority for *how* to add it.
 - **embodied-ai-learning**: `1-Papers` · `2-Frameworks-Tools` · `3-Datasets` ·
   `4-Tutorials-Courses` · `5-Projects-OpenSource`
 - **ic-chip-design-learning**: `1-Books` · `2-Papers` · `3-EDA-Tools` ·
-  `4-OpenSource-Projects` · `5-Courses-Tutorials` · `6-Industry-Standards`
+  `4-OpenSource-Projects` · `5-Courses-Tutorials` · `6-Industry-Standards` ·
+  `7-Videos`
 
 Closest match if nothing fits exactly.
 
@@ -32,12 +33,13 @@ Closest match if nothing fits exactly.
 
 Read it before writing anything — the three repos differ:
 
-- **ai-learning-journey** is generator-driven. You write ONE `.md` with full
-  frontmatter (`title`/`summary`/`source`/`date`/`tags`) and run
-  `python scripts/build.py`; `0-Index.md`, the subfolder table, the README nav
-  and `index.html` are all generated. **Never hand-edit those.**
-- The other two are still hand-maintained (detail file + subfolder README +
-  global index + wiki nav + changelog) — their CONTRIBUTING.md says which.
+- **ai-learning-journey** and **ic-chip-design-learning** are both
+  generator-driven. You write ONE `.md` with full frontmatter
+  (`title`/`summary`/`source`/`date`/`tags`) and run `python scripts/build.py`;
+  `0-Index.md`, the subfolder table, the README nav, `index.html` and the
+  roadmap SVGs are all generated. **Never hand-edit those.**
+- **embodied-ai-learning** is still hand-maintained (detail file + subfolder
+  README + global index + wiki nav + changelog) — its CONTRIBUTING.md says which.
 
 ## 4. Verify before reporting done
 

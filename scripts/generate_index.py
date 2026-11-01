@@ -47,6 +47,7 @@ SIBLINGS = [
 ]
 
 TITLE = "AI Learning Journey"
+SUBTITLE = "个人 AI 学习路径 · 精选资源 / 笔记 / 项目实战"
 
 # Inline marked.js so the page works fully offline / behind GFW (no CDN dependency).
 MARKED_JS = r"""/**
@@ -371,7 +372,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
     <div class="h-top">
       <div>
         <h1>__TITLE__ · Resource Index</h1>
-        <div class="sub">个人 AI 学习路径 · 精选资源 / 笔记 / 项目实战</div>
+        <div class="sub">__SUBTITLE__</div>
       </div>
       <a class="live" href="__LIVE__" target="_blank" rel="noopener">仓库 README</a>
       <span class="spacer"></span>
@@ -401,7 +402,7 @@ body,header,footer,.card,#search,.chip,.sib,.live,#themeBtn,.reader-bar,.reader
   <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
 </main>
 <footer class="wrap">
-  由 <code>scripts/generate_index.py</code> 从 README.md 自动生成 · 最后更新 __DATE__<br>
+  由 <code>scripts/build.py</code> 从资源 frontmatter 自动生成 · 最后更新 __DATE__<br>
   点击任意资源即可在本页阅读内容 · 添加资源后改 README，重跑脚本即同步
 </footer>
 
@@ -881,6 +882,7 @@ def render_html(data: dict) -> str:
                 f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
                 for s in SIBLINGS))
             .replace("__TITLE__", TITLE)
+            .replace("__SUBTITLE__", SUBTITLE)
             .replace("__PAGES_URL__", PAGES_URL)
             .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
