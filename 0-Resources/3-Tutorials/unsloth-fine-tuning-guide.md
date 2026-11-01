@@ -1,7 +1,7 @@
 ---
 source: https://unsloth.ai/docs/zh/kai-shi-shi-yong/fine-tuning-llms-guide
 date: 2026-04-04
-tags: [fine-tuning, lora, qlora, unsloth, tutorial]
+tags: [fine-tuning, lora, tutorial]
 ---
 
 # Unsloth LLM 微调指南

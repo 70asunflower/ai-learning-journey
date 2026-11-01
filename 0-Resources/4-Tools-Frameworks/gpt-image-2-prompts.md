@@ -1,7 +1,7 @@
 ---
 source: https://youmind.com/gpt-image-2-prompts
 date: 2026-04-22
-tags: [gpt-image, prompt-engineering, image-generation, ai-art, ui-design, infographic]
+tags: [multimodal, prompt-engineering, ai-design]
 ---
 
 # GPT Image 2 提示词合集 (YouMind)

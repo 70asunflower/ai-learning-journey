@@ -1,7 +1,7 @@
 ---
 source: https://sebastianraschka.com/
 date: 2026-04-04
-tags: [blog, deep-learning, llm, pytorch, machine-learning]
+tags: [blog, deep-learning, llm, pytorch]
 ---
 
 # Sebastian Raschka's Blog

@@ -1,7 +1,7 @@
 ---
 source: https://v.douyin.com/MAq8ABNWIeQ/
 date: 2026-06-05
-tags: [reinforcement-learning, rlhf, sft, pre-training, tutorial, video]
+tags: [reinforcement-learning, rlhf, fine-tuning, pre-training, tutorial, video]
 ---
 
 # 强化学习直观理解 — VZstudio

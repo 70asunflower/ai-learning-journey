@@ -82,17 +82,26 @@ End file with: `_Last updated: YYYY-MM-DD_`
 ## 0-Index.md row format
 
 Paths are **relative to `0-Resources/`**. Columns: `Resource | Tags | Date`.
+The tag cell is wrapped in backticks:
 ```markdown
-| [<Display Name>](<subfolder>/<name>.md) | #tag1 #tag2 #tag3 | YYYY-MM-DD |
+| [<Display Name>](<subfolder>/<name>.md) | `#tag1 #tag2 #tag3` | YYYY-MM-DD |
 ```
 Sections are `## Official Docs`, `## Papers`, `## Tutorials`, etc. If a section
 is empty (`_Empty — add your first ..._`), replace that placeholder line with the
 new row.
 
+Tags must be canonical: `scripts/tags.json` maps deprecated spellings to their
+canonical form, `python scripts/normalize_tags.py --check` verifies it, and CI
+rejects any file still using an alias. There is **no `_Last updated` footer** in
+this file any more — the `generated` date in `index.html` comes from the newest
+row date.
+
 ## Changelog row format (README.md, top of table)
 ```markdown
 | YYYY-MM-DD | Added <name> — one-line description |
 ```
+Rows are date-descending and CI enforces it: insert new rows directly below the
+header, never at the bottom.
 
 ## Generator behavior
 - Command: `python scripts/generate_index.py`

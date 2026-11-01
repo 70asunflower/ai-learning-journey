@@ -1,7 +1,7 @@
 ---
 source: https://www.xiaohongshu.com/ (小红书帖子)
 date: 2026-04-21
-tags: [cs-courses, systems, database, distributed-systems, os, compiler, deep-learning, tinyml, self-study]
+tags: [course, systems, database, distributed-systems, os, compiler, deep-learning, tinyml]
 ---
 
 # 10 门"地狱级"CS 公开课

@@ -1,7 +1,7 @@
 ---
 source: https://www.canirun.ai/
 date: 2026-04-09
-tags: [local-ai, compatibility, llama.cpp, ollama, lm-studio, quantization, gpu]
+tags: [local-ai, quantization, gpu]
 ---
 
 # CanIRun.ai — 本地 AI 模型硬件兼容性检测工具

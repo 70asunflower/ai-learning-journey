@@ -102,9 +102,16 @@ File: `0-Resources/0-Index.md`
 Add a row under the matching category section:
 `| [<Display Name>](<subfolder>/<name>.md) | #tag1 #tag2 #tag3 | YYYY-MM-DD |`
 Paths are relative to `0-Resources/`. Add the section if missing.
-**Then bump the `_Last updated: YYYY-MM-DD_` footer at the bottom of the file**
-(it is the source of the `generated` date in `index.html`; `check_consistency.py`
-errors if it is missing, so always keep it current).
+No footer to bump — the `generated` date in `index.html` is derived from the
+newest row date, so adding the row is enough.
+
+### 3b. Use canonical tags
+Check every tag against `scripts/tags.json` (`aliases` maps deprecated → canonical).
+If a tag is a near-duplicate of an existing one, add it to that alias table and
+use the canonical spelling instead of letting both live on. Verify with:
+```bash
+python scripts/normalize_tags.py --check   # must report "Tags already canonical."
+```
 
 ### 4. Update root wiki nav + changelog
 File: `README.md` (repo root).
@@ -159,8 +166,9 @@ Note 2). Do **not** invent an `index.html` diff.
 
 - [ ] Detail file present with correct frontmatter + `_Last updated:` line.
 - [ ] Subfolder README updated.
-- [ ] Root `README.md` nav + changelog updated.
-- [ ] For Resources: `0-Resources/0-Index.md` updated (row AND `_Last updated` footer) AND `index.html` regenerated.
+- [ ] Root `README.md` nav + changelog updated (**new changelog row at the top**, date-descending).
+- [ ] Tags are canonical (`python scripts/normalize_tags.py --check` is clean).
+- [ ] For Resources: `0-Resources/0-Index.md` row added AND `index.html` regenerated.
 - [ ] For Notes: `index.html` confirmed unchanged (no spurious diff).
 - [ ] `git remote -v` clean (no embedded token) before/after push.
 - [ ] Push succeeded to `origin/master`.

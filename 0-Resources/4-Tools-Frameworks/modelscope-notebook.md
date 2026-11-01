@@ -2,7 +2,7 @@
 source: https://www.modelscope.cn/docs/notebooks/free-trial
 inspiration: https://juejin.cn/post/7436420501151694888
 date: 2026-03-31
-tags: [notebook, cloud-gpu, free-trial, development, chinese]
+tags: [cloud, chinese]
 ---
 
 # ModelScope Notebook 免费试用

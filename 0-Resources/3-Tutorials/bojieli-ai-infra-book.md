@@ -1,7 +1,7 @@
 ---
 source: https://bojieli.github.io/ai-infra-book/index.html
 date: 2026-09-14
-tags: [ai-infra, gpu, accelerator, inference, training, distributed-systems, kv-cache, networking, scheduling, quantitative-analysis, book, chinese]
+tags: [ai-infra, gpu, hardware, inference, training, distributed-systems, networking, scheduling, quantitative-analysis, book, chinese]
 links:
   - https://bojieli.github.io/ai-infra-book/index.html
   - https://github.com/bojieli/ai-infra-book

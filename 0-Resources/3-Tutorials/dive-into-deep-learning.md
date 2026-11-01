@@ -1,7 +1,7 @@
 ---
 source: https://d2l.ai
 date: 2026-05-07
-tags: [deep-learning, textbook, pytorch, jupyter, interactive, chinese]
+tags: [deep-learning, book, pytorch, jupyter, interactive, chinese]
 ---
 
 # Dive into Deep Learning (D2L)

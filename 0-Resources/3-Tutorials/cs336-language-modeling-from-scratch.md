@@ -1,7 +1,7 @@
 ---
 source: https://feigaobox10.github.io/llm-from-scratch-reader/
 date: 2026-06-28
-tags: [cs336, llm, from-scratch, tokenization, pretraining, alignment, chinese-book, free-book, stanford-course]
+tags: [cs336, llm, from-scratch, tokenizer, pre-training, alignment, chinese, open-access, course]
 links:
   - https://cs336.stanford.edu/
   - https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV

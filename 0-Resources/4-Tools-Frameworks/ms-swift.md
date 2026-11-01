@@ -1,7 +1,7 @@
 ---
 source: https://swift.readthedocs.io/zh-cn/latest/
 date: 2026-03-31
-tags: [fine-tuning, deployment, vision, multi-modal, swift]
+tags: [fine-tuning, serving, multimodal, framework]
 ---
 
 # ms-swift

@@ -6,9 +6,9 @@ Quick-lookup index for all collected resources.
 
 | Resource | Tags | Date |
 |----------|------|------|
-| [CUDA Programming Guide](1-Official-Docs/cuda-programming-guide.md) | `#cuda #nvidia #gpu` | 2026-04-03 |
-| [vLLM 中文文档](1-Official-Docs/vllm-docs-zh.md) | `#vllm #inference #serving #llm #quantization #lora #documentation #chinese` | 2026-07-07 |
-| [LLM Inference Handbook](1-Official-Docs/llm-inference-handbook.md) | `#inference #handbook #modular #deployment #serving #gpu #optimization #reference` | 2026-08-01 |
+| [CUDA Programming Guide](1-Official-Docs/cuda-programming-guide.md) | `#cuda #gpu` | 2026-04-03 |
+| [vLLM 中文文档](1-Official-Docs/vllm-docs-zh.md) | `#vllm #inference #serving #llm #quantization #lora #docs #chinese` | 2026-07-07 |
+| [LLM Inference Handbook](1-Official-Docs/llm-inference-handbook.md) | `#inference #docs #modular #serving #gpu #optimization` | 2026-08-01 |
 
 ## Papers
 
@@ -18,52 +18,48 @@ _Empty — add your first paper!_
 
 | Resource | Tags | Date |
 |----------|------|------|
-| [self-llm 大模型食用指南](3-Tutorials/self-llm.md) | `#tutorial #getting-started #chinese` | 2026-03-31 |
+| [self-llm 大模型食用指南](3-Tutorials/self-llm.md) | `#tutorial #chinese` | 2026-03-31 |
 | [Sebastian Raschka Blog](3-Tutorials/sebastian-raschka-blog.md) | `#blog #deep-learning #llm #pytorch` | 2026-04-04 |
-| [Unsloth LLM 微调指南](3-Tutorials/unsloth-fine-tuning-guide.md) | `#fine-tuning #lora #qlora #unsloth` | 2026-04-04 |
-| [10 门"地狱级"CS 公开课](3-Tutorials/top-10-hell-level-cs-courses.md) | `#cs-courses #systems #database #distributed-systems #os #compiler #deep-learning #tinyml` | 2026-04-21 |
+| [Unsloth LLM 微调指南](3-Tutorials/unsloth-fine-tuning-guide.md) | `#fine-tuning #lora` | 2026-04-04 |
+| [10 门"地狱级"CS 公开课](3-Tutorials/top-10-hell-level-cs-courses.md) | `#course #systems #database #distributed-systems #os #compiler #deep-learning #tinyml` | 2026-04-21 |
 | [LLM 算法与工程学习路线](3-Tutorials/llm-algorithm-engineering-roadmap.md) | `#llm #training #distributed-training #inference #algorithm #engineering #roadmap` | 2026-04-21 |
 | [JAX Scaling Book](3-Tutorials/jax-scaling-book.md) | `#scaling #distributed-training #jax #llm #book` | 2026-04-25 |
-| [Infinitensor 冬令营 2025](3-Tutorials/infinitensor-winter-camp-2025.md) | `#inference #infrastructure #camp #operator #framework #model` | 2026-04-25 |
-| [Dive into Deep Learning](3-Tutorials/dive-into-deep-learning.md) | `#deep-learning #textbook #pytorch #jupyter #interactive #chinese` | 2026-05-07 |
-| [Build a LLM (From Scratch)](3-Tutorials/llms-from-scratch.md) | `#llm #from-scratch #pytorch #gpt #fine-tuning #lora #textbook` | 2026-05-07 |
-| [Build a Reasoning Model (From Scratch)](3-Tutorials/reasoning-from-scratch.md) | `#reasoning #llm #reinforcement-learning #grpo #distillation #pytorch #textbook` | 2026-05-07 |
-| [强化学习直观理解 (VZstudio)](3-Tutorials/rl-intuitive-explanation-vzstudio.md) | `#reinforcement-learning #rlhf #sft #pre-training #tutorial #video` | 2026-06-05 |
-| [Agent-Learning-Hub (Datawhale)](3-Tutorials/agent-learning-hub.md) | `#ai-agent #agent #tutorial #roadmap #datawhale #mcp #tool-use` | 2026-06-05 |
-| [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#llm-inference #vllm #sglang #kv-cache #continuous-batching #speculation` | 2026-06-05 |
-| [AI Infra 其实没有多少新东西](3-Tutorials/ai-infra-nothing-new.md) | `#ai-infra #gpu #training #inference #distributed-system #hardware` | 2026-06-06 |
-| [Modern GPU Programming For MLSys](3-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #blackwell #gemm #flash-attention #tirx #kernel-optimization #ml-systems` | 2026-06-25 |
-| [CS336 从零构建语言模型 (中文)](3-Tutorials/cs336-language-modeling-from-scratch.md) | `#cs336 #llm #from-scratch #tokenization #pretraining #alignment #chinese-book` | 2026-06-28 |
-| [猛猿大模型技术文章导航](3-Tutorials/mengyuan-llm-articles-index.md) | `#llm #distributed-training #inference #rlhf #diffusion #multimodal #transformer #blog-index #chinese` | 2026-07-07 |
-| [Infra Seminars 2026](3-Tutorials/infra-seminars-2026.md) | `#ai-infra #gpu #cuda #kernel #ml-compiler #tensor-core #llm-inference #rl-systems #course` | 2026-08-03 |
-| [The Ultra-Scale Playbook](3-Tutorials/ultrascale-playbook.md) | `#distributed-training #llm-training #parallelism #tensor-parallelism #pipeline-parallelism #data-parallelism #zero #context-parallelism #moe #mixed-precision #gpu #scaling #book #huggingface` | 2026-08-07 |
-| [MIT 6.5840 (原 6.824) 分布式系统](3-Tutorials/mit-65840-distributed-systems.md) | `#distributed-systems #raft #mapreduce #go #fault-tolerance #replication #consistency #mit #course` | 2026-09-01 |
-| [深入理解 AI Infra](3-Tutorials/bojieli-ai-infra-book.md) | `#ai-infra #gpu #accelerator #inference #training #kv-cache #networking #scheduling #quantitative-analysis #book #chinese` | 2026-09-14 |
-| [深入理解 AI Agent](3-Tutorials/bojieli-ai-agent-book.md) | `#ai-agent #llm #context-engineering #mcp #rag #multi-agent #sft #reinforcement-learning #coding-agent #evaluation #book #chinese` | 2026-09-14 |
-| [Machine Learning Systems (Harvard CS249r)](3-Tutorials/machine-learning-systems-book.md) | `#ml-systems #ai-infra #tinyml #fleet-scale #distributed-training #inference #mlops #hardware-acceleration #mit-press #textbook #open-access` | 2026-10-20 |
-| [Diy-LLM (Datawhale)](3-Tutorials/datawhale-diy-llm.md) | `#cs336 #llm #from-scratch #datawhale #chinese-course #tokenizer #moe #cuda #triton #distributed-training #scaling-laws #inference #alignment #grpo #coursework` | 2026-10-30 |
+| [Infinitensor 冬令营 2025](3-Tutorials/infinitensor-winter-camp-2025.md) | `#inference #ai-infra #course #kernel #framework #model` | 2026-04-25 |
+| [Dive into Deep Learning](3-Tutorials/dive-into-deep-learning.md) | `#deep-learning #book #pytorch #jupyter #interactive #chinese` | 2026-05-07 |
+| [Build a LLM (From Scratch)](3-Tutorials/llms-from-scratch.md) | `#llm #from-scratch #pytorch #gpt #fine-tuning #lora #book` | 2026-05-07 |
+| [Build a Reasoning Model (From Scratch)](3-Tutorials/reasoning-from-scratch.md) | `#reasoning #llm #reinforcement-learning #grpo #distillation #pytorch #book` | 2026-05-07 |
+| [强化学习直观理解 (VZstudio)](3-Tutorials/rl-intuitive-explanation-vzstudio.md) | `#reinforcement-learning #rlhf #fine-tuning #pre-training #tutorial #video` | 2026-06-05 |
+| [Agent-Learning-Hub (Datawhale)](3-Tutorials/agent-learning-hub.md) | `#ai-agent #tutorial #roadmap #datawhale #mcp` | 2026-06-05 |
+| [大模型推理系统入门](3-Tutorials/llm-inference-system-intro.md) | `#inference #vllm #sglang` | 2026-06-05 |
+| [AI Infra 其实没有多少新东西](3-Tutorials/ai-infra-nothing-new.md) | `#ai-infra #gpu #training #inference #distributed-systems #hardware` | 2026-06-06 |
+| [Modern GPU Programming For MLSys](3-Tutorials/mlc-modern-gpu-programming.md) | `#gpu #cuda #kernel #compiler #ml-systems` | 2026-06-25 |
+| [CS336 从零构建语言模型 (中文)](3-Tutorials/cs336-language-modeling-from-scratch.md) | `#cs336 #llm #from-scratch #tokenizer #pre-training #alignment #chinese` | 2026-06-28 |
+| [猛猿大模型技术文章导航](3-Tutorials/mengyuan-llm-articles-index.md) | `#llm #distributed-training #inference #rlhf #multimodal #transformer #blog #chinese` | 2026-07-07 |
+| [Infra Seminars 2026](3-Tutorials/infra-seminars-2026.md) | `#ai-infra #gpu #cuda #kernel #compiler #inference #reinforcement-learning #course` | 2026-08-03 |
+| [The Ultra-Scale Playbook](3-Tutorials/ultrascale-playbook.md) | `#distributed-training #moe #gpu #scaling #book #huggingface` | 2026-08-07 |
+| [MIT 6.5840 (原 6.824) 分布式系统](3-Tutorials/mit-65840-distributed-systems.md) | `#distributed-systems #go #mit #course` | 2026-09-01 |
+| [深入理解 AI Infra](3-Tutorials/bojieli-ai-infra-book.md) | `#ai-infra #gpu #hardware #inference #training #networking #scheduling #quantitative-analysis #book #chinese` | 2026-09-14 |
+| [深入理解 AI Agent](3-Tutorials/bojieli-ai-agent-book.md) | `#ai-agent #llm #mcp #fine-tuning #reinforcement-learning #coding-agent #evaluation #book #chinese` | 2026-09-14 |
+| [Machine Learning Systems (Harvard CS249r)](3-Tutorials/machine-learning-systems-book.md) | `#ml-systems #ai-infra #tinyml #distributed-training #inference #hardware #mit-press #book #open-access` | 2026-10-20 |
+| [Diy-LLM (Datawhale)](3-Tutorials/datawhale-diy-llm.md) | `#cs336 #llm #from-scratch #datawhale #chinese #tokenizer #moe #cuda #kernel #distributed-training #inference #alignment #grpo #course` | 2026-10-30 |
 
 ## Tools & Frameworks
 
 | Resource | Tags | Date |
 |----------|------|------|
 | [ms-swift](4-Tools-Frameworks/ms-swift.md) | `#framework #fine-tuning #vllm` | 2026-03-31 |
-| [ModelScope Notebook](4-Tools-Frameworks/modelscope-notebook.md) | `#cloud #gpu #free-trial #notebook` | 2026-03-31 |
+| [ModelScope Notebook](4-Tools-Frameworks/modelscope-notebook.md) | `#cloud #gpu` | 2026-03-31 |
 | [TikTokenizer](4-Tools-Frameworks/tiktokenizer.md) | `#tool #tokenizer #interactive #visualization` | 2026-04-02 |
-| [CanIRun.ai](4-Tools-Frameworks/canirun.md) | `#local-ai #compatibility #llama.cpp #ollama #lm-studio` | 2026-04-09 |
-| [LlamaFactory](4-Tools-Frameworks/llamafactory.md) | `#framework #fine-tuning #lora #qlora #chinese-doc` | 2026-04-04 |
-| [GPT Image 2 提示词](4-Tools-Frameworks/gpt-image-2-prompts.md) | `#gpt-image #prompt-engineering #image-generation #ai-art #ui-design` | 2026-04-22 |
+| [CanIRun.ai](4-Tools-Frameworks/canirun.md) | `#local-ai` | 2026-04-09 |
+| [LlamaFactory](4-Tools-Frameworks/llamafactory.md) | `#framework #fine-tuning #lora #chinese` | 2026-04-04 |
+| [GPT Image 2 提示词](4-Tools-Frameworks/gpt-image-2-prompts.md) | `#multimodal #prompt-engineering #ai-design` | 2026-04-22 |
 | [nano-vllm](4-Tools-Frameworks/nano-vllm.md) | `#vllm #inference #framework #llm #serving` | 2026-04-25 |
 | [mini-sglang](4-Tools-Frameworks/mini-sglang.md) | `#sglang #inference #framework #llm #serving` | 2026-04-25 |
-| [Open Design](4-Tools-Frameworks/open-design.md) | `#ai-design #open-source #coding-agent #claude-design #local-first` | 2026-05-05 |
+| [Open Design](4-Tools-Frameworks/open-design.md) | `#ai-design #open-source #coding-agent #local-first` | 2026-05-05 |
 | [InferFlux](4-Tools-Frameworks/inferflux.md) | `#inference #visualization #llm #interactive #simulation #sglang #vllm #threejs` | 2026-08-01 |
-| [LLM Visualization (bbycroft)](4-Tools-Frameworks/llm-viz.md) | `#llm #transformer #visualization #attention #gpt2 #interactive #threejs #interpretability` | 2026-08-01 |
-| [Compiler Explorer (Godbolt)](4-Tools-Frameworks/compiler-explorer.md) | `#compiler #assembly #llvm-ir #optimization #simd #cpp #rust #cuda #interactive-tool #performance` | 2026-10-18 |
+| [LLM Visualization (bbycroft)](4-Tools-Frameworks/llm-viz.md) | `#llm #transformer #visualization #gpt #interactive #threejs #interpretability` | 2026-08-01 |
+| [Compiler Explorer (Godbolt)](4-Tools-Frameworks/compiler-explorer.md) | `#compiler #optimization #cpp #rust #cuda #interactive` | 2026-10-18 |
 
 ## Datasets
 
 _Empty — add your first dataset!_
-
----
-
-_Last updated: 2026-10-30_

@@ -110,12 +110,8 @@ idx_path = os.path.join(RES_ROOT, "0-Index.md")
 if os.path.isfile(idx_path):
     with open(idx_path, encoding="utf-8") as f:
         idx_text = f.read()
-    # The `_Last updated` footer is the source of the generated date in
-    # index.html (generate_index.generated_date reads it). If it is missing,
-    # the generator falls back to today() -> CI would produce a diff every run.
-    if not re.search(r"_Last updated:\s*\d{4}-\d{2}-\d{2}_", idx_text):
-        err("0-Resources/0-Index.md: missing '_Last updated: YYYY-MM-DD_' footer "
-            "(required: index.html generated date is derived from it)")
+    # The `generated` date in index.html is derived from the newest row date in
+    # this file (generate_index.generated_date), so there is no footer to bump.
     for line in idx_text.splitlines():
         s = line.strip()
         if not s.startswith("|"):
@@ -176,8 +172,25 @@ for rel in registered:
             err(f"{rel}: registered but FILE DOES NOT EXIST ({rel})")
 
 # ---------- tag drift ----------
-# NOTE: 0-Index tags are a curated subset of the frontmatter `tags` field by
-# design, so a strict equality compare only produces noise. Skipped on purpose.
+# 0-Index tags are a curated subset of the frontmatter `tags` field by design,
+# so a strict equality compare only produces noise. What IS enforced is the
+# vocabulary: a synonym listed in scripts/tags.json must never be committed
+# (run `python scripts/normalize_tags.py` to rewrite it to the canonical tag).
+registry_path = os.path.join(ROOT, "scripts", "tags.json")
+if os.path.isfile(registry_path):
+    import json
+    with open(registry_path, encoding="utf-8") as f:
+        ALIASES = json.load(f).get("aliases", {})
+    for rel, info in sorted(disk.items()):
+        for t in info["tags"]:
+            if t in ALIASES:
+                err(f"{rel}: tag '{t}' is an alias — use '{ALIASES[t]}' "
+                    f"(scripts/tags.json)")
+    for relp, info in sorted(index_entries.items()):
+        for t in info["tags"]:
+            if t in ALIASES:
+                err(f"{relp}: 0-Index tag '{t}' is an alias — use '{ALIASES[t]}' "
+                    f"(scripts/tags.json)")
 
 # ---------- internal dead links (all .md) ----------
 # Skip tooling dirs (.claude/.workbuddy) whose placeholder links such as
@@ -222,9 +235,13 @@ if os.path.isfile(root_readme):
         if row in seen:
             err(f"README Changelog: duplicate row -> {row}")
         seen.add(row)
-    # NOTE: the repo convention is "add a new row below for each update"
-    # (see README "How to Update"), so the log is append-ordered, not strictly
-    # date-descending. We intentionally do NOT warn on ordering here.
+    # Convention: newest row on top (date-descending), so the table reads as a
+    # timeline without scrolling. Append-at-bottom ordering used to be allowed
+    # and silently drifted out of order, so it is now enforced.
+    for i in range(len(rows) - 1):
+        if rows[i][0] < rows[i + 1][0]:
+            err(f"README Changelog: not date-descending — {rows[i][0]} appears "
+                f"above {rows[i + 1][0]} (insert newest rows at the top)")
 
 # ---------- report ----------
 for e in errors:

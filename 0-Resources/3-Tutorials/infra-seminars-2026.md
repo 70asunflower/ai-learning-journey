@@ -1,7 +1,7 @@
 ---
 source: https://infra.seminars.lcpu.dev/
 date: 2026-08-03
-tags: [ai-infra, gpu, cuda, kernel, ml-compiler, tensor-core, distributed-training, llm-inference, rl-systems, course]
+tags: [ai-infra, gpu, cuda, kernel, compiler, distributed-training, inference, reinforcement-learning, course]
 ---
 
 # Infra Seminars 2026 — AI 基础设施 Seminar 系列

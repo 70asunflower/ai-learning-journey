@@ -1,7 +1,7 @@
 ---
 source: https://tiktokenizer.vercel.app/?encoder=gpt2
 date: 2026-04-02
-tags: [tool, tokenizer, visualization, interactive, gpt2]
+tags: [tool, tokenizer, visualization, interactive, gpt]
 ---
 
 ## Summary

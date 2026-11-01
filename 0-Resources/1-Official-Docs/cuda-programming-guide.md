@@ -1,7 +1,7 @@
 ---
 source: https://docs.nvidia.com/cuda/cuda-programming-guide/
 date: 2026-04-03
-tags: [cuda, nvidia, gpu, parallel-computing, hardware-acceleration]
+tags: [cuda, gpu, hardware]
 ---
 
 # CUDA Programming Guide

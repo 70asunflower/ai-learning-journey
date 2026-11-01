@@ -20,22 +20,23 @@ import pathlib
 import subprocess
 
 
-def generated_date() -> str:
-    """Stable 'last updated' date from the 0-Index.md `_Last updated` footer.
+def generated_date(index_text: str) -> str:
+    """Stable 'last updated' date = newest resource date in 0-Index.md.
 
-    The footer is hand-maintained and changes together with resource content,
-    so reading it (instead of git history or today()) makes regeneration
-    byte-identical no matter when/where it runs (local before commit, CI after
-    commit). This is what keeps the CI auto-commit loop-free and noise-free.
+    Derived from the data itself instead of a hand-maintained footer, so adding
+    a resource with a new `date:` bumps it automatically — no manual step to
+    forget. Still deterministic (no today()/git history), which is what keeps
+    the CI auto-commit byte-identical and loop-free.
     """
-    try:
-        idx = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
-        m = re.search(r"_Last updated:\s*(\d{4}-\d{2}-\d{2})_", idx)
-        if m:
-            return m.group(1)
-    except Exception:
-        pass
-    return datetime.date.today().isoformat()
+    dates = []
+    for line in index_text.splitlines():
+        s = line.strip()
+        if not (s.startswith("|") and "](" in s):
+            continue
+        cells = [c.strip() for c in s.strip("|").split("|")]
+        if len(cells) >= 3 and re.fullmatch(r"\d{4}-\d{2}-\d{2}", cells[2]):
+            dates.append(cells[2])
+    return max(dates) if dates else datetime.date.today().isoformat()
 
 REPO = "70asunflower/ai-learning-journey"
 BRANCH = "master"  # default branch of this repo
@@ -153,7 +154,7 @@ for line in readme.splitlines():
 data = {
     "repo": REPO,
     "branch": BRANCH,
-    "generated": generated_date(),
+    "generated": generated_date(index_md),
     "categories": categories,
 }
 
@@ -236,6 +237,10 @@ header{border-bottom:1px solid var(--border);background:var(--panel);position:st
 .stats{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding:0 0 12px}
 .stats b{color:var(--text);font-weight:600;margin-right:3px}
 .chip.more{color:var(--accent);border-style:dashed}
+/* collapsed overflow chips must become direct flex items when shown, otherwise
+   they render as a borderless inline run with no gap between them */
+.tag-rest{display:none}
+.tag-rest.open{display:contents}
 #tagbar{display:flex;flex-wrap:wrap;gap:7px;padding:12px 0 16px;
   max-height:118px;overflow-y:auto;transition:max-height .3s ease}
 #tagbar.collapsed{max-height:0;overflow:hidden;padding:0}
@@ -497,9 +502,10 @@ function cardHTML(it, cat) {
 }
 
 function visible(it) {
-  const q = state.q;
+  const terms = state.q ? state.q.split(/\s+/).filter(Boolean) : [];
   const txt = (it.title + " " + it.desc + " " + it.tags.join(" ") + " " + (it.github || "")).toLowerCase();
-  const okQ = !q || txt.includes(q);
+  /* space-separated terms are ANDed, matching how hi() highlights them */
+  const okQ = terms.every(t => txt.includes(t));
   const okT = state.tags.size === 0 ||
     (state.tagMode === "and" ? [...state.tags].every(t => it.tags.includes(t)) : it.tags.some(t => state.tags.has(t)));
   return okQ && okT;
@@ -517,16 +523,15 @@ function renderTags() {
   let html = top.map(chipHTML).join("");
   if (rest.length) {
     html += `<span class="chip more" data-more="1" title="展开全部标签">更多 ${rest.length} ▾</span>`;
-    html += `<span class="tag-rest" style="display:none">${rest.map(chipHTML).join("")}</span>`;
+    html += `<span class="tag-rest">${rest.map(chipHTML).join("")}</span>`;
   }
   tagbar.innerHTML = html;
   tagbar.querySelectorAll(".chip").forEach(el => {
     if (el.dataset.more) {
       el.onclick = () => {
         const restEl = tagbar.querySelector(".tag-rest");
-        const open = restEl.style.display !== "none";
-        restEl.style.display = open ? "none" : "inline";
-        el.textContent = open ? `更多 ${rest.length} ▾` : "收起 ▴";
+        const open = restEl.classList.toggle("open");
+        el.textContent = open ? "收起 ▴" : `更多 ${rest.length} ▾`;
       };
     } else {
       el.onclick = () => {
@@ -570,8 +575,8 @@ function render() {
 /* if an active chip ended up inside the collapsed "更多" section, expand it */
 function ensureActiveChipsVisible() {
   const restEl = tagbar.querySelector(".tag-rest");
-  if (restEl && restEl.style.display === "none" && restEl.querySelector(".chip.active")) {
-    restEl.style.display = "inline";
+  if (restEl && !restEl.classList.contains("open") && restEl.querySelector(".chip.active")) {
+    restEl.classList.add("open");
     const moreBtn = tagbar.querySelector("[data-more]");
     if (moreBtn) moreBtn.textContent = "收起 ▴";
   }
@@ -859,6 +864,7 @@ if (statsEl) {
   } catch (e) {}
 })();
 renderTags();
+ensureActiveChipsVisible();  /* deep link may activate a tag hidden behind 更多 */
 render();
 </script>
 </body>

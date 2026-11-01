@@ -1,7 +1,7 @@
 ---
 source: https://zhuanlan.zhihu.com/p/654910335
 date: 2026-07-07
-tags: [llm, distributed-training, inference, rlhf, diffusion, multimodal, transformer, blog-index, chinese]
+tags: [llm, distributed-training, inference, rlhf, multimodal, transformer, blog, chinese]
 ---
 
 # 猛猿大模型技术文章导航（历史文章总索引）

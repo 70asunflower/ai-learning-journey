@@ -1,7 +1,7 @@
 ---
 source: https://mlc.ai/modern-gpu-programming-for-mlsys/
 date: 2026-06-25
-tags: [gpu, cuda, blackwell, gemm, flash-attention, tirx, kernel-optimization, ml-systems, tma, warp-specialization]
+tags: [gpu, cuda, kernel, compiler, ml-systems]
 ---
 
 # Modern GPU Programming For MLSys

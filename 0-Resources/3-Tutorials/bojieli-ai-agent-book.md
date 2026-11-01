@@ -1,7 +1,7 @@
 ---
 source: https://bojieli.github.io/ai-agent-book/
 date: 2026-09-14
-tags: [ai-agent, llm, context-engineering, mcp, rag, multi-agent, sft, reinforcement-learning, coding-agent, evaluation, book, chinese, open-source]
+tags: [ai-agent, llm, mcp, fine-tuning, reinforcement-learning, coding-agent, evaluation, book, chinese, open-source]
 links:
   - https://bojieli.github.io/ai-agent-book/
   - https://github.com/bojieli/ai-agent-book

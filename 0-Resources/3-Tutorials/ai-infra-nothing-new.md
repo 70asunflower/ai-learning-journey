@@ -1,7 +1,7 @@
 ---
 source: https://mp.weixin.qq.com/s/Hg8uPMjTMX8Tk7slrVvfNA
 date: 2026-06-06
-tags: [ai-infra, gpu, training, inference, distributed-system, hardware]
+tags: [ai-infra, gpu, training, inference, distributed-systems, hardware]
 ---
 
 # AI Infra 其实没有多少新东西

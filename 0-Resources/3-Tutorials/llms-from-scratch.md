@@ -1,7 +1,7 @@
 ---
 source: https://github.com/rasbt/LLMs-from-scratch
 date: 2026-05-07
-tags: [llm, from-scratch, pytorch, gpt, fine-tuning, lora, textbook]
+tags: [llm, from-scratch, pytorch, gpt, fine-tuning, lora, book]
 ---
 
 # Build a Large Language Model (From Scratch)

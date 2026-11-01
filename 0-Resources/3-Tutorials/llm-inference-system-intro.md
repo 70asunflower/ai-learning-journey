@@ -1,7 +1,7 @@
 ---
 source: https://mp.weixin.qq.com/s/driajBoZ0iqzwLCMfss3Ng
 date: 2026-06-05
-tags: [llm-inference, vllm, sglang, kv-cache, continuous-batching, speculation, system-optimization]
+tags: [inference, vllm, sglang, optimization]
 ---
 
 # 大模型推理系统入门：从模型优化到调度优化

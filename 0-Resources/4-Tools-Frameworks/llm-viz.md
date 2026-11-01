@@ -1,7 +1,7 @@
 ---
 source: https://bbycroft.net/llm
 date: 2026-08-01
-tags: [llm, transformer, visualization, attention, gpt2, interactive, threejs, interpretability]
+tags: [llm, transformer, visualization, gpt, interactive, threejs, interpretability]
 ---
 
 # LLM Visualization (bbycroft)

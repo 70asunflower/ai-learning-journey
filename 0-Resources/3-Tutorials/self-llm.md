@@ -1,7 +1,7 @@
 ---
 source: https://github.com/datawhalechina/self-llm
 date: 2026-03-31
-tags: [tutorial, getting-started, fine-tuning, deployment, chinese]
+tags: [tutorial, fine-tuning, serving, chinese]
 ---
 
 # self-llm: 开源大模型食用指南

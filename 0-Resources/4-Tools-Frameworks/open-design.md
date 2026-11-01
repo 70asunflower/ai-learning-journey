@@ -1,7 +1,7 @@
 ---
 source: https://github.com/nexu-io/open-design
 date: 2026-05-05
-tags: [ai-design, open-source, coding-agent, claude-design, nextjs, local-first]
+tags: [ai-design, open-source, coding-agent, nextjs, local-first]
 ---
 
 # Open Design — AI 设计工具（Claude Design 开源替代）

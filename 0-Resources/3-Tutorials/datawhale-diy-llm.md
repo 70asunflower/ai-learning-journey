@@ -1,7 +1,7 @@
 ---
 source: https://github.com/datawhalechina/diy-llm
 date: 2026-10-30
-tags: [cs336, llm, from-scratch, datawhale, chinese-course, tokenizer, moe, cuda, triton, distributed-training, scaling-laws, inference, alignment, grpo, coursework]
+tags: [cs336, llm, from-scratch, datawhale, chinese, tokenizer, moe, cuda, kernel, distributed-training, inference, alignment, grpo, course]
 links:
   - https://github.com/datawhalechina/diy-llm
   - https://datawhalechina.github.io/diy-llm/

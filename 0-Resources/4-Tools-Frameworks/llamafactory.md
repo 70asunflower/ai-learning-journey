@@ -1,7 +1,7 @@
 ---
 source: https://llamafactory.readthedocs.io/zh-cn/latest/index.html
 date: 2026-04-04
-tags: [fine-tuning, framework, lora, qlora, llama, qwen, chinese-doc]
+tags: [fine-tuning, framework, lora, llama, qwen, chinese]
 ---
 
 # LlamaFactory

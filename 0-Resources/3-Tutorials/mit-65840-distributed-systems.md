@@ -1,7 +1,7 @@
 ---
 source: https://pdos.csail.mit.edu/6.824/
 date: 2026-09-01
-tags: [distributed-systems, raft, mapreduce, go, fault-tolerance, replication, consistency, mit, course]
+tags: [distributed-systems, go, mit, course]
 links:
   - https://pdos.csail.mit.edu/6.824/
   - https://pdos.csail.mit.edu/6.824/schedule.html

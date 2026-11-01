@@ -1,7 +1,7 @@
 ---
 source: https://handbook.modular.com/
 date: 2026-08-01
-tags: [inference, handbook, modular, deployment, serving, gpu, optimization, reference]
+tags: [inference, docs, modular, serving, gpu, optimization]
 ---
 
 # LLM Inference Handbook (Modular)

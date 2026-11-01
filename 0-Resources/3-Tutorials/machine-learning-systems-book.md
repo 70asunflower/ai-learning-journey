@@ -1,7 +1,7 @@
 ---
 source: https://mlsysbook.ai/
 date: 2026-10-20
-tags: [ml-systems, ai-infra, tinyml, fleet-scale, distributed-training, inference, mlops, hardware-acceleration, mit-press, textbook, open-access]
+tags: [ml-systems, ai-infra, tinyml, distributed-training, inference, hardware, mit-press, book, open-access]
 links:
   - https://mlsysbook.ai/
   - https://mlsysbook.ai/vol1/

@@ -1,7 +1,7 @@
 ---
 source: https://huggingface.co/spaces/nanotron/ultrascale-playbook
 date: 2026-08-07
-tags: [distributed-training, llm-training, parallelism, tensor-parallelism, pipeline-parallelism, data-parallelism, zero, context-parallelism, moe, mixed-precision, gpu, scaling, book, huggingface]
+tags: [distributed-training, moe, gpu, scaling, book, huggingface]
 ---
 
 # The Ultra-Scale Playbook — 在 GPU 集群上训练 LLM

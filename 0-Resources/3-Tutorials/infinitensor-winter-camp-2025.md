@@ -1,7 +1,7 @@
 ---
 source: https://www.infinitensor.com/camp/winter2025
 date: 2026-04-25
-tags: [inference, infrastructure, camp, operator, framework, model]
+tags: [inference, ai-infra, course, kernel, framework, model]
 ---
 
 # Infinitensor 冬令营 2025

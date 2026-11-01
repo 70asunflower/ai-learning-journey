@@ -1,7 +1,7 @@
 ---
 source: https://vllm.hyper.ai/docs/
 date: 2026-07-07
-tags: [vllm, inference, serving, llm, quantization, lora, documentation, chinese]
+tags: [vllm, inference, serving, llm, quantization, lora, docs, chinese]
 ---
 
 # vLLM 中文文档

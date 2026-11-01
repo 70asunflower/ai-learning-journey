@@ -1,7 +1,7 @@
 ---
 source: https://godbolt.org/
 date: 2026-10-18
-tags: [compiler, assembly, llvm-ir, optimization, simd, cpp, rust, cuda, interactive-tool, performance]
+tags: [compiler, optimization, cpp, rust, cuda, interactive]
 links:
   - https://godbolt.org/
   - https://github.com/compiler-explorer/compiler-explorer

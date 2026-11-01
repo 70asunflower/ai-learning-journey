@@ -1,7 +1,7 @@
 ---
 source: https://github.com/rasbt/reasoning-from-scratch
 date: 2026-05-07
-tags: [reasoning, llm, reinforcement-learning, grpo, distillation, pytorch, textbook]
+tags: [reasoning, llm, reinforcement-learning, grpo, distillation, pytorch, book]
 ---
 
 # Build a Reasoning Model (From Scratch)

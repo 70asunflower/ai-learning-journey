@@ -1,7 +1,7 @@
 ---
 source: https://github.com/datawhalechina/Agent-Learning-Hub
 date: 2026-06-05
-tags: [ai-agent, agent, tutorial, roadmap, datawhale, mcp, tool-use]
+tags: [ai-agent, tutorial, roadmap, datawhale, mcp]
 ---
 
 # Agent-Learning-Hub — AI Agent 学习路线与资料库
