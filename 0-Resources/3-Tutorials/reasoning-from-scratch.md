@@ -1,5 +1,6 @@
 ---
 title: Build a Reasoning Model (From Scratch)
+short: Build a Reasoning Model
 summary: Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展）
 source: https://github.com/rasbt/reasoning-from-scratch
 date: 2026-05-07

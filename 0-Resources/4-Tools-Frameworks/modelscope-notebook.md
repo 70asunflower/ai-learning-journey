@@ -1,5 +1,6 @@
 ---
 title: ModelScope Notebook 免费试用
+short: ModelScope Notebook
 summary: 魔搭云上开发环境，开箱即用 GPU/CPU，提供免费使用时长
 source: https://www.modelscope.cn/docs/notebooks/free-trial
 date: 2026-03-31

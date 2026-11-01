@@ -37,8 +37,10 @@ python scripts/build.py
 |------|------|
 | `0-Resources/0-Index.md` | 整个文件 |
 | `0-Resources/<子目录>/README.md` | 表格部分（`BUILD:TABLE` 标记之间） |
-| `README.md` | 资源导航（`BUILD:NAV` 标记之间） |
+| `README.md` 资源导航 | `BUILD:NAV` 标记之间 |
+| `README.md` 文本版地图 | `BUILD:MAP` 标记之间 |
 | `index.html` | 整个文件 |
+| `assets/roadmap-*.svg` | 学习地图（亮/暗两版） |
 
 ### 3. 记一笔 changelog
 
@@ -80,6 +82,30 @@ git add -A && git commit -m "feat(resources): add <名称>"
 1. 建子目录 `2-Code/<project-name>/`，含 `main.py`、`requirements.txt`、`README.md`
 2. 加进 `2-Code/README.md` 的示例表格
 
+## 改学习地图
+
+`scripts/build.py` 顶部的 `ROADMAP` 决定地图的分轨与顺序：每条轨道是一组资源路径，
+组内顺序就是建议阅读顺序。
+
+**硬性约束（构建期断言，不满足直接报错）**：
+
+- 每个资源必须**恰好出现一次**——漏一个报 `not in ROADMAP`，重复报 `listed twice`
+- 指向不存在的文件报 `ROADMAP points at missing files`
+
+所以地图不可能"只画一部分资源"。改完重跑 `build.py`。
+
+### 长标题怎么办
+
+药丸宽度有限（约 14 个汉字 / 26 个英文字符）。超了会被截断成 `…`，`build.py`
+结束时会列出这些文件并提示加 `short:`：
+
+```yaml
+title: Machine Learning Systems (Harvard CS249r)
+short: Machine Learning Systems
+```
+
+`short:` 可选，缺省回退到 `title`。它只影响地图，不影响卡片和表格。
+
 ## 硬性规则
 
 - **文件名**：小写、连字符分隔（如 `qwen3-vl-best-practice.md`）
@@ -90,7 +116,7 @@ git add -A && git commit -m "feat(resources): add <名称>"
   `--report` 打印标签频次和单例标签（判断该不该合并）
 - **Changelog**：新行插在表头下方（日期倒序，CI 强制）
 - **Last updated**：每个资源/笔记文件结尾都要有 `_Last updated: YYYY-MM-DD_`
-- **不要手改生成块**：`BUILD:NAV` / `BUILD:TABLE` 标记之间、以及 `0-Index.md`、
+- **不要手改生成块**：`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` 标记之间、以及 `0-Index.md`、
   `index.html` 整体都是生成物，下次构建会被覆盖
 
 ## 更新 README 预览图

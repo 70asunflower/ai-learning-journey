@@ -1,5 +1,6 @@
 ---
 title: Agent-Learning-Hub (Datawhale)
+short: Agent-Learning-Hub
 summary: AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单
 source: https://github.com/datawhalechina/Agent-Learning-Hub
 date: 2026-06-05

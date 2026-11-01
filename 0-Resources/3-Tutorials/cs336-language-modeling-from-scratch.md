@@ -1,5 +1,6 @@
 ---
 title: CS336 从零构建语言模型 (中文)
+short: CS336 中文通读本
 summary: 斯坦福 CS336 全17讲中文通识读本：分词→预训练→对齐
 source: https://feigaobox10.github.io/llm-from-scratch-reader/
 date: 2026-06-28

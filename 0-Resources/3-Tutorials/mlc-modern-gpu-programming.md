@@ -1,5 +1,6 @@
 ---
 title: Modern GPU Programming For MLSys
+short: Modern GPU Programming
 summary: MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4）
 source: https://mlc.ai/modern-gpu-programming-for-mlsys/
 date: 2026-06-25

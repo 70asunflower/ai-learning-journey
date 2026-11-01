@@ -1,5 +1,6 @@
 ---
 title: LLM Visualization (bbycroft)
+short: LLM Visualization
 summary: GPT 风格 LLM 推理 3D 交互可视化，逐层看注意力/FFN/词元流动（WebGL）
 source: https://bbycroft.net/llm
 date: 2026-08-01

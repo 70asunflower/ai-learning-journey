@@ -1,5 +1,6 @@
 ---
 title: Machine Learning Systems (Harvard CS249r)
+short: Machine Learning Systems
 summary: MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态
 source: https://mlsysbook.ai/
 date: 2026-10-20

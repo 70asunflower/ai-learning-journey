@@ -53,26 +53,67 @@ EMPTY_HINT = {
 
 NAV_START, NAV_END = "<!-- BUILD:NAV:START -->", "<!-- BUILD:NAV:END -->"
 TAB_START, TAB_END = "<!-- BUILD:TABLE:START -->", "<!-- BUILD:TABLE:END -->"
+MAP_START, MAP_END = "<!-- BUILD:MAP:START -->", "<!-- BUILD:MAP:END -->"
 
-# The learning-path diagram. Only the *structure* is editorial (which goal, which
-# two resources); titles come from frontmatter, so renaming a resource updates
-# the diagram automatically.
+# The learning map. Every resource must appear exactly once — the build fails
+# otherwise, so the diagram can never silently drop an entry again.
+# Order inside a track is the suggested reading order.
 ROADMAP = [
-    {"goal": "系统入门 LLM",
-     "first": "0-Resources/3-Tutorials/cs336-language-modeling-from-scratch.md",
-     "next": "0-Resources/3-Tutorials/datawhale-diy-llm.md"},
-    {"goal": "搞懂推理系统",
-     "first": "0-Resources/3-Tutorials/llm-inference-system-intro.md",
-     "next": "0-Resources/4-Tools-Frameworks/nano-vllm.md"},
-    {"goal": "建立 AI Infra 全局观",
-     "first": "0-Resources/3-Tutorials/bojieli-ai-infra-book.md",
-     "next": "0-Resources/3-Tutorials/ultrascale-playbook.md"},
-    {"goal": "上手 GPU Kernel",
-     "first": "0-Resources/1-Official-Docs/cuda-programming-guide.md",
-     "next": "0-Resources/3-Tutorials/mlc-modern-gpu-programming.md"},
-    {"goal": "做 AI Agent",
-     "first": "0-Resources/3-Tutorials/bojieli-ai-agent-book.md",
-     "next": "0-Resources/3-Tutorials/agent-learning-hub.md"},
+    {"track": "建立全局观", "items": [
+        "0-Resources/3-Tutorials/ai-infra-nothing-new.md",
+        "0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md",
+        "0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md",
+        "0-Resources/3-Tutorials/bojieli-ai-infra-book.md",
+        "0-Resources/3-Tutorials/mengyuan-llm-articles-index.md",
+        "0-Resources/3-Tutorials/sebastian-raschka-blog.md",
+    ]},
+    {"track": "LLM 原理与从零实现", "items": [
+        "0-Resources/3-Tutorials/dive-into-deep-learning.md",
+        "0-Resources/3-Tutorials/cs336-language-modeling-from-scratch.md",
+        "0-Resources/3-Tutorials/llms-from-scratch.md",
+        "0-Resources/3-Tutorials/datawhale-diy-llm.md",
+        "0-Resources/3-Tutorials/reasoning-from-scratch.md",
+        "0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md",
+    ]},
+    {"track": "训练与分布式", "items": [
+        "0-Resources/3-Tutorials/jax-scaling-book.md",
+        "0-Resources/3-Tutorials/ultrascale-playbook.md",
+        "0-Resources/3-Tutorials/machine-learning-systems-book.md",
+        "0-Resources/3-Tutorials/mit-65840-distributed-systems.md",
+    ]},
+    {"track": "推理系统与部署", "items": [
+        "0-Resources/3-Tutorials/llm-inference-system-intro.md",
+        "0-Resources/1-Official-Docs/llm-inference-handbook.md",
+        "0-Resources/1-Official-Docs/vllm-docs-zh.md",
+        "0-Resources/4-Tools-Frameworks/nano-vllm.md",
+        "0-Resources/4-Tools-Frameworks/mini-sglang.md",
+        "0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md",
+        "0-Resources/3-Tutorials/infra-seminars-2026.md",
+    ]},
+    {"track": "GPU Kernel 与性能", "items": [
+        "0-Resources/1-Official-Docs/cuda-programming-guide.md",
+        "0-Resources/3-Tutorials/mlc-modern-gpu-programming.md",
+        "0-Resources/4-Tools-Frameworks/compiler-explorer.md",
+    ]},
+    {"track": "微调与工程实践", "items": [
+        "0-Resources/3-Tutorials/self-llm.md",
+        "0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md",
+        "0-Resources/4-Tools-Frameworks/llamafactory.md",
+        "0-Resources/4-Tools-Frameworks/ms-swift.md",
+        "0-Resources/4-Tools-Frameworks/modelscope-notebook.md",
+        "0-Resources/4-Tools-Frameworks/canirun.md",
+    ]},
+    {"track": "Agent", "items": [
+        "0-Resources/3-Tutorials/bojieli-ai-agent-book.md",
+        "0-Resources/3-Tutorials/agent-learning-hub.md",
+    ]},
+    {"track": "工具与可视化", "items": [
+        "0-Resources/4-Tools-Frameworks/tiktokenizer.md",
+        "0-Resources/4-Tools-Frameworks/llm-viz.md",
+        "0-Resources/4-Tools-Frameworks/inferflux.md",
+        "0-Resources/4-Tools-Frameworks/open-design.md",
+        "0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md",
+    ]},
 ]
 
 
@@ -117,6 +158,7 @@ def load_resources() -> dict[str, list[dict]]:
                 "file": p.name,
                 "rel": f"0-Resources/{sub}/{p.name}",
                 "title": fm.get("title") or p.stem,
+                "short": fm.get("short") or fm.get("title") or p.stem,
                 "summary": fm.get("summary", ""),
                 "source": fm.get("source", ""),
                 "date": fm.get("date", ""),
@@ -180,17 +222,37 @@ def render_nav(groups: dict[str, list[dict]]) -> str:
     return "\n".join(out)
 
 
-# ---------------------------------------------------------------- roadmap svg
+# ---------------------------------------------------------------- roadmap
+def check_roadmap(by_rel: dict[str, dict]) -> None:
+    """Every resource must be listed exactly once, and nothing else may be."""
+    listed = [rel for t in ROADMAP for rel in t["items"]]
+    dupes = sorted({r for r in listed if listed.count(r) > 1})
+    missing = sorted(set(by_rel) - set(listed))
+    unknown = sorted(set(listed) - set(by_rel))
+    problems = []
+    if missing:
+        problems.append(f"not in ROADMAP: {missing}")
+    if unknown:
+        problems.append(f"ROADMAP points at missing files: {unknown}")
+    if dupes:
+        problems.append(f"listed twice: {dupes}")
+    if problems:
+        raise SystemExit("roadmap is out of sync with 0-Resources/\n  "
+                         + "\n  ".join(problems))
+
+
 THEMES = {
     "light": dict(
         bg="#fcfcfb", card="#ffffff", border="#e6e6e4", text="#1c1c1c",
-        muted="#8f8f8f", sub="#6b6b6b", arrow="#c9c9c9", rule="#efefec",
-        track=["#2f6df6", "#0a7d3b", "#8250df", "#d9730d", "#cf222e"],
+        muted="#8f8f8f", sub="#6b6b6b", rule="#efefec", pill="#ffffff",
+        track=["#2f6df6", "#0a7d3b", "#8250df", "#d9730d", "#cf222e",
+               "#1a7f64", "#bf3989", "#8b5cf6"],
     ),
     "dark": dict(
         bg="#101011", card="#1b1b1d", border="#2c2c30", text="#e9e9e7",
-        muted="#8c8c8c", sub="#a6a6a6", arrow="#3f3f45", rule="#232327",
-        track=["#6f9bf2", "#3fb950", "#b18aff", "#e8913a", "#ff7b72"],
+        muted="#8c8c8c", sub="#a6a6a6", rule="#232327", pill="#1b1b1d",
+        track=["#6f9bf2", "#3fb950", "#b18aff", "#e8913a", "#ff7b72",
+               "#4ec9a0", "#f778ba", "#a78bfa"],
     ),
 }
 
@@ -198,11 +260,12 @@ FONT = ("-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', "
         "'Hiragino Sans GB', 'Microsoft YaHei', sans-serif")
 
 W, PAD = 900, 26
-X_GOAL, X1, NW1 = 26, 200, 300
-X2, NW2 = 556, 318
-ARROW_X1, ARROW_X2 = X1 + NW1 + 8, X2 - 8
-ROW_H, Y0 = 62, 120
-H = Y0 + ROW_H * len(ROADMAP) + 62
+LABEL_W = 148                 # left column holding the track name
+X_FLOW = PAD + LABEL_W + 14   # pills start here
+FLOW_W = W - PAD - X_FLOW
+PILL_H, PILL_GAP, LINE_GAP = 28, 8, 10
+BAND_PAD_TOP, BAND_PAD_BOT = 12, 14
+SIZE = 11.5
 
 
 def _tw(s: str, size: float) -> float:
@@ -210,108 +273,97 @@ def _tw(s: str, size: float) -> float:
     return sum(size if ord(c) > 0x2E80 else size * 0.55 for c in s)
 
 
-def _fit(s: str, size: float, maxw: float) -> str:
+def _fit(s: str, size: float, maxw: float) -> tuple[str, bool]:
     if _tw(s, size) <= maxw:
-        return s
+        return s, False
     while s and _tw(s + "…", size) > maxw:
         s = s[:-1]
-    return s + "…"
+    return s + "…", True
 
 
-def _wrap(s: str, size: float, maxw: float, max_lines: int = 2) -> list[str]:
-    """Greedy word wrap; falls back to _fit truncation on the last line."""
-    if _tw(s, size) <= maxw:
-        return [s]
-    words, lines, cur = s.split(" "), [], ""
-    for w in words:
-        cand = f"{cur} {w}".strip()
-        if _tw(cand, size) <= maxw:
-            cur = cand
-            continue
-        if cur:
-            lines.append(cur)
-            cur = w
-        else:                       # single word longer than the box
-            lines.append(_fit(w, size, maxw))
-            cur = ""
-        if len(lines) == max_lines - 1:
-            break
-    if cur:
-        lines.append(cur)
-    if len(lines) > max_lines:
-        lines = lines[:max_lines]
-    lines[-1] = _fit(lines[-1], size, maxw)
+def _layout_band(titles: list[str]) -> list[list[tuple[str, float, bool]]]:
+    """Flow pills left→right, wrapping. Returns lines of (text, width, truncated)."""
+    lines: list[list[tuple[str, float, bool]]] = [[]]
+    used = 0.0
+    for t in titles:
+        text, cut = _fit(t, SIZE, 168)
+        w = _tw(text, SIZE) + 40          # 8 pad + 16 badge + 6 + 10 pad
+        if lines[-1] and used + PILL_GAP + w > FLOW_W:
+            lines.append([])
+            used = 0.0
+        if lines[-1]:
+            used += PILL_GAP
+        lines[-1].append((text, w, cut))
+        used += w
     return lines
-
-
-def _node_text(x: float, cy: float, title: str, maxw: float, color: str) -> str:
-    """One or two lines of node text, vertically centred on the node box."""
-    lines = _wrap(title, 13, maxw)
-    if len(lines) == 1:
-        return (f'<text x="{x}" y="{cy + 4.5}" font-size="13" fill="{color}">'
-                f'{escape(lines[0])}</text>')
-    spans = "".join(f'<tspan x="{x}" y="{cy - 3 + i * 16}">{escape(l)}</tspan>'
-                    for i, l in enumerate(lines))
-    return f'<text font-size="13" fill="{color}">{spans}</text>'
 
 
 def render_roadmap(by_rel: dict[str, dict], theme: str) -> str:
     t = THEMES[theme]
     e = escape
+    bands = [(track, _layout_band([by_rel[rel]["short"] for rel in track["items"]]))
+             for track in ROADMAP]
+
+    heights = [BAND_PAD_TOP + len(ls) * PILL_H + (len(ls) - 1) * LINE_GAP + BAND_PAD_BOT
+               for _, ls in bands]
+    H = 96 + sum(heights) + 46
+
     o = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
         f'viewBox="0 0 {W} {H}" role="img" '
-        f'aria-label="从这里开始：五条学习路径，每条给出先读与接着" font-family="{FONT}">',
+        f'aria-label="学习地图：按学习顺序分轨列出全部资源" font-family="{FONT}">',
         f'<rect width="{W}" height="{H}" rx="14" fill="{t["bg"]}" stroke="{t["border"]}"/>',
-        # header
-        f'<text x="{PAD}" y="44" font-size="17" font-weight="650" fill="{t["text"]}">从这里开始</text>',
-        f'<text x="{PAD}" y="67" font-size="12.5" fill="{t["sub"]}">'
-        f'按目标选一条路径 · 先读左边，读完接右边</text>',
-        f'<line x1="{PAD}" y1="84" x2="{W - PAD}" y2="84" stroke="{t["rule"]}"/>',
-        # column headers
-        f'<text x="{X_GOAL}" y="106" font-size="10.5" letter-spacing="1.4" fill="{t["muted"]}">目标</text>',
-        f'<text x="{X1}" y="106" font-size="10.5" letter-spacing="1.4" fill="{t["muted"]}">先读</text>',
-        f'<text x="{X2}" y="106" font-size="10.5" letter-spacing="1.4" fill="{t["muted"]}">接着</text>',
+        f'<text x="{PAD}" y="42" font-size="17" font-weight="650" fill="{t["text"]}">'
+        f'学习地图</text>',
+        f'<text x="{PAD}" y="64" font-size="12.5" fill="{t["sub"]}">'
+        f'按轨道分组，组内从左到右是建议阅读顺序 · 全部 {len(by_rel)} 份资源</text>',
+        f'<line x1="{PAD}" y1="80" x2="{W - PAD}" y2="80" stroke="{t["rule"]}"/>',
     ]
 
-    for i, row in enumerate(ROADMAP):
-        y = Y0 + i * ROW_H
-        cy = y + 31
+    y = 96
+    for i, ((track, lines), h) in enumerate(zip(bands, heights)):
         color = t["track"][i % len(t["track"])]
-        first = by_rel.get(row["first"])
-        nxt = by_rel.get(row["next"])
-        if first is None or nxt is None:
-            raise SystemExit(f"roadmap references a missing resource: "
-                             f"{row['first']!r} / {row['next']!r}")
+        cy = y + BAND_PAD_TOP + PILL_H / 2
+        o.append(f'<circle cx="{PAD + 5}" cy="{cy}" r="3.5" fill="{color}"/>')
+        o.append(f'<text x="{PAD + 16}" y="{cy + 4.5}" font-size="12.5" font-weight="600" '
+                 f'fill="{t["text"]}">{e(track["track"])}</text>')
 
-        # goal label (right aligned against the first column)
-        o.append(f'<circle cx="{X1 - 22}" cy="{cy}" r="3.5" fill="{color}"/>')
-        o.append(f'<text x="{X1 - 34}" y="{cy + 4.5}" text-anchor="end" font-size="13" '
-                 f'font-weight="600" fill="{t["text"]}">'
-                 f'{e(_fit(row["goal"], 13, X1 - 34 - X_GOAL))}</text>')
+        n = 0
+        for li, line in enumerate(lines):
+            ly = y + BAND_PAD_TOP + li * (PILL_H + LINE_GAP)
+            x = X_FLOW
+            for text, w, cut in line:
+                n += 1
+                o.append(f'<rect x="{x:.1f}" y="{ly}" width="{w:.1f}" height="{PILL_H}" '
+                         f'rx="14" fill="{t["pill"]}" stroke="{color}" stroke-opacity="0.45"/>')
+                o.append(f'<circle cx="{x + 15:.1f}" cy="{ly + PILL_H / 2}" r="7.5" '
+                         f'fill="{color}" fill-opacity="0.16"/>')
+                o.append(f'<text x="{x + 15:.1f}" y="{ly + PILL_H / 2 + 3.6}" '
+                         f'text-anchor="middle" font-size="9.5" font-weight="700" '
+                         f'fill="{color}">{n}</text>')
+                o.append(f'<text x="{x + 28:.1f}" y="{ly + PILL_H / 2 + 4.2}" '
+                         f'font-size="{SIZE}" fill="{t["text"]}">{e(text)}</text>')
+                x += w + PILL_GAP
+        y += h
 
-        # first node — tinted with the track colour
-        o.append(f'<rect x="{X1}" y="{y + 10}" width="{NW1}" height="42" rx="9" '
-                 f'fill="{color}" fill-opacity="0.10" stroke="{color}" stroke-opacity="0.55"/>')
-        o.append(_node_text(X1 + 15, cy, first["title"], NW1 - 30, t["text"]))
-
-        # arrow
-        o.append(f'<line x1="{ARROW_X1}" y1="{cy}" x2="{ARROW_X2 - 7}" y2="{cy}" '
-                 f'stroke="{t["arrow"]}" stroke-width="1.4" stroke-linecap="round"/>')
-        o.append(f'<path d="M{ARROW_X2 - 8} {cy - 4} L{ARROW_X2} {cy} L{ARROW_X2 - 8} {cy + 4}" '
-                 f'fill="none" stroke="{t["arrow"]}" stroke-width="1.4" '
-                 f'stroke-linecap="round" stroke-linejoin="round"/>')
-
-        # next node — dashed, reads as "then"
-        o.append(f'<rect x="{X2}" y="{y + 10}" width="{NW2}" height="42" rx="9" '
-                 f'fill="{t["card"]}" stroke="{t["arrow"]}" stroke-dasharray="4 3"/>')
-        o.append(_node_text(X2 + 15, cy, nxt["title"], NW2 - 30, t["text"]))
-
-    o.append(f'<text x="{PAD}" y="{H - 24}" font-size="11.5" fill="{t["muted"]}">'
+    o.append(f'<text x="{PAD}" y="{H - 22}" font-size="11.5" fill="{t["muted"]}">'
              f'完整索引：0-Resources/0-Index.md　·　在线版：'
              f'{generate_index.PAGES_URL.replace("https://", "").rstrip("/")}</text>')
     o.append("</svg>")
     return "\n".join(o) + "\n"
+
+
+def render_roadmap_md(by_rel: dict[str, dict]) -> str:
+    """Clickable text version of the map (an <img> cannot carry links)."""
+    out = []
+    for i, track in enumerate(ROADMAP, 1):
+        out.append(f"**{i}. {track['track']}**")
+        out.append("")
+        for rel in track["items"]:
+            r = by_rel[rel]
+            out.append(f"- [{r['title']}]({rel}) — {r['summary']}")
+        out.append("")
+    return "\n".join(out).rstrip()
 
 
 def splice(text: str, start: str, end: str, body: str, path: str) -> str:
@@ -327,6 +379,8 @@ def splice(text: str, start: str, end: str, body: str, path: str) -> str:
 def build(check: bool = False) -> int:
     groups = load_resources()
     index_md = render_index_md(groups)
+    by_rel = {r["rel"]: r for items in groups.values() for r in items}
+    check_roadmap(by_rel)
 
     targets: list[tuple[pathlib.Path, str]] = [(RES / "0-Index.md", index_md)]
 
@@ -339,6 +393,7 @@ def build(check: bool = False) -> int:
 
     readme_p = ROOT / "README.md"
     readme = readme_p.read_text(encoding="utf-8")
+    readme = splice(readme, MAP_START, MAP_END, render_roadmap_md(by_rel), "README.md")
     targets.append((readme_p, splice(readme, NAV_START, NAV_END,
                                      render_nav(groups), "README.md")))
 
@@ -346,7 +401,6 @@ def build(check: bool = False) -> int:
     targets.append((ROOT / "index.html",
                     generate_index.build(targets[-1][1], index_md)))
 
-    by_rel = {r["rel"]: r for items in groups.values() for r in items}
     for theme in ("light", "dark"):
         targets.append((ROOT / "assets" / f"roadmap-{theme}.svg",
                         render_roadmap(by_rel, theme)))
@@ -370,7 +424,15 @@ def build(check: bool = False) -> int:
             print("  " + str(p.relative_to(ROOT)).replace("\\", "/"))
     else:
         print("All artifacts up to date.")
-    print(f"{n_items} resources, {n_tags} tags, {len(SUBDIRS)} categories")
+    print(f"{n_items} resources, {n_tags} tags, {len(SUBDIRS)} categories, "
+          f"{len(ROADMAP)} roadmap tracks")
+
+    # A pill that had to be cut needs a `short:` frontmatter field to read well.
+    for track in ROADMAP:
+        for rel in track["items"]:
+            _text, cut = _fit(by_rel[rel]["short"], SIZE, 168)
+            if cut:
+                print(f"  note: roadmap label truncated — add `short:` to {rel}")
     return 1 if (check and stale) else 0
 
 

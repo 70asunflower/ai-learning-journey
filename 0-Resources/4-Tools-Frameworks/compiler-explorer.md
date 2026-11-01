@@ -1,5 +1,6 @@
 ---
 title: Compiler Explorer (Godbolt)
+short: Compiler Explorer
 summary: 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器对比，验证向量化
 source: https://godbolt.org/
 date: 2026-10-18

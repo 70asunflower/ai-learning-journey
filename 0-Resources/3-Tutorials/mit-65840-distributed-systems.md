@@ -1,5 +1,6 @@
 ---
 title: MIT 6.5840 (原 6.824) 分布式系统
+short: MIT 6.5840 分布式系统
 summary: MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab
 source: https://pdos.csail.mit.edu/6.824/
 date: 2026-09-01
