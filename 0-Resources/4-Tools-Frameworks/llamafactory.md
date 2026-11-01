@@ -1,9 +1,10 @@
 ---
+title: LlamaFactory 微调框架
+summary: 100+ LLM/VLM 高效微调框架，支持 LoRA/QLoRA/SFT/DPO
 source: https://llamafactory.readthedocs.io/zh-cn/latest/index.html
 date: 2026-04-04
-tags: [fine-tuning, framework, lora, llama, qwen, chinese]
+tags: [fine-tuning, framework, lora, llm, chinese]
 ---
-
 # LlamaFactory
 
 ## 核心要点（摘要）

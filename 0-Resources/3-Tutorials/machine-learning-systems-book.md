@@ -1,14 +1,12 @@
 ---
+title: Machine Learning Systems (Harvard CS249r)
+summary: MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态
 source: https://mlsysbook.ai/
 date: 2026-10-20
-tags: [ml-systems, ai-infra, tinyml, distributed-training, inference, hardware, mit-press, book, open-access]
-links:
-  - https://mlsysbook.ai/
-  - https://mlsysbook.ai/vol1/
-  - https://mlsysbook.ai/vol2/
-  - https://github.com/harvard-edge/cs249r_book
+tags: [ml-systems, ai-infra, tinyml, distributed-training, inference, hardware, mit, book, open-access]
+links: 
+- https: //github.com/harvard-edge/cs249r_book
 ---
-
 # Machine Learning Systems（Harvard CS249r · MIT Press 2026）
 
 > 哈佛 Vijay Janapa Reddi 团队的 ML 系统教材，MIT Press 2026 出版、**完全免费开放**（GitHub 28k★，月均 3.2 万读者 / 210 个国家）。自我定位「AI engineering 的物理学」——**principles-first**，从单机到 fleet 规模讲 ML 系统如何被构建、优化与部署。两卷本 + 完整课程生态（交互 Lab / 从零造框架 / 性能建模 / 真硬件部署 / 面试题库）。

@@ -1,12 +1,12 @@
 ---
+title: 深入理解 AI Agent
+summary: 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力
 source: https://bojieli.github.io/ai-agent-book/
 date: 2026-09-14
 tags: [ai-agent, llm, mcp, fine-tuning, reinforcement-learning, coding-agent, evaluation, book, chinese, open-source]
-links:
-  - https://bojieli.github.io/ai-agent-book/
-  - https://github.com/bojieli/ai-agent-book
+links: 
+- https: //github.com/bojieli/ai-agent-book
 ---
-
 # 深入理解 AI Agent：设计原理与工程实践
 
 > 李博杰（bojieli）开源技术书（**45k+ Stars**，Apache 2.0，持续更新，GitHub Actions 自动重建站点）。核心公式：**Agent = LLM + 上下文 + 工具**；核心论断：**"Harness 工程才是竞争力"**——设计原则比模型迭代更长寿。中文原版 + 14 种社区翻译，每章附配套实验。

@@ -1,9 +1,10 @@
 ---
+title: self-llm 大模型食用指南
+summary: DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程
 source: https://github.com/datawhalechina/self-llm
 date: 2026-03-31
 tags: [tutorial, fine-tuning, serving, chinese]
 ---
-
 # self-llm: 开源大模型食用指南
 
 > 中文大模型教程项目，帮助初学者掌握开源大模型的部署、使用和微调。

@@ -48,8 +48,6 @@ SIBLINGS = [
 
 TITLE = "AI Learning Journey"
 
-readme = (ROOT / "README.md").read_text(encoding="utf-8")
-index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
 # Inline marked.js so the page works fully offline / behind GFW (no CDN dependency).
 MARKED_JS = r"""/**
  * marked v12.0.2 - a markdown parser
@@ -75,88 +73,88 @@ def prettify(cat: str) -> str:
     return cat.replace("-", " ").strip()
 
 
-# ---- 1. tags + date from 0-Index.md (table: | [Name](path) | #tags | date |) ----
-tags_by_path: dict[str, list[str]] = {}
-dates_by_path: dict[str, str] = {}
-for line in index_md.splitlines():
-    if not (line.strip().startswith("|") and "](" in line):
-        continue
-    cells = [c.strip() for c in line.strip().strip("|").split("|")]
-    if len(cells) < 2:
-        continue
-    lm = re.search(r"\]\(([^)]+)\)", cells[0])
-    if not lm:
-        continue
-    path = normalize(lm.group(1))
-    tags = re.findall(r"#([\w\-.]+)", cells[1])
-    tags_by_path[path] = tags
-    if len(cells) >= 3:
-        dates_by_path[path] = cells[2].strip()
+def parse_index(index_md: str) -> dict[str, dict]:
+    """0-Index.md table -> {normalized path: {"tags": [...], "date": "YYYY-MM-DD"}}."""
+    info: dict[str, dict] = {}
+    for line in index_md.splitlines():
+        if not (line.strip().startswith("|") and "](" in line):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 2:
+            continue
+        lm = re.search(r"\]\(([^)]+)\)", cells[0])
+        if not lm:
+            continue
+        info[normalize(lm.group(1))] = {
+            "tags": re.findall(r"#([\w\-.]+)", cells[1]),
+            "date": cells[2].strip() if len(cells) >= 3 else "",
+        }
+    return info
 
 
-# ---- 2. resources from README.md (inside 📚 Resources block) ----
-categories: list[dict] = []
-cat_map: dict[str, list[dict]] = {}
-stack: list[str | None] = []
+def parse_nav(readme: str, index_info: dict[str, dict]) -> list[dict]:
+    """Walk the `📚 Resources` <details> tree of README.md into category buckets."""
+    categories: list[dict] = []
+    cat_map: dict[str, list[dict]] = {}
+    stack: list[str | None] = []
 
-for line in readme.splitlines():
-    s = line.strip()
-    if s.startswith("<details"):
-        stack.append(None)
-        continue
-    m = re.match(r"<summary>(.*?)</summary>", s)
-    if m:
-        stack[-1] = re.sub(r"<[^>]+>", "", m.group(1)).strip()
-        continue
-    if s == "</details>":
-        if stack:
-            stack.pop()
-        continue
-    if not stack or "Resources" not in (stack[0] or ""):
-        continue
-    cat = next((x for x in reversed(stack) if x and re.match(r"^\d+-", x)), None)
-    if not cat:
-        continue
-    lm = re.search(r"\[([^\]]+)\]\(([^)]+)\)", line)
-    if not lm:
-        continue
-    title = lm.group(1).strip()
-    url = lm.group(2).strip()
-    desc = re.sub(r"^[\s—\-–]+", "", line[lm.end():].strip())
+    for line in readme.splitlines():
+        s = line.strip()
+        if s.startswith("<details"):
+            stack.append(None)
+            continue
+        m = re.match(r"<summary>(.*?)</summary>", s)
+        if m:
+            stack[-1] = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+            continue
+        if s == "</details>":
+            if stack:
+                stack.pop()
+            continue
+        if not stack or "Resources" not in (stack[0] or ""):
+            continue
+        cat = next((x for x in reversed(stack) if x and re.match(r"^\d+-", x)), None)
+        if not cat:
+            continue
+        lm = re.search(r"\[([^\]]+)\]\(([^)]+)\)", line)
+        if not lm:
+            continue
+        title = lm.group(1).strip()
+        url = lm.group(2).strip()
+        desc = re.sub(r"^[\s—\-–]+", "", line[lm.end():].strip())
 
-    # classify link: internal (repo .md) vs external
-    if url.startswith(("http://", "https://")):
-        if url.startswith(BLOB):
-            path = url[len(BLOB):]
-            external = False
+        # classify link: internal (repo .md) vs external
+        if url.startswith(("http://", "https://")):
+            if url.startswith(BLOB):
+                path, external = url[len(BLOB):], False
+            else:
+                path, external = url, True
+            github = url
         else:
-            path = url
-            external = True
-        github = url
-    else:
-        path = url
-        external = False
-        github = BLOB + url
+            path, external, github = url, False, BLOB + url
 
-    tags = tags_by_path.get(normalize(url), [])
-    is_index = title.startswith(("📄", "📋", "📁"))
-    name = prettify(cat)
-    if name not in cat_map:
-        items: list[dict] = []
-        cat_map[name] = items
-        categories.append({"name": name, "items": items})
-    cat_map[name].append(
-        {"title": title, "path": path, "github": github, "external": external,
-         "desc": desc, "tags": tags, "index": is_index,
-         "date": dates_by_path.get(normalize(url), "")}
-    )
+        meta = index_info.get(normalize(url), {})
+        is_index = title.startswith(("📄", "📋", "📁"))
+        name = prettify(cat)
+        if name not in cat_map:
+            items: list[dict] = []
+            cat_map[name] = items
+            categories.append({"name": name, "items": items})
+        cat_map[name].append(
+            {"title": title, "path": path, "github": github, "external": external,
+             "desc": desc, "tags": meta.get("tags", []), "index": is_index,
+             "date": meta.get("date", "")}
+        )
+    return categories
 
-data = {
-    "repo": REPO,
-    "branch": BRANCH,
-    "generated": generated_date(index_md),
-    "categories": categories,
-}
+
+def build_data(readme: str, index_md: str) -> dict:
+    return {
+        "repo": REPO,
+        "branch": BRANCH,
+        "generated": generated_date(index_md),
+        "categories": parse_nav(readme, parse_index(index_md)),
+    }
 
 HTML = r"""<!DOCTYPE html>
 <html lang="zh">
@@ -874,19 +872,36 @@ render();
 </html>
 """
 
-html = (HTML
-        .replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
-        .replace("__DATE__", data["generated"])
-        .replace("__LIVE__", BLOB + "README.md")
-        .replace("__SIBLINGS__", "".join(
-            f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
-            for s in SIBLINGS))
-        .replace("__TITLE__", TITLE)
-        .replace("__PAGES_URL__", PAGES_URL)
-        .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
+def render_html(data: dict) -> str:
+    return (HTML
+            .replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
+            .replace("__DATE__", data["generated"])
+            .replace("__LIVE__", BLOB + "README.md")
+            .replace("__SIBLINGS__", "".join(
+                f'<a class="sib" href="{s["url"]}" target="_blank" rel="noopener">{s["name"]}</a>'
+                for s in SIBLINGS))
+            .replace("__TITLE__", TITLE)
+            .replace("__PAGES_URL__", PAGES_URL)
+            .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>")))
 
-out = ROOT / "index.html"
-out.write_text(html, encoding="utf-8", newline="\n")
-n_items = sum(len(c["items"]) for c in categories)
-n_tags = len({t for c in categories for it in c["items"] for t in it["tags"]})
-print(f"Wrote {out} — {len(categories)} categories, {n_items} items, {n_tags} tags")
+
+def build(readme: str, index_md: str) -> str:
+    """Return the index.html text for the given README + 0-Index content."""
+    return render_html(build_data(readme, index_md))
+
+
+def main() -> str:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    index_md = (ROOT / "0-Resources" / "0-Index.md").read_text(encoding="utf-8")
+    html = build(readme, index_md)
+    out = ROOT / "index.html"
+    out.write_text(html, encoding="utf-8", newline="\n")
+    data = build_data(readme, index_md)
+    n_items = sum(len(c["items"]) for c in data["categories"])
+    n_tags = len({t for c in data["categories"] for it in c["items"] for t in it["tags"]})
+    print(f"Wrote {out} — {len(data['categories'])} categories, {n_items} items, {n_tags} tags")
+    return html
+
+
+if __name__ == "__main__":
+    main()

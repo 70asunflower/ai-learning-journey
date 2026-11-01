@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
-"""Consistency checker for the ai-learning-journey repo.
+"""Semantic checks on the resource files themselves.
 
-Source of truth = on-disk resource .md files under 0-Resources/<sub>/.
-Validates that every resource is registered in:
-  - its subfolder README.md table
-  - 0-Resources/0-Index.md
-  - the root README.md wiki navigation
-and that every registered link resolves to a real file. Also checks
-frontmatter basics, the `_Last updated` footer, internal dead links, and
-Changelog sanity.
+Artifact sync (0-Index.md / subfolder tables / README nav / index.html) is NOT
+checked here — `scripts/build.py --check` owns that, and duplicating the logic
+in two places is how two tools drift apart. This script only validates what a
+generator cannot infer.
 
-ERROR   -> non-zero exit (CI should fail the build / refuse to publish)
-WARNING -> printed, non-fatal
+  ERROR   -> non-zero exit (CI fails)
+  WARNING -> printed, non-fatal
+
+Checks
+  * every resource file has complete frontmatter (title/summary/source/date/tags)
+  * filenames follow the lowercase-hyphen convention
+  * `_Last updated: YYYY-MM-DD_` footer present
+  * no deprecated tag alias (see scripts/tags.json)
+  * no dead internal links (markdown `](...)` and HTML `<a href>`)
+  * README changelog: no duplicate rows, date-descending
 """
+import json
 import os
 import re
 import sys
@@ -20,6 +25,8 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RES_ROOT = os.path.join(ROOT, "0-Resources")
 SUBDIRS = ["1-Official-Docs", "2-Papers", "3-Tutorials", "4-Tools-Frameworks", "5-Datasets"]
+REQUIRED = ("title", "summary", "source", "date", "tags")
+FNAME_OK = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.md$")
 
 errors = []
 warnings = []
@@ -37,7 +44,6 @@ def exists(rel):
     return os.path.isfile(os.path.join(ROOT, rel))
 
 
-# ---------- frontmatter ----------
 def parse_frontmatter(text):
     if not text.startswith("---"):
         return {}
@@ -46,17 +52,13 @@ def parse_frontmatter(text):
         return {}
     fm = {}
     for line in m.group(1).splitlines():
-        if ":" in line:
+        if ":" in line and not line.lstrip().startswith("#"):
             k, v = line.split(":", 1)
-            fm[k.strip()] = v.strip()
+            v = v.strip()
+            if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
+                v = v[1:-1]
+            fm[k.strip()] = v
     return fm
-
-
-def _clean_tag(t):
-    t = t.strip().strip("`").strip()
-    if t.startswith("#"):
-        t = t[1:].strip()
-    return t
 
 
 def parse_tags(s):
@@ -65,17 +67,11 @@ def parse_tags(s):
     s = s.strip()
     if s.startswith("[") and s.endswith("]"):
         s = s[1:-1]
-    if "," in s:
-        parts = [p.strip() for p in s.split(",")]
-    else:
-        parts = s.split()
-    return [_clean_tag(p) for p in parts if p.strip()]
+    return [p.strip().strip("`").lstrip("#").strip() for p in s.split(",") if p.strip()]
 
 
-# ---------- disk resources ----------
-disk = {}  # rel -> {title, tags, date, sub}
-# Repo convention (README "Key Rules"): filenames lowercase, hyphen-separated.
-FNAME_OK = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*\.md$")
+# ---------- resource files ----------
+disk = {}
 for sub in SUBDIRS:
     d = os.path.join(RES_ROOT, sub)
     if not os.path.isdir(d):
@@ -89,114 +85,31 @@ for sub in SUBDIRS:
         with open(os.path.join(d, fn), encoding="utf-8") as f:
             text = f.read()
         fm = parse_frontmatter(text)
-        if "title" not in fm and "source" not in fm:
-            err(f"{rel}: missing frontmatter 'title' or 'source'")
-        tags = parse_tags(fm.get("tags"))
-        has_footer = bool(re.search(r"_Last updated:\s*\d{4}-\d{2}-\d{2}_", text))
-        if not has_footer:
+        missing = [k for k in REQUIRED if not fm.get(k)]
+        if missing:
+            err(f"{rel}: frontmatter missing {', '.join(missing)} "
+                f"(all of title/summary/source/date/tags are required — they drive "
+                f"0-Index, the subfolder table, the README nav and index.html)")
+        if fm.get("date") and not re.match(r"^\d{4}-\d{2}-\d{2}$", fm["date"]):
+            err(f"{rel}: 'date' not YYYY-MM-DD: {fm['date']}")
+        if not re.search(r"_Last updated:\s*\d{4}-\d{2}-\d{2}_", text):
             warn(f"{rel}: missing '_Last updated: YYYY-MM-DD_' footer")
-        if not fm.get("source"):
-            warn(f"{rel}: missing 'source' frontmatter")
-        if not fm.get("date"):
-            warn(f"{rel}: missing 'date: YYYY-MM-DD' frontmatter")
-        elif not re.match(r"^\d{4}-\d{2}-\d{2}$", fm.get("date", "")):
-            warn(f"{rel}: 'date' frontmatter not YYYY-MM-DD: {fm.get('date')}")
-        disk[rel] = {"title": fm.get("title", ""), "tags": tags, "sub": sub}
+        disk[rel] = {"tags": parse_tags(fm.get("tags"))}
 
-
-# ---------- 0-Index.md (paths are relative to 0-Resources/) ----------
-index_entries = {}  # normalized rel -> {tags}
-idx_path = os.path.join(RES_ROOT, "0-Index.md")
-if os.path.isfile(idx_path):
-    with open(idx_path, encoding="utf-8") as f:
-        idx_text = f.read()
-    # The `generated` date in index.html is derived from the newest row date in
-    # this file (generate_index.generated_date), so there is no footer to bump.
-    for line in idx_text.splitlines():
-        s = line.strip()
-        if not s.startswith("|"):
-            continue
-        cells = [c.strip() for c in s.strip("|").split("|")]
-        if len(cells) < 3:
-            continue
-        m = re.match(r"^\[([^\]]+)\]\(([^)]+)\)$", cells[0])
-        if not m:
-            continue
-        relp = "0-Resources/" + m.group(2).strip()
-        tags = [_clean_tag(t) for t in cells[1].split() if t.strip()]
-        index_entries[relp] = {"tags": tags}
-
-# ---------- subfolder READMEs ----------
-sub_entries = {sub: set() for sub in SUBDIRS}
-for sub in SUBDIRS:
-    p = os.path.join(RES_ROOT, sub, "README.md")
-    if not os.path.isfile(p):
-        continue
-    with open(p, encoding="utf-8") as f:
-        for line in f:
-            for m in re.finditer(r"\[[^\]]+\]\(([^)]+\.md)\)", line):
-                rp = m.group(1).strip().lstrip("./")
-                if not rp.startswith("0-Resources/"):
-                    rp = f"0-Resources/{sub}/{rp}"
-                if not rp.endswith("README.md"):
-                    sub_entries[sub].add(rp)
-
-# ---------- root README nav ----------
-nav_links = set()
-root_readme = os.path.join(ROOT, "README.md")
-if os.path.isfile(root_readme):
-    with open(root_readme, encoding="utf-8") as f:
-        for line in f:
-            for m in re.finditer(r"\]\(([^)]+\.md)\)", line):
-                rp = m.group(1).strip()
-                if rp.startswith("0-Resources/") and not rp.endswith("README.md") \
-                        and rp != "0-Resources/0-Index.md":
-                    nav_links.add(rp)
-
-# ---------- cross checks: every disk resource must be registered ----------
-for rel, info in disk.items():
-    if rel not in index_entries:
-        err(f"{rel}: on disk but MISSING from 0-Index.md")
-    if rel not in sub_entries.get(info["sub"], set()):
-        err(f"{rel}: on disk but MISSING from subfolder README.md")
-    if rel not in nav_links:
-        err(f"{rel}: on disk but MISSING from root README navigation")
-
-# ---------- every registered entry must exist on disk ----------
-registered = set(index_entries) | nav_links | {p for s in sub_entries for p in sub_entries[s]}
-for rel in registered:
-    if rel not in disk:
-        if exists(rel):
-            warn(f"{rel}: registered but not parsed as a resource file")
-        else:
-            err(f"{rel}: registered but FILE DOES NOT EXIST ({rel})")
-
-# ---------- tag drift ----------
-# 0-Index tags are a curated subset of the frontmatter `tags` field by design,
-# so a strict equality compare only produces noise. What IS enforced is the
-# vocabulary: a synonym listed in scripts/tags.json must never be committed
-# (run `python scripts/normalize_tags.py` to rewrite it to the canonical tag).
-registry_path = os.path.join(ROOT, "scripts", "tags.json")
-if os.path.isfile(registry_path):
-    import json
-    with open(registry_path, encoding="utf-8") as f:
+# ---------- tag vocabulary ----------
+registry = os.path.join(ROOT, "scripts", "tags.json")
+if os.path.isfile(registry):
+    with open(registry, encoding="utf-8") as f:
         ALIASES = json.load(f).get("aliases", {})
     for rel, info in sorted(disk.items()):
         for t in info["tags"]:
             if t in ALIASES:
                 err(f"{rel}: tag '{t}' is an alias — use '{ALIASES[t]}' "
-                    f"(scripts/tags.json)")
-    for relp, info in sorted(index_entries.items()):
-        for t in info["tags"]:
-            if t in ALIASES:
-                err(f"{relp}: 0-Index tag '{t}' is an alias — use '{ALIASES[t]}' "
-                    f"(scripts/tags.json)")
+                    f"(run scripts/normalize_tags.py)")
 
-# ---------- internal dead links (all .md) ----------
-# Skip tooling dirs (.claude/.workbuddy) whose placeholder links such as
-# 0-Resources/<sub>/<name>.md contain angle brackets and are not real targets.
-# HTML <a href> is checked too: the README header uses centered HTML blocks,
-# where GitHub does not parse markdown links.
+# ---------- dead internal links ----------
+# Tooling dirs are skipped: their placeholder links (0-Resources/<sub>/<name>.md)
+# contain angle brackets and are not real targets.
 LINK_RE = re.compile(r"\]\(((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^)]+\.md)\)")
 HREF_RE = re.compile(r'href="((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^"]+\.md)"')
 for dirpath, _, files in os.walk(ROOT):
@@ -219,12 +132,12 @@ for dirpath, _, files in os.walk(ROOT):
             if not exists(m.group(1)):
                 err(f"{rel_fp}: dead internal link -> {m.group(1)} (html href)")
 
-# ---------- Changelog sanity ----------
+# ---------- changelog ----------
+root_readme = os.path.join(ROOT, "README.md")
 if os.path.isfile(root_readme):
     with open(root_readme, encoding="utf-8") as f:
         lines = f.readlines()
-    in_cl = False
-    rows = []
+    in_cl, rows = False, []
     for line in lines:
         s = line.strip()
         if s.startswith("## "):
@@ -242,9 +155,8 @@ if os.path.isfile(root_readme):
         if row in seen:
             err(f"README Changelog: duplicate row -> {row}")
         seen.add(row)
-    # Convention: newest row on top (date-descending), so the table reads as a
-    # timeline without scrolling. Append-at-bottom ordering used to be allowed
-    # and silently drifted out of order, so it is now enforced.
+    # Convention: newest row on top. Append-at-bottom ordering silently drifted
+    # out of order once, so it is enforced now.
     for i in range(len(rows) - 1):
         if rows[i][0] < rows[i + 1][0]:
             err(f"README Changelog: not date-descending — {rows[i][0]} appears "

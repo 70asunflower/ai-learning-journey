@@ -1,9 +1,10 @@
 ---
+title: LLM Inference Handbook (Modular)
+summary: 官方 LLM 推理手册：概念/指标/优化/GPU架构/部署模式（含交互计算器）
 source: https://handbook.modular.com/
 date: 2026-08-01
-tags: [inference, docs, modular, serving, gpu, optimization]
+tags: [inference, docs, serving, gpu, optimization]
 ---
-
 # LLM Inference Handbook (Modular)
 
 ## 核心要点（摘要）

@@ -1,13 +1,12 @@
 ---
+title: 深入理解 AI Infra
+summary: 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度
 source: https://bojieli.github.io/ai-infra-book/index.html
 date: 2026-09-14
 tags: [ai-infra, gpu, hardware, inference, training, distributed-systems, networking, scheduling, quantitative-analysis, book, chinese]
-links:
-  - https://bojieli.github.io/ai-infra-book/index.html
-  - https://github.com/bojieli/ai-infra-book
-  - https://github.com/bojieli/ai-infra-book/releases/latest/download/AI-Infra-Book.pdf
+links: 
+- https: //github.com/bojieli/ai-infra-book/releases/latest/download/AI-Infra-Book.pdf
 ---
-
 # 深入理解 AI Infra：量化分析与系统设计
 
 > 李博杰（bojieli）开源技术书，初稿持续修订中。全书 12 章，主线只有一条：**"数据搬移塑造了 AI Infra 的架构"**——反复追问五个问题：搬什么、搬多少、搬几次、经过哪里、谁必须等它。方法论是**从约束推导设计**：对照硬件容量、带宽、算力做量化估算。

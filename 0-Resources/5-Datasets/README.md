@@ -2,18 +2,12 @@
 
 Commonly used datasets and how to access them.
 
-## Vision Datasets
+## Collected Datasets
 
-| Dataset | Description | Access |
-|---------|-------------|--------|
-| — | — | — |
-
-## Text Datasets
-
-| Dataset | Description | Access |
-|---------|-------------|--------|
-| — | — | — |
+<!-- BUILD:TABLE:START -->
+_Empty — add your first dataset!_
+<!-- BUILD:TABLE:END -->
 
 ---
 
-_This file serves as an index. Add dataset details as needed._
+_本文件是索引。数据集详情按 `CONTRIBUTING.md` 建 `<name>.md`，重跑 `python scripts/build.py` 即自动入表。_

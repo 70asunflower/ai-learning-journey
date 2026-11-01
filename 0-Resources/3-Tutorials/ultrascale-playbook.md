@@ -1,9 +1,10 @@
 ---
+title: The Ultra-Scale Playbook
+summary: HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度）
 source: https://huggingface.co/spaces/nanotron/ultrascale-playbook
 date: 2026-08-07
 tags: [distributed-training, moe, gpu, scaling, book, huggingface]
 ---
-
 # The Ultra-Scale Playbook — 在 GPU 集群上训练 LLM
 
 > Hugging Face / nanotron 团队出品的开源「书式长文」，系统拆解如何把 LLM 训练从 1 张 GPU 扩展到数百、上千张 GPU。

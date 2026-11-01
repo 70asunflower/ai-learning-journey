@@ -1,9 +1,10 @@
 ---
+title: 猛猿大模型技术文章导航
+summary: 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态
 source: https://zhuanlan.zhihu.com/p/654910335
 date: 2026-07-07
 tags: [llm, distributed-training, inference, rlhf, multimodal, transformer, blog, chinese]
 ---
-
 # 猛猿大模型技术文章导航（历史文章总索引）
 
 > 知乎答主「猛猿」的图文并茂（图解）大模型技术文章合集总目录。覆盖训练并行、微调、RLHF、推理加速、扩散模型、多模态、Transformer 系列，质量高、图示清晰，是中文社区最系统的 LLM 工程/原理学习素材之一。

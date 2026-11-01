@@ -1,8 +1,8 @@
 name: Build Index
 
-# Regenerate index.html from README.md / 0-Resources whenever content is pushed.
-# The generator is idempotent (date derived from git history), and the auto-commit
-# is marked [skip ci], so this cannot loop.
+# Every derived artifact (0-Index.md, the subfolder tables, the README nav and
+# index.html) is generated from resource frontmatter by scripts/build.py.
+# CI re-runs it so the committed copies can never drift from the sources.
 on:
   push:
     branches: [master]
@@ -17,29 +17,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # full history so generated_date() can read git log
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      - name: Consistency check
+      - name: Semantic checks (frontmatter, tags, dead links, changelog)
         run: python3 scripts/check_consistency.py
 
-      - name: Regenerate index.html
-        run: python3 scripts/generate_index.py
+      - name: Rebuild generated artifacts
+        run: python3 scripts/build.py
 
-      - name: Commit & push if changed
+      - name: Commit & push if anything changed
         run: |
-          if ! git diff --quiet index.html; then
+          if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add index.html
-            git commit -m "chore: regenerate index.html [skip ci]"
+            git add -A
+            git commit -m "chore: rebuild generated indexes [skip ci]"
             git push
-            echo "index.html regenerated and pushed"
+            echo "regenerated and pushed"
           else
-            echo "index.html already up to date"
+            echo "all artifacts already up to date"
           fi

@@ -1,111 +1,113 @@
 # ai-learning-journey — Repository Structure Reference
 
-Verified 2026-07-19 from the live clone at
-`D:\Project\workspace\my_github\ai-learning-journey` (branch `master`).
+Updated 2026-11-01. The repo is now **generator-driven**: resource frontmatter is
+the only hand-maintained data, everything else is built.
 
 ## Top-level layout
 
 ```
 ai-learning-journey/
-├── README.md                 # wiki nav (Resources/Notes/Code/Misc) + Changelog + update guide
-├── index.html                # auto-generated single-file reader (from Resources block only)
+├── README.md                 # front door + nav (Resources nav is GENERATED) + changelog
+├── CONTRIBUTING.md           # authoritative how-to-add rules
+├── index.html                # GENERATED single-file reader
+├── assets/preview.png        # README screenshot of index.html
 ├── 0-Resources/
-│   ├── 0-Index.md            # global tag/date index of ALL resources
+│   ├── 0-Index.md            # GENERATED tag/date index of all resources
 │   ├── 1-Official-Docs/
 │   ├── 2-Papers/
 │   ├── 3-Tutorials/
 │   ├── 4-Tools-Frameworks/
 │   └── 5-Datasets/
-├── 1-Notes/
-│   ├── 0-Template.md         # note frontmatter template (topic/date/tags/status)
-│   ├── 1-Foundations/
-│   ├── 2-Models/
-│   │   └── Qwen-Series/
-│   ├── 3-Training/
-│   └── 4-Deployment/
-├── 2-Code/                   # runnable examples (each in its own subfolder)
-├── 3-Projects/
-├── _misc/
+├── 1-Notes/                  # hand-maintained, NOT web-indexed
+│   ├── 0-Template.md
+│   ├── 1-Foundations/  2-Models/  3-Training/  4-Deployment/
+├── 2-Code/  3-Projects/  _misc/
 └── scripts/
-    ├── generate_index.py     # rebuilds index.html from README Resources block
-    └── README.md             # generator usage
+    ├── build.py              # generates everything below
+    ├── check_consistency.py  # semantic checks
+    ├── normalize_tags.py     # tag alias rewrite
+    ├── tags.json             # alias -> canonical registry
+    └── README.md
 ```
 
-## README.md block line map (use for nav/changelog edits)
+## Generated vs hand-written
 
-| Line | Element |
-|------|---------|
-| 8    | `## 🗂️ Wiki Navigation` |
-| 11   | `<summary><b>📚 Resources</b></summary>` |
-| 14   | `<details> 1-Official-Docs` |
-| 22   | `<details> 2-Papers` |
-| 29   | `<details> 3-Tutorials` |
-| 53   | `<details> 4-Tools & Frameworks` |
-| 69   | `<details> 5-Datasets` |
-| 80   | `<summary><b>📝 Personal Notes</b></summary>` |
-| 83   | `<details> 1-Foundations` |
-| 91   | `<details> 2-Models` |
-| 98   | `<details> 3-Training` |
-| 105  | `<details> 4-Deployment` |
-| 116  | `<summary><b>💻 Code & Projects</b></summary>` |
-| 208  | `## Changelog` (table starts a few lines below) |
+| Path | Owner |
+|------|-------|
+| `0-Resources/0-Index.md` | **generated** (whole file) |
+| `0-Resources/<sub>/README.md` | **generated** between `<!-- BUILD:TABLE:START/END -->` |
+| `README.md` Resources nav | **generated** between `<!-- BUILD:NAV:START/END -->` |
+| `index.html` | **generated** (whole file) |
+| everything else | hand-written |
 
-Wiki-nav bullets live **inside** each `<details>` block (between the `<summary>`
-line and the next `</details>`). Add new bullets there.
+Never hand-edit a generated block — `build.py` overwrites it.
 
 ## Frontmatter schemas
 
-### Resource (`0-Resources/**`) — web-indexed
+### Resource (`0-Resources/**`) — all five fields required
 ```yaml
 ---
+title: 显示名称
+summary: 一句话说明（网页卡片 + 子目录表格共用）
 source: <original URL>
 date: YYYY-MM-DD
-tags: [tag1, tag2, tag3]
+tags: [tag1, tag2]
 ---
 ```
 End file with: `_Last updated: YYYY-MM-DD_`
 
+`check_consistency.py` errors if any of the five is missing — they drive
+0-Index, the subfolder table, the README nav and index.html.
+
 ### Note (`1-Notes/**`) — NOT web-indexed
-Use the REAL schema from `1-Notes/0-Template.md` (note schema ≠ resource schema:
-`topic`/`status` instead of `source`). `CONTRIBUTING.md → 加一条笔记` carries the
-same schema, so keep the two in step if it changes.
+Use the schema from `1-Notes/0-Template.md` (`topic`/`status`, not `source`).
 ```yaml
 ---
 topic: <short topic>
 date: YYYY-MM-DD
 tags: [tag1, tag2]
-status: draft        # draft | review | complete
+status: reading      # reading | writing | done
 ---
 ```
 End file with: `_Last updated: YYYY-MM-DD_`
 
-## 0-Index.md row format
+## What the generated output looks like
 
-Paths are **relative to `0-Resources/`**. Columns: `Resource | Tags | Date`.
-The tag cell is wrapped in backticks:
+`0-Index.md` rows (paths relative to `0-Resources/`, tag cell backticked):
 ```markdown
-| [<Display Name>](<subfolder>/<name>.md) | `#tag1 #tag2 #tag3` | YYYY-MM-DD |
+| [<title>](<subfolder>/<name>.md) | `#tag1 #tag2` | YYYY-MM-DD |
 ```
-Sections are `## Official Docs`, `## Papers`, `## Tutorials`, etc. If a section
-is empty (`_Empty — add your first ..._`), replace that placeholder line with the
-new row.
 
-Tags must be canonical: `scripts/tags.json` maps deprecated spellings to their
-canonical form, `python scripts/normalize_tags.py --check` verifies it, and CI
-rejects any file still using an alias. There is **no `_Last updated` footer** in
-this file any more — the `generated` date in `index.html` comes from the newest
-row date.
+Subfolder table:
+```markdown
+| Resource | Description | Date |
+| :--- | :--- | :--- |
+| [<title>](<name>.md) | <summary> | YYYY-MM-DD |
+```
+
+README nav bullet:
+```markdown
+- [<title>](0-Resources/<subfolder>/<name>.md) — <summary>
+```
+plus one `- [📄 <Label> Index](...)` per category and a `📋 Full Resource Index`
+line. The Resources nav lives inside `<details open><summary><b>📚 Resources</b></summary>`.
+
+`index.html` `generated` date = max resource `date` (no footer to bump anywhere).
 
 ## Changelog row format (README.md, top of table)
 ```markdown
 | YYYY-MM-DD | Added <name> — one-line description |
 ```
-Rows are date-descending and CI enforces it: insert new rows directly below the
-header, never at the bottom.
+Date-descending, enforced by `check_consistency.py`.
 
-## Generator behavior
-- Command: `python scripts/generate_index.py`
-- Reads **only** the `📚 Resources` `<details>` block of `README.md`.
-- `index.html` changes when a Resource is added; **unchanged** when only a
-  Note/Code entry is added. Both are correct outcomes (idempotent).
-- CI (`.github/workflows/build-index.yml`) re-runs it on push.
+## Scripts
+
+```bash
+python scripts/build.py             # regenerate all four artifacts
+python scripts/build.py --check     # exit 1 if any artifact is stale
+python scripts/check_consistency.py # semantic checks (not artifact sync)
+python scripts/normalize_tags.py --check|--report
+```
+
+Division of labour: `check_consistency.py` validates the *sources*,
+`build.py --check` validates the *outputs*. Neither duplicates the other.

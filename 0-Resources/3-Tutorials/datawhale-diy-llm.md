@@ -1,13 +1,12 @@
 ---
+title: Diy-LLM (Datawhale)
+summary: CS336 中文本土化实现课：16 章理论 + 6 个渐进代码作业，从手搓 tokenizer 到 GRPO
 source: https://github.com/datawhalechina/diy-llm
 date: 2026-10-30
 tags: [cs336, llm, from-scratch, datawhale, chinese, tokenizer, moe, cuda, kernel, distributed-training, inference, alignment, grpo, course]
-links:
-  - https://github.com/datawhalechina/diy-llm
-  - https://datawhalechina.github.io/diy-llm/
-  - https://github.com/datawhalechina/diy-llm/releases/latest
+links: 
+- https: //github.com/datawhalechina/diy-llm/releases/latest
 ---
-
 # Diy-LLM（Datawhale）
 
 > 斯坦福 **CS336 (Spring 2026)** 的中文本土化实现课程，2302★。自我定位不是"汉化版"，而是"**LLM 炼丹工坊**"——16 章硬核理论 + **6 个渐进代码作业**，代码驱动、每行实现都讲思考过程；额外做了国内环境适配（Qwen/DeepSeek 案例、算力现实）。中文文档为默认，另有 `docs/en/` 英文版与 PDF 讲义。

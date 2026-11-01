@@ -4,7 +4,9 @@ Important papers in AI, with personal notes and arXiv links.
 
 ## Collected Papers
 
+<!-- BUILD:TABLE:START -->
 _Empty — add your first paper!_
+<!-- BUILD:TABLE:END -->
 
 ---
 
@@ -13,8 +15,8 @@ _Empty — add your first paper!_
 ```markdown
 ---
 title: Paper Title
-authors: Authors
-arxiv: https://arxiv.org/abs/xxxx.xxxxx
+summary: 一句话说明
+source: https://arxiv.org/abs/xxxx.xxxxx
 date: YYYY-MM-DD
 tags: []
 ---

@@ -1,9 +1,10 @@
 ---
+title: GPT Image 2 提示词合集
+summary: 725+ 精选提示词，JSON 结构化+参数化模板（产品海报/信息图/UI设计/动漫插画）
 source: https://youmind.com/gpt-image-2-prompts
 date: 2026-04-22
 tags: [multimodal, prompt-engineering, ai-design]
 ---
-
 # GPT Image 2 提示词合集 (YouMind)
 
 > 725+ 精选 GPT Image 2 提示词，覆盖产品海报、信息图、UI 设计、动漫插画等场景。

@@ -1,9 +1,10 @@
 ---
+title: LLM 算法与工程学习路线
+summary: 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层
 source: https://www.xiaohongshu.com/ (小红书帖子 + 优化整理)
 date: 2026-04-21
 tags: [llm, training, distributed-training, inference, algorithm, engineering, roadmap]
 ---
-
 # LLM 算法与工程学习路线
 
 > 从算法原理到分布式训练到推理部署的完整路线，按优先级分层：🔥 必做 → 🔍 深入 → 💡 了解

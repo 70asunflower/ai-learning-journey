@@ -22,8 +22,8 @@ echo "==> repo: $(pwd)"
 echo "==> branch: $(git branch --show-current)"
 echo "==> python: $PY"
 
-echo "==> regenerating index.html"
-"$PY" scripts/generate_index.py 2>&1 | tail -4 || echo "WARN: generator reported issues (continuing)"
+echo "==> regenerating all derived artifacts"
+"$PY" scripts/build.py 2>&1 | tail -4 || { echo "ERROR: build failed"; exit 1; }
 
 echo "==> git status (pre-add)"
 git status --short
@@ -32,7 +32,9 @@ echo "==> staging all changes"
 git add -A
 
 echo "==> commit"
-git -c user.name="70asunflower" -c user.email="1982043113@qq.com" \
+# Attribution: pass the running model's name via $GIT_NAME (e.g. "DeepSeek-V4.1-Flash").
+# Never persist it in repo config — the next agent would inherit it.
+git -c user.name="${GIT_NAME:-70asunflower}" -c user.email="1982043113@qq.com" \
   commit -m "$MSG" 2>&1 | tail -6 || echo "NOTE: nothing to commit"
 
 echo "==> pushing via gh credential helper"

@@ -1,9 +1,10 @@
 ---
+title: Agent-Learning-Hub (Datawhale)
+summary: AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单
 source: https://github.com/datawhalechina/Agent-Learning-Hub
 date: 2026-06-05
 tags: [ai-agent, tutorial, roadmap, datawhale, mcp]
 ---
-
 # Agent-Learning-Hub — AI Agent 学习路线与资料库
 
 > Datawhale 出品，2.9k⭐，一份有观点、可执行的 AI Agent 学习路线图

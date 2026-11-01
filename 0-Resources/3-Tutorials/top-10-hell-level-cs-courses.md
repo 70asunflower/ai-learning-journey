@@ -1,9 +1,10 @@
 ---
+title: 10 门"地狱级"CS 公开课
+summary: MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统）
 source: https://www.xiaohongshu.com/ (小红书帖子)
 date: 2026-04-21
 tags: [course, systems, database, distributed-systems, os, compiler, deep-learning, tinyml]
 ---
-
 # 10 门"地狱级"CS 公开课
 
 > 全球顶尖 CS 公开课合集，覆盖数据库、分布式系统、操作系统、网络、编译、AI 系统等核心方向。

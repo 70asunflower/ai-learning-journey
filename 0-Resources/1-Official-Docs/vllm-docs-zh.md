@@ -1,9 +1,10 @@
 ---
+title: vLLM 中文文档
+summary: vLLM 官方中文文档（hyper.ai 翻译）：安装/量化/LoRA/分布式推理/部署/设计文档/API
 source: https://vllm.hyper.ai/docs/
 date: 2026-07-07
 tags: [vllm, inference, serving, llm, quantization, lora, docs, chinese]
 ---
-
 # vLLM 中文文档
 
 ## 核心要点（摘要）

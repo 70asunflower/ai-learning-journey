@@ -1,14 +1,12 @@
 ---
+title: MIT 6.5840 (原 6.824) 分布式系统
+summary: MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab
 source: https://pdos.csail.mit.edu/6.824/
 date: 2026-09-01
 tags: [distributed-systems, go, mit, course]
-links:
-  - https://pdos.csail.mit.edu/6.824/
-  - https://pdos.csail.mit.edu/6.824/schedule.html
-  - https://pdos.csail.mit.edu/6.824/labs/lab-mr.html
-  - https://pdos.csail.mit.edu/6.824/labs/lab-raft1.html
+links: 
+- https: //pdos.csail.mit.edu/6.824/labs/lab-raft1.html
 ---
-
 # MIT 6.5840 (原 6.824) — Distributed Systems
 
 > MIT CSAIL PDOS 组的分布式系统研究生核心课（现编号 6.5840，前身 6.824），Spring 2026 开课中。三大主线：**容错（fault tolerance）、复制（replication）、一致性（consistency）**，以经典分布式系统论文 case study + 5 个硬核 Go 编程 lab 闻名，是分布式训练/推理 infra 的系统课地基。

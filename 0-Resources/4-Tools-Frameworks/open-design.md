@@ -1,9 +1,10 @@
 ---
+title: Open Design
+summary: Claude Design 开源替代，AI 驱动 artifact-first 设计工具（13 CLI/31 Skills/129 设计系统）
 source: https://github.com/nexu-io/open-design
 date: 2026-05-05
-tags: [ai-design, open-source, coding-agent, nextjs, local-first]
+tags: [ai-design, open-source, coding-agent, local-first]
 ---
-
 # Open Design — AI 设计工具（Claude Design 开源替代）
 
 > Local-first, open-source alternative to Claude Design. Same artifact-first design loop, none of the lock-in.

@@ -1,9 +1,10 @@
 ---
+title: AI Infra 其实没有多少新东西
+summary: 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附PDF
 source: https://mp.weixin.qq.com/s/Hg8uPMjTMX8Tk7slrVvfNA
 date: 2026-06-06
 tags: [ai-infra, gpu, training, inference, distributed-systems, hardware]
 ---
-
 # AI Infra 其实没有多少新东西
 
 > 腾讯云开发者出品：传统后台工程师的技术栈如何迁移到 AI 系统，系统性拆解 AI Infra 的硬件、软件、训练和推理挑战

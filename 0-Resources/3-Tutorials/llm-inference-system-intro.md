@@ -1,9 +1,10 @@
 ---
+title: 大模型推理系统入门
+summary: 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding
 source: https://mp.weixin.qq.com/s/driajBoZ0iqzwLCMfss3Ng
 date: 2026-06-05
 tags: [inference, vllm, sglang, optimization]
 ---
-
 # 大模型推理系统入门：从模型优化到调度优化
 
 > 以 vLLM / SGLang 为主线，系统性建立 LLM 推理系统技术地图

@@ -1,14 +1,12 @@
 ---
+title: Compiler Explorer (Godbolt)
+summary: 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器对比，验证向量化
 source: https://godbolt.org/
 date: 2026-10-18
 tags: [compiler, optimization, cpp, rust, cuda, interactive]
-links:
-  - https://godbolt.org/
-  - https://github.com/compiler-explorer/compiler-explorer
-  - https://quick-bench.com/
-  - https://cppinsights.io/
+links: 
+- https: //cppinsights.io/
 ---
-
 # Compiler Explorer（Godbolt）
 
 > 在线编译器探索工具（Matt Godbolt 创建，开源：`compiler-explorer/compiler-explorer`）。**左侧写代码，右侧实时看编译产物**——汇编、LLVM IR、AST、优化管线、控制流图，支持几十种语言与 GCC/Clang/MSVC 等主流编译器的众多版本，并可**多编译器并行对比**。性能优化与底层原理学习的日常工具。

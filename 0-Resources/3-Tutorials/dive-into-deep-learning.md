@@ -1,9 +1,10 @@
 ---
+title: Dive into Deep Learning
+summary: 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF）
 source: https://d2l.ai
 date: 2026-05-07
 tags: [deep-learning, book, pytorch, jupyter, interactive, chinese]
 ---
-
 # Dive into Deep Learning (D2L)
 
 > 交互式开源深度学习教材，代码+数学+图表+讨论一体化，可执行 Jupyter Notebook

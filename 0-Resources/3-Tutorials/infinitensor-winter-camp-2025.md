@@ -1,9 +1,10 @@
 ---
+title: Infinitensor 冬令营 2025
+summary: 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
 source: https://www.infinitensor.com/camp/winter2025
 date: 2026-04-25
 tags: [inference, ai-infra, course, kernel, framework, model]
 ---
-
 # Infinitensor 冬令营 2025
 
 ## 核心要点（摘要）

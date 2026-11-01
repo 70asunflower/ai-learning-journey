@@ -1,9 +1,10 @@
 ---
+title: 强化学习直观理解 (VZstudio)
+summary: 小鸡啄托盘得奖励——RL 直观体现，连接 RLHF 对齐
 source: https://v.douyin.com/MAq8ABNWIeQ/
 date: 2026-06-05
 tags: [reinforcement-learning, rlhf, fine-tuning, pre-training, tutorial, video]
 ---
-
 # 强化学习直观理解 — VZstudio
 
 > 人移动托盘，小鸡啄正确的托盘就有奖励——强化学习的直观体现，连接 GPT/RHLF 对齐原理

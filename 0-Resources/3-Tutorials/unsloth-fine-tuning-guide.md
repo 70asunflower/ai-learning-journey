@@ -1,9 +1,10 @@
 ---
+title: Unsloth LLM 微调指南
+summary: Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程
 source: https://unsloth.ai/docs/zh/kai-shi-shi-yong/fine-tuning-llms-guide
 date: 2026-04-04
 tags: [fine-tuning, lora, tutorial]
 ---
-
 # Unsloth LLM 微调指南
 
 ## 核心要点（摘要）

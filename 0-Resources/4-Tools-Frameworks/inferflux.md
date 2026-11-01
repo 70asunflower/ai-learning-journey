@@ -1,9 +1,10 @@
 ---
+title: InferFlux 推理系统可视化
+summary: 零依赖交互式动画：PD分离模拟/吞吐计算/3D请求生命周期/GPU集合通信（Three.js）
 source: https://Abatom.github.io/inferflux/
 date: 2026-08-01
 tags: [inference, visualization, llm, interactive, simulation, sglang, vllm, threejs]
 ---
-
 # InferFlux — 推理系统可视化
 
 ## 核心要点（摘要）

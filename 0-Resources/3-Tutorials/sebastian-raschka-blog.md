@@ -1,9 +1,10 @@
 ---
+title: Sebastian Raschka Blog
+summary: 深度学习、LLM、PyTorch 技术博客
 source: https://sebastianraschka.com/
 date: 2026-04-04
 tags: [blog, deep-learning, llm, pytorch]
 ---
-
 # Sebastian Raschka's Blog
 
 ## 核心要点（摘要）

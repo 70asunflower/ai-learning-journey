@@ -1,9 +1,10 @@
 ---
+title: JAX Scaling Book
+summary: JAX 官方 LLM Scaling 实战书籍，分布式训练全链路
 source: https://jax-ml.github.io/scaling-book/
 date: 2026-04-25
 tags: [scaling, distributed-training, jax, llm, book]
 ---
-
 # JAX Scaling Book
 
 ## 核心要点（摘要）

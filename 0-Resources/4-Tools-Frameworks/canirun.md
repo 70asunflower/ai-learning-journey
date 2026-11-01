@@ -1,9 +1,10 @@
 ---
+title: CanIRun.ai 硬件兼容性检测
+summary: 检测本地 GPU/VRAM/RAM 能跑哪些本地大模型，支持 llama.cpp/Ollama/LM Studio 数据源
 source: https://www.canirun.ai/
 date: 2026-04-09
 tags: [local-ai, quantization, gpu]
 ---
-
 # CanIRun.ai — 本地 AI 模型硬件兼容性检测工具
 
 ## 核心要点（摘要）

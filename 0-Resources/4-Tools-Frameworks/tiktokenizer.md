@@ -1,9 +1,10 @@
 ---
+title: TikTokenizer 可视化交互工具
+summary: 可视化学习 LLM Tokenizer 工作原理的交互工具 (GPT2/CL100K 等编码器)
 source: https://tiktokenizer.vercel.app/?encoder=gpt2
 date: 2026-04-02
 tags: [tool, tokenizer, visualization, interactive, gpt]
 ---
-
 ## Summary
 
 TikTokenizer is an interactive web tool for visualizing and understanding how

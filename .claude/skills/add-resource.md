@@ -1,87 +1,50 @@
 ---
 name: add-resource
-description: Add a new learning resource to ai-learning-journey, embodied-ai-learning, or ic-chip-design-learning repos following the 3-place update pattern (detail file + subfolder README + global index + wiki nav + changelog)
+description: Add a learning resource to one of the three learning-journey repos (ai-learning-journey, embodied-ai-learning, ic-chip-design-learning). Use when the user says add/collect/save a resource, paper, tool, dataset, course, or blog to a learning-journey repo. Routes to the target repo and defers to that repo's own CONTRIBUTING.md for the exact steps.
 ---
 
-# Add Resource Skill
+# Add Resource
 
-Adds a new resource to any learning journey repo (**ai-learning-journey**, **embodied-ai-learning**, **ic-chip-design-learning**) using the **3-place update pattern** (plus wiki nav and changelog).
+Three sibling repos share a structure but **not** the same tooling. This skill
+only decides *where* the resource goes; the target repo's `CONTRIBUTING.md` is
+the authority for *how* to add it.
 
-## Steps
+## 1. Pick the repo
 
-### 0. Determine target repo and subfolder
+| Repo | Domain |
+|------|--------|
+| `ai-learning-journey` | AI / LLM / AI Infra / agent |
+| `embodied-ai-learning` | robotics, sim-to-real, VLA |
+| `ic-chip-design-learning` | RTL, EDA, chip design |
 
-Given a resource and its domain, pick:
-- **ai-learning-journey/** — AI/LLM/general
-- **embodied-ai-learning/** — robotics, sim-to-real, VLA
-- **ic-chip-design-learning/** — RTL, EDA, chip design
+## 2. Pick the subfolder
 
-Then pick the matching subfolder under `0-Resources/<subfolder>/`:
-- **ai-learning-journey**: `1-Official-Docs`, `2-Papers`, `3-Tutorials`, `4-Tools-Frameworks`, `5-Datasets`
-- **embodied-ai-learning**: `1-Papers`, `2-Frameworks-Tools`, `3-Datasets`, `4-Tutorials-Courses`, `5-Projects-OpenSource`
-- **ic-chip-design-learning**: `1-Books`, `2-Papers`, `3-EDA-Tools`, `4-OpenSource-Projects`, `5-Courses-Tutorials`, `6-Industry-Standards`
+- **ai-learning-journey**: `1-Official-Docs` · `2-Papers` · `3-Tutorials` ·
+  `4-Tools-Frameworks` · `5-Datasets`
+- **embodied-ai-learning**: `1-Papers` · `2-Frameworks-Tools` · `3-Datasets` ·
+  `4-Tutorials-Courses` · `5-Projects-OpenSource`
+- **ic-chip-design-learning**: `1-Books` · `2-Papers` · `3-EDA-Tools` ·
+  `4-OpenSource-Projects` · `5-Courses-Tutorials` · `6-Industry-Standards`
 
-If no suitable subfolder exists, use the closest match.
+Closest match if nothing fits exactly.
 
-### 1. Create the detail file
+## 3. Follow that repo's CONTRIBUTING.md
 
-Filename: `<name>.md` in `0-Resources/<subfolder>/`.
+Read it before writing anything — the three repos differ:
 
-Naming: lowercase, hyphen-separated.
+- **ai-learning-journey** is generator-driven. You write ONE `.md` with full
+  frontmatter (`title`/`summary`/`source`/`date`/`tags`) and run
+  `python scripts/build.py`; `0-Index.md`, the subfolder table, the README nav
+  and `index.html` are all generated. **Never hand-edit those.**
+- The other two are still hand-maintained (detail file + subfolder README +
+  global index + wiki nav + changelog) — their CONTRIBUTING.md says which.
 
-Start with frontmatter:
-```markdown
----
-source: <original URL>
-date: YYYY-MM-DD
-tags: [tag1, tag2, tag3]
----
+## 4. Verify before reporting done
+
+Run whatever the repo's CONTRIBUTING.md lists under its pre-commit self-check.
+For ai-learning-journey that is:
+
+```bash
+python scripts/check_consistency.py   # 0 error(s), 0 warning(s)
+python scripts/build.py --check       # "All artifacts up to date."
 ```
-
-Then add content:
-- Title and one-line summary
-- `## Overview` — what it is, key capabilities
-- `## Use Cases` / `## Key Points` — bullets
-- End with: `_Last updated: YYYY-MM-DD_`
-
-### 2. Update the subfolder README table
-
-File: `0-Resources/<subfolder>/README.md`
-
-Add a row to the existing table. Match the table's column format (e.g. `| Name | Purpose | Link |`). Use the `[详情](<name>.md) · [官方](<URL>)` pattern when a detail file exists.
-
-### 3. Update the global index
-
-File: `0-Resources/0-Index.md`
-
-Add a row under the correct category section:
-```
-| [<Display Name>](<subfolder>/<name>.md) | `#tag1 #tag2 #tag3` | YYYY-MM-DD |
-```
-
-Paths are **relative to `0-Resources/`**. If the target section doesn't exist, add it.
-**Then bump the `_Last updated: YYYY-MM-DD_` footer at the bottom of the file**
-(it is the source of the `generated` date in `index.html`; `check_consistency.py`
-errors if it is missing, so always keep it current).
-
-### 4. Update wiki navigation
-
-File: `README.md` at repo root.
-
-Add a bullet inside the matching `<details>` block:
-```
-- [<Display Name>](0-Resources/<subfolder>/<name>.md) — one-line description
-```
-
-### 5. Update changelog
-
-File: `README.md` at repo root.
-
-Add a new row at the **top** of the Changelog table (below the header):
-```
-| YYYY-MM-DD | Added <name> — one-line description |
-```
-
-### 6. Commit and push
-
-Stage all changed files, commit with descriptive message, push to remote.

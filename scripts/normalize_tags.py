@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Normalize resource tags against the alias registry in scripts/tags.json.
 
-Tags live in two places (resource frontmatter `tags:` and the tag column of
-0-Resources/0-Index.md). This tool rewrites both with the same canonical
-spellings so a synonym can never appear in one place and not the other.
+Tags live in exactly one place now — the `tags:` line of each resource's
+frontmatter. 0-Index.md is generated from it by build.py, so rewriting tags
+here is enough to fix every view (index, subfolder tables, README nav, site).
 
 Usage:
     python scripts/normalize_tags.py            # rewrite in place
@@ -18,7 +18,6 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RES = ROOT / "0-Resources"
-INDEX = RES / "0-Index.md"
 REGISTRY = ROOT / "scripts" / "tags.json"
 
 
@@ -60,19 +59,7 @@ def rewrite_frontmatter(text: str, aliases: dict[str, str]) -> str:
     return head + "\n".join(out_lines) + tail + text[m.end():]
 
 
-# ---- 2. 0-Index.md tag column ----
-TAG_CELL = re.compile(r"^(\|\s*\[[^\]]+\]\([^)]+\)\s*\|\s*)(`[^`]*`)(\s*\|)")
-
-
-def rewrite_index_line(line: str, aliases: dict[str, str]) -> str:
-    m = TAG_CELL.match(line)
-    if not m:
-        return line
-    tags = re.findall(r"#([\w\-.]+)", m.group(2))
-    new = " ".join("#" + t for t in canonical(tags, aliases))
-    return m.group(1) + "`" + new + "`" + m.group(3) + line[m.end():]
-
-
+# ---- 2. tag statistics (frontmatter is the only place tags live) ----
 def resource_files() -> list[pathlib.Path]:
     return [
         p for p in sorted(RES.rglob("*.md"))
@@ -80,16 +67,17 @@ def resource_files() -> list[pathlib.Path]:
     ]
 
 
+def frontmatter_tags(p: pathlib.Path) -> list[str]:
+    text = p.read_text(encoding="utf-8")
+    m = re.search(r"^tags:\s*(.*)$", text, re.M)
+    return parse_tag_list(m.group(1)) if m else []
+
+
 def collect_tags(aliases: dict[str, str]) -> dict[str, int]:
-    """Canonical tag -> number of resources using it (0-Index view)."""
+    """Canonical tag -> number of resources using it."""
     counts: dict[str, int] = {}
-    if not INDEX.is_file():
-        return counts
-    for line in INDEX.read_text(encoding="utf-8").splitlines():
-        m = TAG_CELL.match(line)
-        if not m:
-            continue
-        for t in canonical(re.findall(r"#([\w\-.]+)", m.group(2)), aliases):
+    for p in resource_files():
+        for t in canonical(frontmatter_tags(p), aliases):
             counts[t] = counts.get(t, 0) + 1
     return counts
 
@@ -122,14 +110,6 @@ def main() -> int:
             changed.append(str(p.relative_to(ROOT)).replace("\\", "/"))
             if not args.check:
                 p.write_text(new, encoding="utf-8", newline="\n")
-
-    if INDEX.is_file():
-        lines = INDEX.read_text(encoding="utf-8").splitlines()
-        new_lines = [rewrite_index_line(ln, aliases) for ln in lines]
-        if new_lines != lines:
-            changed.append("0-Resources/0-Index.md")
-            if not args.check:
-                INDEX.write_text("\n".join(new_lines) + "\n", encoding="utf-8", newline="\n")
 
     if not changed:
         print("Tags already canonical.")

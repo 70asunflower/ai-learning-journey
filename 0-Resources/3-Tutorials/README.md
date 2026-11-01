@@ -4,32 +4,34 @@ Quality tutorials, blog posts, and video courses.
 
 ## Collected Tutorials
 
+<!-- BUILD:TABLE:START -->
 | Resource | Description | Date |
-|----------|-------------|------|
-| [self-llm 开源大模型食用指南](self-llm.md) | DataWhale 大模型入门教程（环境/部署/微调） | 2026-03-31 |
+| :--- | :--- | :--- |
+| [self-llm 大模型食用指南](self-llm.md) | DataWhale 社区维护的中文开源大模型入门教程，覆盖环境配置、部署使用、高效微调全流程 | 2026-03-31 |
 | [Sebastian Raschka Blog](sebastian-raschka-blog.md) | 深度学习、LLM、PyTorch 技术博客 | 2026-04-04 |
-| [Unsloth LLM 微调指南](unsloth-fine-tuning-guide.md) | Unsloth 官方中文微调教程（LoRA/QLoRA/部署） | 2026-04-04 |
+| [Unsloth LLM 微调指南](unsloth-fine-tuning-guide.md) | Unsloth 官方中文教程，LoRA/QLoRA 高效微调全流程 | 2026-04-04 |
 | [10 门"地狱级"CS 公开课](top-10-hell-level-cs-courses.md) | MIT/CMU/Stanford 顶尖 CS 系统课合集（数据库/分布式/OS/编译/AI系统） | 2026-04-21 |
 | [LLM 算法与工程学习路线](llm-algorithm-engineering-roadmap.md) | 从算法/分布式训练/推理部署/评估的完整路线，含优先级分层 | 2026-04-21 |
-| [JAX Scaling Book](jax-scaling-book.md) | JAX 官方 LLM Scaling 实战书籍，分布式训练全链路 | 2026-04-25 |
 | [Infinitensor 冬令营 2025](infinitensor-winter-camp-2025.md) | 推理 infra 全栈训练营，覆盖模型层/框架层/算子层 | 2026-04-25 |
-| [Dive into Deep Learning](dive-into-deep-learning.md) | 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF） | 2026-05-07 |
+| [JAX Scaling Book](jax-scaling-book.md) | JAX 官方 LLM Scaling 实战书籍，分布式训练全链路 | 2026-04-25 |
 | [Build a LLM (From Scratch)](llms-from-scratch.md) | Sebastian Raschka 著，从零构建 ChatGPT 级 LLM（92k+ Stars） | 2026-05-07 |
 | [Build a Reasoning Model (From Scratch)](reasoning-from-scratch.md) | Sebastian Raschka 著，推理型 LLM 构建（GRPO/蒸馏/推理时扩展） | 2026-05-07 |
-| [强化学习直观理解 (VZstudio)](rl-intuitive-explanation-vzstudio.md) | 抖音科普：人移托盘，小鸡啄对得奖励——RL 直观体现，连接 RLHF 对齐 | 2026-06-05 |
-| [Agent-Learning-Hub (Datawhale)](agent-learning-hub.md) | AI Agent 学习路线与资料库，2.9k⭐，8阶段+11项目，可执行清单 | 2026-06-05 |
+| [Dive into Deep Learning](dive-into-deep-learning.md) | 交互式深度学习教材，可执行 Jupyter Notebook，多框架实现（PyTorch/JAX/TF） | 2026-05-07 |
+| [Agent-Learning-Hub (Datawhale)](agent-learning-hub.md) | AI Agent 学习路线，2.9k⭐，8阶段+11项目，可执行清单 | 2026-06-05 |
 | [大模型推理系统入门](llm-inference-system-intro.md) | 从模型优化到调度优化：PagedAttention/Continuous Batching/Speculative Decoding | 2026-06-05 |
-| [AI Infra 其实没有多少新东西](ai-infra-nothing-new.md) | 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附原文PDF | 2026-06-06 |
-| [Modern GPU Programming For MLSys](mlc-modern-gpu-programming.md) | MLC.ai/CMU 出品：Blackwell 架构 GPU Kernel 实战（TMA/Warp Specialization/FlashAttention 4） | 2026-06-25 |
-| [CS336 从零构建语言模型 (中文)](cs336-language-modeling-from-scratch.md) | 斯坦福 CS336 全17讲改编中文通识读本：分词→预训练→对齐，配20+原创图 | 2026-06-28 |
+| [强化学习直观理解 (VZstudio)](rl-intuitive-explanation-vzstudio.md) | 小鸡啄托盘得奖励——RL 直观体现，连接 RLHF 对齐 | 2026-06-05 |
+| [AI Infra 其实没有多少新东西](ai-infra-nothing-new.md) | 腾讯云出品：硬件演进/PCA解耦/训练推理Infra，附PDF | 2026-06-06 |
+| [Modern GPU Programming For MLSys](mlc-modern-gpu-programming.md) | MLC.ai/CMU 出品：Blackwell GPU Kernel 实战（TMA/Warp Spec/FlashAttention 4） | 2026-06-25 |
+| [CS336 从零构建语言模型 (中文)](cs336-language-modeling-from-scratch.md) | 斯坦福 CS336 全17讲中文通识读本：分词→预训练→对齐 | 2026-06-28 |
 | [猛猿大模型技术文章导航](mengyuan-llm-articles-index.md) | 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态 | 2026-07-07 |
-| [Infra Seminars 2026](infra-seminars-2026.md) | LCPU 出品 AI 基础设施系列课：Kernel&编译器/互联通信/推理服务/分布式RL | 2026-08-03 |
+| [Infra Seminars 2026](infra-seminars-2026.md) | LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL | 2026-08-03 |
 | [The Ultra-Scale Playbook](ultrascale-playbook.md) | HF/nanotron 出品：从单卡到 512 GPU 的 LLM 训练扩展实战（DP/TP/PP/CP/EP + ZeRO + 混合精度） | 2026-08-07 |
-| [MIT 6.5840 (原 6.824) 分布式系统](mit-65840-distributed-systems.md) | MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab，容错/复制/一致性三大主线 | 2026-09-01 |
+| [MIT 6.5840 (原 6.824) 分布式系统](mit-65840-distributed-systems.md) | MIT PDOS 研究生核心课：Raft/MapReduce/一致性，5 个硬核 Go lab | 2026-09-01 |
+| [深入理解 AI Agent](bojieli-ai-agent-book.md) | 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力 | 2026-09-14 |
 | [深入理解 AI Infra](bojieli-ai-infra-book.md) | 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度 | 2026-09-14 |
-| [深入理解 AI Agent](bojieli-ai-agent-book.md) | 李博杰开源书 45k+★：Agent = LLM + 上下文 + 工具，Harness 工程才是竞争力，每章配实验 | 2026-09-14 |
-| [Machine Learning Systems (Harvard CS249r)](machine-learning-systems-book.md) | MIT Press 2026 两卷本：单机→fleet 规模，28 章 + TinyTorch/MLSys·im/Labs 生态，28k★ | 2026-10-20 |
-| [Diy-LLM (Datawhale)](datawhale-diy-llm.md) | CS336 中文本土化实现课：16 章 + 6 个渐进作业（手搓 tokenizer/CUDA-Triton/ZeRO/GRPO），2302★ | 2026-10-30 |
+| [Machine Learning Systems (Harvard CS249r)](machine-learning-systems-book.md) | MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态 | 2026-10-20 |
+| [Diy-LLM (Datawhale)](datawhale-diy-llm.md) | CS336 中文本土化实现课：16 章理论 + 6 个渐进代码作业，从手搓 tokenizer 到 GRPO | 2026-10-30 |
+<!-- BUILD:TABLE:END -->
 
 ---
 
@@ -38,6 +40,7 @@ Quality tutorials, blog posts, and video courses.
 ```markdown
 ---
 title: Tutorial Title
+summary: 一句话说明
 source: URL
 date: YYYY-MM-DD
 tags: []

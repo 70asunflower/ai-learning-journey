@@ -1,32 +1,67 @@
 # 参与维护
 
-新增资源 / 笔记 / 代码示例的流程。人类和 agent 都按这套走。
+**一条资源只需要改一个地方**：资源文件自己的 frontmatter。其余全部由
+`scripts/build.py` 生成。
 
-> 仓库里有两份自动化工具说明：[`scripts/README.md`](scripts/README.md)（脚本清单）和
-> `.workbuddy/skills/ai-journey-add/`（agent 用的完整操作手册，含 `gh` 推送凭据细节）。
+> 脚本清单见 [`scripts/README.md`](scripts/README.md)；agent 用的完整操作手册（含 `gh`
+> 推送凭据细节）在 `.workbuddy/skills/ai-journey-add/`。
 
 ## 加一条资源（0-Resources/）
 
-1. 在对应子目录建 `.md` 文件（如 `0-Resources/4-Tools-Frameworks/<name>.md`），文件名小写连字符
-2. 开头写 frontmatter：
-   ```markdown
-   ---
-   source: <原始 URL>
-   date: YYYY-MM-DD
-   tags: [tag1, tag2]
-   ---
-   ```
-3. 正文：摘要、要点，或带出处标注的完整内容
-4. 结尾写 `_Last updated: YYYY-MM-DD_`
-5. 加进该子目录的 `README.md` 表格
-6. 加进根 `README.md` 导航里对应的 `<details>` 段
-7. 加进 `0-Resources/0-Index.md`
-8. 重跑 `python scripts/generate_index.py`
+### 1. 建文件
+
+在对应子目录建 `<name>.md`，文件名小写连字符（如 `nano-vllm.md`）。frontmatter 五项**全部必填**：
+
+```markdown
+---
+title: 显示名称（网页卡片 / 表格 / 导航都用它）
+summary: 一句话说明，40–60 字最佳（同时用于网页卡片和子目录表格）
+source: 原始链接
+date: YYYY-MM-DD
+tags: [tag1, tag2]
+---
+```
+
+正文建议按 `## 核心要点（摘要）` / `## 详细内容` / `## 个人备注` 组织，
+结尾写 `_Last updated: YYYY-MM-DD_`。
+
+### 2. 跑生成
+
+```bash
+python scripts/build.py
+```
+
+它会从 frontmatter 重新生成下面这些文件，**不要手改它们**：
+
+| 文件 | 说明 |
+|------|------|
+| `0-Resources/0-Index.md` | 整个文件 |
+| `0-Resources/<子目录>/README.md` | 表格部分（`BUILD:TABLE` 标记之间） |
+| `README.md` | 资源导航（`BUILD:NAV` 标记之间） |
+| `index.html` | 整个文件 |
+
+### 3. 记一笔 changelog
+
+在根 `README.md` 的 Changelog 表**表头下方**加一行（日期倒序，CI 强制）：
+
+```markdown
+| YYYY-MM-DD | Added <名称> — 一句话说明 |
+```
+
+### 4. 提交
+
+```bash
+python scripts/check_consistency.py      # 语义检查
+python scripts/build.py --check          # 生成物是否最新
+git add -A && git commit -m "feat(resources): add <名称>"
+```
 
 ## 加一条笔记（1-Notes/）
 
+笔记**不进网页索引**，所以流程不同（没有生成的环节）：
+
 1. 在对应子目录建 `.md` 文件（如 `1-Notes/2-Models/Qwen-Series/<model>.md`）
-2. frontmatter **和资源不同**，用笔记的 schema（以 `1-Notes/0-Template.md` 为准）：
+2. frontmatter 用笔记的 schema（以 `1-Notes/0-Template.md` 为准，**和资源不同**）：
    ```markdown
    ---
    topic: 主题
@@ -35,38 +70,28 @@
    status: reading   # reading / writing / done
    ---
    ```
-3. 正文：自己的理解、代码实验、踩过的坑
-4. 结尾写 `_Last updated: YYYY-MM-DD_`
-5. 加进该目录的 `README.md` 索引
-6. 加进根 `README.md` 导航
+3. 正文：自己的理解、代码实验、踩过的坑；结尾写 `_Last updated: YYYY-MM-DD_`
+4. 加进该目录的 `README.md` 索引
+5. 手动加进根 `README.md` 的 `📝 Personal Notes` 导航段（这段不是生成的）
+6. 加一行 changelog
 
 ## 加一个代码示例（2-Code/）
 
-1. 建子目录 `2-Code/<project-name>/`
-2. 包含 `main.py`、`requirements.txt`、`README.md`
-3. 加进 `2-Code/README.md` 的示例表格
+1. 建子目录 `2-Code/<project-name>/`，含 `main.py`、`requirements.txt`、`README.md`
+2. 加进 `2-Code/README.md` 的示例表格
 
 ## 硬性规则
 
 - **文件名**：小写、连字符分隔（如 `qwen3-vl-best-practice.md`）
-- **导航**：每个新文件都必须在根 `README.md` 导航里出现
-- **资源索引**：`0-Index.md` 要镜像所有资源。`index.html` 的 `generated` 日期取自该表
-  最新一行日期，**没有 footer 需要手动 bump**
+- **frontmatter**：`title` / `summary` / `source` / `date` / `tags` 缺一不可，
+  `check_consistency.py` 会直接报错
 - **标签**：只用规范写法。`scripts/tags.json` 登记了「废弃写法 → 规范写法」，
   `python scripts/normalize_tags.py` 会改写，CI 会拒绝任何残留别名；
   `--report` 打印标签频次和单例标签（判断该不该合并）
-- **Changelog**：新行插在**表头下方**（日期倒序，CI 强制）
+- **Changelog**：新行插在表头下方（日期倒序，CI 强制）
 - **Last updated**：每个资源/笔记文件结尾都要有 `_Last updated: YYYY-MM-DD_`
-- **网页索引**：`index.html` 由 `scripts/generate_index.py` 从根 `README.md` 导航生成，
-  加完资源要重跑并提交重新生成的文件
-
-## 提交前自检
-
-```bash
-python scripts/check_consistency.py     # 必须 0 error(s), 0 warning(s)
-python scripts/normalize_tags.py --check  # 必须 "Tags already canonical."
-python scripts/generate_index.py        # 重跑应无 diff
-```
+- **不要手改生成块**：`BUILD:NAV` / `BUILD:TABLE` 标记之间、以及 `0-Index.md`、
+  `index.html` 整体都是生成物，下次构建会被覆盖
 
 ## 更新 README 预览图
 

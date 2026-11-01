@@ -1,9 +1,10 @@
 ---
+title: nano-vllm
+summary: 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching）
 source: https://github.com/GeeeekExplorer/nano-vllm
 date: 2026-04-25
 tags: [vllm, inference, framework, llm, serving]
 ---
-
 # nano-vllm
 
 ## 核心要点（摘要）

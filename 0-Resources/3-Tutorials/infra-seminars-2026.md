@@ -1,9 +1,10 @@
 ---
+title: Infra Seminars 2026
+summary: LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL
 source: https://infra.seminars.lcpu.dev/
 date: 2026-08-03
 tags: [ai-infra, gpu, cuda, kernel, compiler, distributed-training, inference, reinforcement-learning, course]
 ---
-
 # Infra Seminars 2026 — AI 基础设施 Seminar 系列
 
 > 由 LCPU 社团骨干与超算队设计的 AI 基础设施系列课程，覆盖「大模型如何训更快、跑更好、推更省」。

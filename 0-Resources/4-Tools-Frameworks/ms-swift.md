@@ -1,9 +1,10 @@
 ---
+title: ms-swift 微调部署框架
+summary: 魔搭社区大模型与多模态模型全链路框架，覆盖训练→推理→评测→量化→部署
 source: https://swift.readthedocs.io/zh-cn/latest/
 date: 2026-03-31
 tags: [fine-tuning, serving, multimodal, framework]
 ---
-
 # ms-swift
 
 > ModelScope's fine-tuning & deployment framework for LLMs and multi-modal models.

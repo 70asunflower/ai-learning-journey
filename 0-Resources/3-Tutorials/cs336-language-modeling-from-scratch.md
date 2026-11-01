@@ -1,12 +1,12 @@
 ---
+title: CS336 从零构建语言模型 (中文)
+summary: 斯坦福 CS336 全17讲中文通识读本：分词→预训练→对齐
 source: https://feigaobox10.github.io/llm-from-scratch-reader/
 date: 2026-06-28
 tags: [cs336, llm, from-scratch, tokenizer, pre-training, alignment, chinese, open-access, course]
-links:
-  - https://cs336.stanford.edu/
-  - https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV
+links: 
+- https: //www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV
 ---
-
 # CS336 Language Modeling from Scratch — 从零构建语言模型
 
 > 斯坦福 CS336 (Spring 2026, Percy Liang/Tatsunori Hashimoto) 全17讲改写为面向高中生的通识中文读本，完整、准确、保留全部专业术语。
