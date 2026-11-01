@@ -112,6 +112,7 @@ if os.path.isfile(registry):
 # contain angle brackets and are not real targets.
 LINK_RE = re.compile(r"\]\(((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^)]+\.md)\)")
 HREF_RE = re.compile(r'href="((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^"]+\.md)"')
+IMG_RE = re.compile(r'(?:src|srcset)="(assets/[^"]+)"')
 for dirpath, _, files in os.walk(ROOT):
     if ".git" in dirpath or ".claude" in dirpath or ".workbuddy" in dirpath:
         continue
@@ -131,6 +132,9 @@ for dirpath, _, files in os.walk(ROOT):
         for m in HREF_RE.finditer(text):
             if not exists(m.group(1)):
                 err(f"{rel_fp}: dead internal link -> {m.group(1)} (html href)")
+        for m in IMG_RE.finditer(text):
+            if not exists(m.group(1)):
+                err(f"{rel_fp}: missing image -> {m.group(1)}")
 
 # ---------- changelog ----------
 root_readme = os.path.join(ROOT, "README.md")

@@ -23,7 +23,17 @@
 
 ## ✨ 从这里开始
 
-不知道从哪条读起？按目标挑一条，右边是读完之后接得上的下一站。
+<p align="center">
+  <a href="https://70asunflower.github.io/ai-learning-journey/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/roadmap-dark.svg">
+      <img src="assets/roadmap-light.svg" width="900" alt="学习路线图：5 条路径，每条给出「先读」与「接着」">
+    </picture>
+  </a>
+</p>
+
+<details>
+<summary>文本版（可点击跳转）</summary>
 
 | 我想… | 先读 | 接着 |
 | :--- | :--- | :--- |
@@ -32,6 +42,8 @@
 | 建立 AI Infra 全局观 | [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md) — 数据搬移主线 + 量化估算 | [The Ultra-Scale Playbook](0-Resources/3-Tutorials/ultrascale-playbook.md) 扩展实战 |
 | 上手 GPU Kernel | [CUDA Programming Guide](0-Resources/1-Official-Docs/cuda-programming-guide.md) — NVIDIA 官方 | [Modern GPU Programming](0-Resources/3-Tutorials/mlc-modern-gpu-programming.md) Blackwell 实战 |
 | 做 AI Agent | [深入理解 AI Agent](0-Resources/3-Tutorials/bojieli-ai-agent-book.md) — Agent = LLM + 上下文 + 工具 | [Agent-Learning-Hub](0-Resources/3-Tutorials/agent-learning-hub.md) 学习路线 |
+
+</details>
 
 ## 🗂️ 资源导航
 
