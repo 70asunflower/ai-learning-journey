@@ -471,8 +471,8 @@ BRANCH_GAP = 8
 FAN_H = 64
 SLAB_GAP = 30
 ROOT_H = 34
-NAME_SIZE, SKILL_SIZE, RES_SIZE = 10.8, 9.4, 8.6
-LH_NAME, LH_SKILL, LH_RES = 15, 12, 10.5
+NAME_SIZE, SKILL_SIZE, RES_SIZE = 11.5, 10.0, 9.2
+LH_NAME, LH_SKILL, LH_RES = 16, 13, 11.5
 
 
 def _skills_of(node: dict) -> list[dict]:

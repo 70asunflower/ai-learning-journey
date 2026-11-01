@@ -1,117 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="476" viewBox="0 0 900 476" role="img" aria-label="技术栈树：基础技能在根部，向上分叉到各专业方向" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
-<rect width="900" height="476" rx="14" fill="#101011" stroke="#2c2c30"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="494" viewBox="0 0 900 494" role="img" aria-label="技术栈树：基础技能在根部，向上分叉到各专业方向" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
+<rect width="900" height="494" rx="14" fill="#101011" stroke="#2c2c30"/>
 <text x="26" y="0" font-size="0" fill="none">.</text>
-<rect x="26.0" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#6f9bf2" stroke-opacity="0.40"/>
+<rect x="26.0" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#6f9bf2" stroke-opacity="0.40"/>
 <rect x="26.0" y="24" width="114.3" height="3.5" rx="1.8" fill="#6f9bf2" fill-opacity="0.85"/>
-<text x="83.1" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">LLM 原理</text>
-<text x="34.0" y="59" font-size="9.4" fill="#e9e9e7">从零构建 LLM</text>
-<text x="34.0" y="69.5" font-size="8.6" fill="#a6a6a6">Build a LLM (From</text>
-<text x="34.0" y="80.0" font-size="8.6" fill="#a6a6a6">Scratch)</text>
-<text x="34.0" y="90.5" font-size="8.6" fill="#a6a6a6">Diy-LLM (Datawhale)</text>
-<text x="34.0" y="106.5" font-size="9.4" fill="#e9e9e7">中文通识</text>
-<text x="34.0" y="117.0" font-size="8.6" fill="#a6a6a6">CS336 中文通读本</text>
-<text x="34.0" y="133.0" font-size="9.4" fill="#e9e9e7">推理模型</text>
-<text x="34.0" y="143.5" font-size="8.6" fill="#a6a6a6">Build a Reasoning</text>
-<text x="34.0" y="154.0" font-size="8.6" fill="#a6a6a6">Model</text>
-<rect x="148.3" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#3fb950" stroke-opacity="0.40"/>
+<text x="83.1" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">LLM 原理</text>
+<text x="34.0" y="61" font-size="10.0" fill="#e9e9e7">从零构建 LLM</text>
+<text x="34.0" y="72.5" font-size="9.2" fill="#a6a6a6">Build a LLM (From</text>
+<text x="34.0" y="84.0" font-size="9.2" fill="#a6a6a6">Scratch)</text>
+<text x="34.0" y="95.5" font-size="9.2" fill="#a6a6a6">Diy-LLM (Datawhale)</text>
+<text x="34.0" y="112.5" font-size="10.0" fill="#e9e9e7">中文通识</text>
+<text x="34.0" y="124.0" font-size="9.2" fill="#a6a6a6">CS336 中文通读本</text>
+<text x="34.0" y="141.0" font-size="10.0" fill="#e9e9e7">推理模型</text>
+<text x="34.0" y="152.5" font-size="9.2" fill="#a6a6a6">Build a Reasoning</text>
+<text x="34.0" y="164.0" font-size="9.2" fill="#a6a6a6">Model</text>
+<rect x="148.3" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#3fb950" stroke-opacity="0.40"/>
 <rect x="148.3" y="24" width="114.3" height="3.5" rx="1.8" fill="#3fb950" fill-opacity="0.85"/>
-<text x="205.4" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">训练与分布式</text>
-<text x="156.3" y="59" font-size="9.4" fill="#e9e9e7">扩展与并行</text>
-<text x="156.3" y="69.5" font-size="8.6" fill="#a6a6a6">The Ultra-Scale</text>
-<text x="156.3" y="80.0" font-size="8.6" fill="#a6a6a6">Playbook</text>
-<text x="156.3" y="90.5" font-size="8.6" fill="#a6a6a6">JAX Scaling Book</text>
-<text x="156.3" y="106.5" font-size="9.4" fill="#e9e9e7">ML 系统</text>
-<text x="156.3" y="117.0" font-size="8.6" fill="#a6a6a6">Machine Learning</text>
-<text x="156.3" y="127.5" font-size="8.6" fill="#a6a6a6">Systems</text>
-<text x="156.3" y="143.5" font-size="9.4" fill="#e9e9e7">数据工程</text>
-<text x="156.3" y="154.0" font-size="8.6" fill="#8c8c8c" fill-opacity="0.8">待补充</text>
-<rect x="270.6" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#b18aff" stroke-opacity="0.40"/>
+<text x="205.4" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">训练与分布式</text>
+<text x="156.3" y="61" font-size="10.0" fill="#e9e9e7">扩展与并行</text>
+<text x="156.3" y="72.5" font-size="9.2" fill="#a6a6a6">The Ultra-Scale</text>
+<text x="156.3" y="84.0" font-size="9.2" fill="#a6a6a6">Playbook</text>
+<text x="156.3" y="95.5" font-size="9.2" fill="#a6a6a6">JAX Scaling Book</text>
+<text x="156.3" y="112.5" font-size="10.0" fill="#e9e9e7">ML 系统</text>
+<text x="156.3" y="124.0" font-size="9.2" fill="#a6a6a6">Machine Learning</text>
+<text x="156.3" y="135.5" font-size="9.2" fill="#a6a6a6">Systems</text>
+<text x="156.3" y="152.5" font-size="10.0" fill="#e9e9e7">数据工程</text>
+<text x="156.3" y="164.0" font-size="9.2" fill="#8c8c8c" fill-opacity="0.8">待补充</text>
+<rect x="270.6" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#b18aff" stroke-opacity="0.40"/>
 <rect x="270.6" y="24" width="114.3" height="3.5" rx="1.8" fill="#b18aff" fill-opacity="0.85"/>
-<text x="327.7" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">推理与部署</text>
-<text x="278.6" y="59" font-size="9.4" fill="#e9e9e7">推理系统原理</text>
-<text x="278.6" y="69.5" font-size="8.6" fill="#a6a6a6">大模型推理系统入门</text>
-<text x="278.6" y="80.0" font-size="8.6" fill="#a6a6a6">LLM Inference</text>
-<text x="278.6" y="90.5" font-size="8.6" fill="#a6a6a6">Handbook</text>
-<text x="278.6" y="106.5" font-size="9.4" fill="#e9e9e7">推理引擎</text>
-<text x="278.6" y="117.0" font-size="8.6" fill="#a6a6a6">vLLM 中文文档</text>
-<text x="278.6" y="133.0" font-size="9.4" fill="#e9e9e7">框架源码</text>
-<text x="278.6" y="143.5" font-size="8.6" fill="#a6a6a6">nano-vllm</text>
-<text x="278.6" y="154.0" font-size="8.6" fill="#a6a6a6">mini-sglang</text>
-<text x="278.6" y="170.0" font-size="9.4" fill="#e9e9e7">系统课程</text>
-<text x="278.6" y="180.5" font-size="8.6" fill="#a6a6a6">Infinitensor 冬令营</text>
-<text x="278.6" y="191.0" font-size="8.6" fill="#a6a6a6">2025</text>
-<text x="278.6" y="201.5" font-size="8.6" fill="#a6a6a6">Infra Seminars 2026</text>
-<rect x="392.9" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.40"/>
+<text x="327.7" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">推理与部署</text>
+<text x="278.6" y="61" font-size="10.0" fill="#e9e9e7">推理系统原理</text>
+<text x="278.6" y="72.5" font-size="9.2" fill="#a6a6a6">大模型推理系统入门</text>
+<text x="278.6" y="84.0" font-size="9.2" fill="#a6a6a6">LLM Inference</text>
+<text x="278.6" y="95.5" font-size="9.2" fill="#a6a6a6">Handbook</text>
+<text x="278.6" y="112.5" font-size="10.0" fill="#e9e9e7">推理引擎</text>
+<text x="278.6" y="124.0" font-size="9.2" fill="#a6a6a6">vLLM 中文文档</text>
+<text x="278.6" y="141.0" font-size="10.0" fill="#e9e9e7">框架源码</text>
+<text x="278.6" y="152.5" font-size="9.2" fill="#a6a6a6">nano-vllm</text>
+<text x="278.6" y="164.0" font-size="9.2" fill="#a6a6a6">mini-sglang</text>
+<text x="278.6" y="181.0" font-size="10.0" fill="#e9e9e7">系统课程</text>
+<text x="278.6" y="192.5" font-size="9.2" fill="#a6a6a6">Infinitensor 冬令营</text>
+<text x="278.6" y="204.0" font-size="9.2" fill="#a6a6a6">2025</text>
+<text x="278.6" y="215.5" font-size="9.2" fill="#a6a6a6">Infra Seminars 2026</text>
+<rect x="392.9" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.40"/>
 <rect x="392.9" y="24" width="114.3" height="3.5" rx="1.8" fill="#e8913a" fill-opacity="0.85"/>
-<text x="450.0" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">GPU 与 Kernel</text>
-<text x="400.9" y="59" font-size="9.4" fill="#e9e9e7">CUDA 编程</text>
-<text x="400.9" y="69.5" font-size="8.6" fill="#a6a6a6">CUDA Programming</text>
-<text x="400.9" y="80.0" font-size="8.6" fill="#a6a6a6">Guide</text>
-<text x="400.9" y="96.0" font-size="9.4" fill="#e9e9e7">Kernel 优化</text>
-<text x="400.9" y="106.5" font-size="8.6" fill="#a6a6a6">Modern GPU</text>
-<text x="400.9" y="117.0" font-size="8.6" fill="#a6a6a6">Programming</text>
-<text x="400.9" y="133.0" font-size="9.4" fill="#e9e9e7">编译与汇编</text>
-<text x="400.9" y="143.5" font-size="8.6" fill="#a6a6a6">Compiler Explorer</text>
-<rect x="515.1" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#ff7b72" stroke-opacity="0.40"/>
+<text x="450.0" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">GPU 与 Kernel</text>
+<text x="400.9" y="61" font-size="10.0" fill="#e9e9e7">CUDA 编程</text>
+<text x="400.9" y="72.5" font-size="9.2" fill="#a6a6a6">CUDA Programming</text>
+<text x="400.9" y="84.0" font-size="9.2" fill="#a6a6a6">Guide</text>
+<text x="400.9" y="101.0" font-size="10.0" fill="#e9e9e7">Kernel 优化</text>
+<text x="400.9" y="112.5" font-size="9.2" fill="#a6a6a6">Modern GPU</text>
+<text x="400.9" y="124.0" font-size="9.2" fill="#a6a6a6">Programming</text>
+<text x="400.9" y="141.0" font-size="10.0" fill="#e9e9e7">编译与汇编</text>
+<text x="400.9" y="152.5" font-size="9.2" fill="#a6a6a6">Compiler Explorer</text>
+<rect x="515.1" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#ff7b72" stroke-opacity="0.40"/>
 <rect x="515.1" y="24" width="114.3" height="3.5" rx="1.8" fill="#ff7b72" fill-opacity="0.85"/>
-<text x="572.3" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">微调与工程</text>
-<text x="523.1" y="59" font-size="9.4" fill="#e9e9e7">微调方法</text>
-<text x="523.1" y="69.5" font-size="8.6" fill="#a6a6a6">Unsloth LLM 微调指南</text>
-<text x="523.1" y="80.0" font-size="8.6" fill="#a6a6a6">self-llm</text>
-<text x="523.1" y="90.5" font-size="8.6" fill="#a6a6a6">大模型食用指南</text>
-<text x="523.1" y="106.5" font-size="9.4" fill="#e9e9e7">微调框架</text>
-<text x="523.1" y="117.0" font-size="8.6" fill="#a6a6a6">LlamaFactory 微调框架</text>
-<text x="523.1" y="127.5" font-size="8.6" fill="#a6a6a6">ms-swift 微调部署框架</text>
-<text x="523.1" y="143.5" font-size="9.4" fill="#e9e9e7">环境与选型</text>
-<text x="523.1" y="154.0" font-size="8.6" fill="#a6a6a6">ModelScope Notebook</text>
-<text x="523.1" y="164.5" font-size="8.6" fill="#a6a6a6">CanIRun.ai</text>
-<text x="523.1" y="175.0" font-size="8.6" fill="#a6a6a6">硬件兼容性检测</text>
-<rect x="637.4" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#4ec9a0" stroke-opacity="0.40"/>
+<text x="572.3" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">微调与工程</text>
+<text x="523.1" y="61" font-size="10.0" fill="#e9e9e7">微调方法</text>
+<text x="523.1" y="72.5" font-size="9.2" fill="#a6a6a6">Unsloth LLM 微调指南</text>
+<text x="523.1" y="84.0" font-size="9.2" fill="#a6a6a6">self-llm</text>
+<text x="523.1" y="95.5" font-size="9.2" fill="#a6a6a6">大模型食用指南</text>
+<text x="523.1" y="112.5" font-size="10.0" fill="#e9e9e7">微调框架</text>
+<text x="523.1" y="124.0" font-size="9.2" fill="#a6a6a6">LlamaFactory</text>
+<text x="523.1" y="135.5" font-size="9.2" fill="#a6a6a6">微调框架</text>
+<text x="523.1" y="147.0" font-size="9.2" fill="#a6a6a6">ms-swift</text>
+<text x="523.1" y="158.5" font-size="9.2" fill="#a6a6a6">微调部署框架</text>
+<text x="523.1" y="175.5" font-size="10.0" fill="#e9e9e7">环境与选型</text>
+<text x="523.1" y="187.0" font-size="9.2" fill="#a6a6a6">ModelScope Notebook</text>
+<text x="523.1" y="198.5" font-size="9.2" fill="#a6a6a6">CanIRun.ai</text>
+<text x="523.1" y="210.0" font-size="9.2" fill="#a6a6a6">硬件兼容性检测</text>
+<rect x="637.4" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#4ec9a0" stroke-opacity="0.40"/>
 <rect x="637.4" y="24" width="114.3" height="3.5" rx="1.8" fill="#4ec9a0" fill-opacity="0.85"/>
-<text x="694.6" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">Agent</text>
-<text x="645.4" y="59" font-size="9.4" fill="#e9e9e7">Agent 原理</text>
-<text x="645.4" y="69.5" font-size="8.6" fill="#a6a6a6">深入理解 AI Agent</text>
-<text x="645.4" y="85.5" font-size="9.4" fill="#e9e9e7">学习路线</text>
-<text x="645.4" y="96.0" font-size="8.6" fill="#a6a6a6">Agent-Learning-Hub</text>
-<rect x="759.7" y="24" width="114.3" height="194" rx="9" fill="#1b1b1d" stroke="#f778ba" stroke-opacity="0.40"/>
+<text x="694.6" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">Agent</text>
+<text x="645.4" y="61" font-size="10.0" fill="#e9e9e7">Agent 原理</text>
+<text x="645.4" y="72.5" font-size="9.2" fill="#a6a6a6">深入理解 AI Agent</text>
+<text x="645.4" y="89.5" font-size="10.0" fill="#e9e9e7">学习路线</text>
+<text x="645.4" y="101.0" font-size="9.2" fill="#a6a6a6">Agent-Learning-Hub</text>
+<rect x="759.7" y="24" width="114.3" height="208" rx="9" fill="#1b1b1d" stroke="#f778ba" stroke-opacity="0.40"/>
 <rect x="759.7" y="24" width="114.3" height="3.5" rx="1.8" fill="#f778ba" fill-opacity="0.85"/>
-<text x="816.9" y="43" text-anchor="middle" font-size="10.8" font-weight="650" fill="#e9e9e7">工具与可视化</text>
-<text x="767.7" y="59" font-size="9.4" fill="#e9e9e7">模型可视化</text>
-<text x="767.7" y="69.5" font-size="8.6" fill="#a6a6a6">LLM Visualization</text>
-<text x="767.7" y="80.0" font-size="8.6" fill="#a6a6a6">InferFlux</text>
-<text x="767.7" y="90.5" font-size="8.6" fill="#a6a6a6">推理系统可视化</text>
-<text x="767.7" y="106.5" font-size="9.4" fill="#e9e9e7">Tokenizer</text>
-<text x="767.7" y="117.0" font-size="8.6" fill="#a6a6a6">TikTokenizer</text>
-<text x="767.7" y="127.5" font-size="8.6" fill="#a6a6a6">可视化交互工具</text>
-<text x="767.7" y="143.5" font-size="9.4" fill="#e9e9e7">设计与提示词</text>
-<text x="767.7" y="154.0" font-size="8.6" fill="#a6a6a6">Open Design</text>
-<text x="767.7" y="164.5" font-size="8.6" fill="#a6a6a6">GPT Image 2</text>
-<text x="767.7" y="175.0" font-size="8.6" fill="#a6a6a6">提示词合集</text>
-<path d="M450.0 282 C450.0 246.8 83.1 246.8 83.1 218" fill="none" stroke="#6f9bf2" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 205.4 246.8 205.4 218" fill="none" stroke="#3fb950" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 327.7 246.8 327.7 218" fill="none" stroke="#b18aff" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 450.0 246.8 450.0 218" fill="none" stroke="#e8913a" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 572.3 246.8 572.3 218" fill="none" stroke="#ff7b72" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 694.6 246.8 694.6 218" fill="none" stroke="#4ec9a0" stroke-opacity="0.45" stroke-width="1.5"/>
-<path d="M450.0 282 C450.0 246.8 816.9 246.8 816.9 218" fill="none" stroke="#f778ba" stroke-opacity="0.45" stroke-width="1.5"/>
-<rect x="26" y="282" width="848" height="83.5" rx="10" fill="#1b1b1d" stroke="#3c3c43"/>
-<text x="38" y="298" font-size="10.8" font-weight="650" fill="#e9e9e7">基础层</text>
-<text x="862" y="298" text-anchor="end" font-size="9" fill="#8c8c8c">所有方向的共同基础</text>
-<text x="38.0" y="316" font-size="9.4" fill="#e9e9e7">深度学习</text>
-<text x="38.0" y="326.5" font-size="8.6" fill="#a6a6a6">Dive into Deep Learning</text>
-<text x="38.0" y="337.0" font-size="8.6" fill="#a6a6a6">强化学习直观理解 (VZstudio)</text>
-<text x="244.0" y="316" font-size="9.4" fill="#e9e9e7">系统与体系结构</text>
-<text x="244.0" y="326.5" font-size="8.6" fill="#a6a6a6">10 门"地狱级"CS 公开课</text>
-<text x="244.0" y="337.0" font-size="8.6" fill="#a6a6a6">MIT 6.5840 分布式系统</text>
-<text x="450.0" y="316" font-size="9.4" fill="#e9e9e7">AI Infra 全景</text>
-<text x="450.0" y="326.5" font-size="8.6" fill="#a6a6a6">AI Infra 其实没有多少新东西</text>
-<text x="450.0" y="337.0" font-size="8.6" fill="#a6a6a6">深入理解 AI Infra</text>
-<text x="656.0" y="316" font-size="9.4" fill="#e9e9e7">路线与索引</text>
-<text x="656.0" y="326.5" font-size="8.6" fill="#a6a6a6">LLM 算法与工程学习路线</text>
-<text x="656.0" y="337.0" font-size="8.6" fill="#a6a6a6">猛猿大模型技术文章导航</text>
-<text x="656.0" y="347.5" font-size="8.6" fill="#a6a6a6">Sebastian Raschka Blog</text>
-<line x1="450.0" y1="395.5" x2="450.0" y2="365.5" stroke="#3c3c43" stroke-width="1.3"/>
-<rect x="398.9" y="395.5" width="102.1" height="34" rx="17.0" fill="#e9e9e7"/>
-<text x="450.0" y="416.9" text-anchor="middle" font-size="13" font-weight="700" fill="#101011">AI 技术栈</text>
-<text x="26" y="456" font-size="10.5" fill="#8c8c8c">共 39 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ai-learning-journey</text>
+<text x="816.9" y="44" text-anchor="middle" font-size="11.5" font-weight="650" fill="#e9e9e7">工具与可视化</text>
+<text x="767.7" y="61" font-size="10.0" fill="#e9e9e7">模型可视化</text>
+<text x="767.7" y="72.5" font-size="9.2" fill="#a6a6a6">LLM Visualization</text>
+<text x="767.7" y="84.0" font-size="9.2" fill="#a6a6a6">InferFlux</text>
+<text x="767.7" y="95.5" font-size="9.2" fill="#a6a6a6">推理系统可视化</text>
+<text x="767.7" y="112.5" font-size="10.0" fill="#e9e9e7">Tokenizer</text>
+<text x="767.7" y="124.0" font-size="9.2" fill="#a6a6a6">TikTokenizer</text>
+<text x="767.7" y="135.5" font-size="9.2" fill="#a6a6a6">可视化交互工具</text>
+<text x="767.7" y="152.5" font-size="10.0" fill="#e9e9e7">设计与提示词</text>
+<text x="767.7" y="164.0" font-size="9.2" fill="#a6a6a6">Open Design</text>
+<text x="767.7" y="175.5" font-size="9.2" fill="#a6a6a6">GPT Image 2</text>
+<text x="767.7" y="187.0" font-size="9.2" fill="#a6a6a6">提示词合集</text>
+<path d="M450.0 296 C450.0 260.8 83.1 260.8 83.1 232" fill="none" stroke="#6f9bf2" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 205.4 260.8 205.4 232" fill="none" stroke="#3fb950" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 327.7 260.8 327.7 232" fill="none" stroke="#b18aff" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 450.0 260.8 450.0 232" fill="none" stroke="#e8913a" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 572.3 260.8 572.3 232" fill="none" stroke="#ff7b72" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 694.6 260.8 694.6 232" fill="none" stroke="#4ec9a0" stroke-opacity="0.45" stroke-width="1.5"/>
+<path d="M450.0 296 C450.0 260.8 816.9 260.8 816.9 232" fill="none" stroke="#f778ba" stroke-opacity="0.45" stroke-width="1.5"/>
+<rect x="26" y="296" width="848" height="87.5" rx="10" fill="#1b1b1d" stroke="#3c3c43"/>
+<text x="38" y="312" font-size="11.5" font-weight="650" fill="#e9e9e7">基础层</text>
+<text x="862" y="312" text-anchor="end" font-size="9" fill="#8c8c8c">所有方向的共同基础</text>
+<text x="38.0" y="330" font-size="10.0" fill="#e9e9e7">深度学习</text>
+<text x="38.0" y="341.5" font-size="9.2" fill="#a6a6a6">Dive into Deep Learning</text>
+<text x="38.0" y="353.0" font-size="9.2" fill="#a6a6a6">强化学习直观理解 (VZstudio)</text>
+<text x="244.0" y="330" font-size="10.0" fill="#e9e9e7">系统与体系结构</text>
+<text x="244.0" y="341.5" font-size="9.2" fill="#a6a6a6">10 门"地狱级"CS 公开课</text>
+<text x="244.0" y="353.0" font-size="9.2" fill="#a6a6a6">MIT 6.5840 分布式系统</text>
+<text x="450.0" y="330" font-size="10.0" fill="#e9e9e7">AI Infra 全景</text>
+<text x="450.0" y="341.5" font-size="9.2" fill="#a6a6a6">AI Infra 其实没有多少新东西</text>
+<text x="450.0" y="353.0" font-size="9.2" fill="#a6a6a6">深入理解 AI Infra</text>
+<text x="656.0" y="330" font-size="10.0" fill="#e9e9e7">路线与索引</text>
+<text x="656.0" y="341.5" font-size="9.2" fill="#a6a6a6">LLM 算法与工程学习路线</text>
+<text x="656.0" y="353.0" font-size="9.2" fill="#a6a6a6">猛猿大模型技术文章导航</text>
+<text x="656.0" y="364.5" font-size="9.2" fill="#a6a6a6">Sebastian Raschka Blog</text>
+<line x1="450.0" y1="413.5" x2="450.0" y2="383.5" stroke="#3c3c43" stroke-width="1.3"/>
+<rect x="398.9" y="413.5" width="102.1" height="34" rx="17.0" fill="#e9e9e7"/>
+<text x="450.0" y="434.9" text-anchor="middle" font-size="13" font-weight="700" fill="#101011">AI 技术栈</text>
+<text x="26" y="474" font-size="10.5" fill="#8c8c8c">共 39 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ai-learning-journey</text>
 </svg>

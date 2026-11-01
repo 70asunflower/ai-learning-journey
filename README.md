@@ -15,11 +15,16 @@
   <a href="https://70asunflower.github.io/ic-chip-design-learning/">🔌 姊妹仓库</a>
 </p>
 
+<details>
+<summary>📸 在线索引长什么样</summary>
+
 <p align="center">
   <a href="https://70asunflower.github.io/ai-learning-journey/">
     <img src="assets/preview.png" width="900" alt="AI Learning Journey 资源索引">
   </a>
 </p>
+
+</details>
 
 ## 🧭 技术栈树
 
@@ -33,7 +38,7 @@
 </p>
 
 <details>
-<summary>文本版（可点击跳转）</summary>
+<summary>文本版（可点击跳转，含全部资源）</summary>
 
 <!-- BUILD:TREE:START -->
 **基础层**（所有方向的共同基础）
@@ -90,6 +95,11 @@
 
 ## ✨ 从这里开始
 
+已经知道要学什么、只差排顺序时看这张——按轨道分组，组内从左到右是建议阅读顺序。
+
+<details>
+<summary>展开路径图（按顺序学）</summary>
+
 <p align="center">
   <a href="https://70asunflower.github.io/ai-learning-journey/">
     <picture>
@@ -98,9 +108,6 @@
     </picture>
   </a>
 </p>
-
-<details>
-<summary>文本版（可点击跳转）</summary>
 
 <!-- BUILD:MAP:START -->
 **1. 建立全局观**
@@ -321,6 +328,9 @@ _Empty — create your first project!_
 
 ## 📁 目录结构
 
+<details>
+<summary>展开目录结构</summary>
+
 ```
 ai-learning-journey/
 ├── 0-Resources/          # Resource collection
@@ -341,6 +351,8 @@ ai-learning-journey/
 ├── scripts/              # Helper scripts
 └── CONTRIBUTING.md       # How to add a resource / note / code example
 ```
+
+</details>
 
 ## 🤝 参与维护
 
