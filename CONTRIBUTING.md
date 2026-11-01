@@ -106,6 +106,33 @@ short: Machine Learning Systems
 
 `short:` 可选，缺省回退到 `title`。它只影响地图，不影响卡片和表格。
 
+## 改技术栈树
+
+`scripts/build.py` 顶部的 `SKILLTREE` 画成一棵**自下而上的树**：根部是基础技能，
+向上分叉到各专业方向，每个技能下面挂资源。
+
+```python
+SKILLTREE = {
+    "root": "IC 芯片设计技术栈",
+    "foundation": {"name": "基础层", "skills": [
+        {"name": "计算机体系结构", "items": ["0-Resources/..."]},
+        {"name": "半导体物理与器件", "items": []},     # ← 显示为「待补充」
+    ]},
+    "branches": [
+        {"name": "数字设计", "skills": [
+            {"name": "RTL / HDL", "items": ["0-Resources/..."]},
+        ]},
+    ],
+}
+```
+
+- `foundation` 画在根部那条横板上，`branches` 是向上发散的分叉（当前 7 条）
+- 技能 `items` 留空 → 灰色「待补充」，用来标出**还没收录资源**的技能
+- **硬性约束**：每个资源必须恰好出现一次，漏一个/重复/指向已删文件都直接构建失败
+- 分叉数量变了（比如加到 8 条），盒子宽度会自动重算，不用手调
+
+和路线图的区别：路线图回答「按什么顺序学」，树回答「这个领域有哪些技能、各自有什么」。
+
 ## 硬性规则
 
 - **文件名**：小写、连字符分隔（如 `qwen3-vl-best-practice.md`）
@@ -116,7 +143,7 @@ short: Machine Learning Systems
   `--report` 打印标签频次和单例标签（判断该不该合并）
 - **Changelog**：新行插在表头下方（日期倒序，CI 强制）
 - **Last updated**：每个资源/笔记文件结尾都要有 `_Last updated: YYYY-MM-DD_`
-- **不要手改生成块**：`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` 标记之间、以及 `0-Index.md`、
+- **不要手改生成块**：`BUILD:NAV` / `BUILD:TABLE` / `BUILD:MAP` / `BUILD:TREE` 标记之间、以及 `0-Index.md`、
   `index.html` 整体都是生成物，下次构建会被覆盖
 
 ## 更新 README 预览图

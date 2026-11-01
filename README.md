@@ -21,6 +21,73 @@
   </a>
 </p>
 
+## 🧭 技术栈树
+
+<p align="center">
+  <a href="https://70asunflower.github.io/ai-learning-journey/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/skilltree-dark.svg">
+      <img src="assets/skilltree-light.svg" width="900" alt="技术栈树：知识领域 → 技能 → 资源">
+    </picture>
+  </a>
+</p>
+
+<details>
+<summary>文本版（可点击跳转）</summary>
+
+<!-- BUILD:TREE:START -->
+**基础层**（所有方向的共同基础）
+
+- 深度学习 — [Dive into Deep Learning](0-Resources/3-Tutorials/dive-into-deep-learning.md) · [强化学习直观理解 (VZstudio)](0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md)
+- 系统与体系结构 — [10 门"地狱级"CS 公开课](0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md) · [MIT 6.5840 (原 6.824) 分布式系统](0-Resources/3-Tutorials/mit-65840-distributed-systems.md)
+- AI Infra 全景 — [AI Infra 其实没有多少新东西](0-Resources/3-Tutorials/ai-infra-nothing-new.md) · [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md)
+- 路线与索引 — [LLM 算法与工程学习路线](0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md) · [猛猿大模型技术文章导航](0-Resources/3-Tutorials/mengyuan-llm-articles-index.md) · [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md)
+
+**LLM 原理**
+
+- 从零构建 LLM — [Build a LLM (From Scratch)](0-Resources/3-Tutorials/llms-from-scratch.md) · [Diy-LLM (Datawhale)](0-Resources/3-Tutorials/datawhale-diy-llm.md)
+- 中文通识 — [CS336 从零构建语言模型 (中文)](0-Resources/3-Tutorials/cs336-language-modeling-from-scratch.md)
+- 推理模型 — [Build a Reasoning Model (From Scratch)](0-Resources/3-Tutorials/reasoning-from-scratch.md)
+
+**训练与分布式**
+
+- 扩展与并行 — [The Ultra-Scale Playbook](0-Resources/3-Tutorials/ultrascale-playbook.md) · [JAX Scaling Book](0-Resources/3-Tutorials/jax-scaling-book.md)
+- ML 系统 — [Machine Learning Systems (Harvard CS249r)](0-Resources/3-Tutorials/machine-learning-systems-book.md)
+- 数据工程 — _待补充_
+
+**推理与部署**
+
+- 推理系统原理 — [大模型推理系统入门](0-Resources/3-Tutorials/llm-inference-system-intro.md) · [LLM Inference Handbook (Modular)](0-Resources/1-Official-Docs/llm-inference-handbook.md)
+- 推理引擎 — [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md)
+- 框架源码 — [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) · [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md)
+- 系统课程 — [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) · [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md)
+
+**GPU 与 Kernel**
+
+- CUDA 编程 — [CUDA Programming Guide](0-Resources/1-Official-Docs/cuda-programming-guide.md)
+- Kernel 优化 — [Modern GPU Programming For MLSys](0-Resources/3-Tutorials/mlc-modern-gpu-programming.md)
+- 编译与汇编 — [Compiler Explorer (Godbolt)](0-Resources/4-Tools-Frameworks/compiler-explorer.md)
+
+**微调与工程**
+
+- 微调方法 — [Unsloth LLM 微调指南](0-Resources/3-Tutorials/unsloth-fine-tuning-guide.md) · [self-llm 大模型食用指南](0-Resources/3-Tutorials/self-llm.md)
+- 微调框架 — [LlamaFactory 微调框架](0-Resources/4-Tools-Frameworks/llamafactory.md) · [ms-swift 微调部署框架](0-Resources/4-Tools-Frameworks/ms-swift.md)
+- 环境与选型 — [ModelScope Notebook 免费试用](0-Resources/4-Tools-Frameworks/modelscope-notebook.md) · [CanIRun.ai 硬件兼容性检测](0-Resources/4-Tools-Frameworks/canirun.md)
+
+**Agent**
+
+- Agent 原理 — [深入理解 AI Agent](0-Resources/3-Tutorials/bojieli-ai-agent-book.md)
+- 学习路线 — [Agent-Learning-Hub (Datawhale)](0-Resources/3-Tutorials/agent-learning-hub.md)
+
+**工具与可视化**
+
+- 模型可视化 — [LLM Visualization (bbycroft)](0-Resources/4-Tools-Frameworks/llm-viz.md) · [InferFlux 推理系统可视化](0-Resources/4-Tools-Frameworks/inferflux.md)
+- Tokenizer — [TikTokenizer 可视化交互工具](0-Resources/4-Tools-Frameworks/tiktokenizer.md)
+- 设计与提示词 — [Open Design](0-Resources/4-Tools-Frameworks/open-design.md) · [GPT Image 2 提示词合集](0-Resources/4-Tools-Frameworks/gpt-image-2-prompts.md)
+<!-- BUILD:TREE:END -->
+
+</details>
+
 ## ✨ 从这里开始
 
 <p align="center">
