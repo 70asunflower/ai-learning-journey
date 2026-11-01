@@ -66,9 +66,9 @@ tags: [tag1, tag2, tag3]
 End file with: `_Last updated: YYYY-MM-DD_`
 
 ### Note (`1-Notes/**`) — NOT web-indexed
-Use the REAL schema from `1-Notes/0-Template.md`.
-(Note: `README.md` "How to Update → Adding a New Note" incorrectly says "same
-frontmatter as resources" — that guidance is wrong; use this instead.)
+Use the REAL schema from `1-Notes/0-Template.md` (note schema ≠ resource schema:
+`topic`/`status` instead of `source`). `CONTRIBUTING.md → 加一条笔记` carries the
+same schema, so keep the two in step if it changes.
 ```yaml
 ---
 topic: <short topic>

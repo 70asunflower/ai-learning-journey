@@ -195,7 +195,10 @@ if os.path.isfile(registry_path):
 # ---------- internal dead links (all .md) ----------
 # Skip tooling dirs (.claude/.workbuddy) whose placeholder links such as
 # 0-Resources/<sub>/<name>.md contain angle brackets and are not real targets.
+# HTML <a href> is checked too: the README header uses centered HTML blocks,
+# where GitHub does not parse markdown links.
 LINK_RE = re.compile(r"\]\(((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^)]+\.md)\)")
+HREF_RE = re.compile(r'href="((?:0-Resources|1-Notes|2-Code|3-Projects|_misc)/[^"]+\.md)"')
 for dirpath, _, files in os.walk(ROOT):
     if ".git" in dirpath or ".claude" in dirpath or ".workbuddy" in dirpath:
         continue
@@ -205,12 +208,16 @@ for dirpath, _, files in os.walk(ROOT):
         fp = os.path.join(dirpath, fn)
         with open(fp, encoding="utf-8") as f:
             text = f.read()
+        rel_fp = os.path.relpath(fp, ROOT)
         for m in LINK_RE.finditer(text):
             target = m.group(1)
             if "<" in target or ">" in target:
                 continue
             if not exists(target):
-                err(f"{os.path.relpath(fp, ROOT)}: dead internal link -> {target}")
+                err(f"{rel_fp}: dead internal link -> {target}")
+        for m in HREF_RE.finditer(text):
+            if not exists(m.group(1)):
+                err(f"{rel_fp}: dead internal link -> {m.group(1)} (html href)")
 
 # ---------- Changelog sanity ----------
 if os.path.isfile(root_readme):

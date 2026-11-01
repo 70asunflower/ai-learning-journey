@@ -553,7 +553,10 @@ function render() {
     else if (state.sort === "name") items = items.slice().sort((a, b) => a.title.localeCompare(b.title));
     if (!items.length) return;
     total += items.length;
-    html += `<section class="sec" style="--cat:${catColor(c.name)}"><h2>${esc(c.name)}<span class="cnt">${items.length}</span></h2>
+    /* 📄/📋 index cards are navigation, not resources — don't count them */
+    const nReal = items.filter(it => !it.index).length;
+    const cnt = nReal ? `<span class="cnt">${nReal}</span>` : "";
+    html += `<section class="sec" style="--cat:${catColor(c.name)}"><h2>${esc(c.name)}${cnt}</h2>
       <div class="grid">${items.map(it => cardHTML(it, catColor(c.name))).join("")}</div></section>`;
   });
   app.innerHTML = html;
@@ -852,7 +855,7 @@ window.addEventListener("keydown", e => {
 if (isFileProtocol()) { const fw = document.getElementById("filewarn"); if (fw) fw.style.display = "block"; }
 const statsEl = document.getElementById("stats");
 if (statsEl) {
-  const totalItems = DATA.categories.reduce((s, c) => s + c.items.length, 0);
+  const totalItems = DATA.categories.reduce((s, c) => s + c.items.filter(it => !it.index).length, 0);
   statsEl.innerHTML = `<span><b>${totalItems}</b> 资源</span><span><b>${sortedTags.length}</b> 标签</span><span><b>${DATA.generated}</b> 更新</span>`;
 }
 /* restore UI state from URL (search box value, active sort button, tag-mode label) */
