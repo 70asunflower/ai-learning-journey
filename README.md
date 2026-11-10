@@ -65,7 +65,7 @@
 - 推理系统原理 — [大模型推理系统入门](0-Resources/3-Tutorials/llm-inference-system-intro.md) · [LLM Inference Handbook (Modular)](0-Resources/1-Official-Docs/llm-inference-handbook.md)
 - 推理引擎 — [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md)
 - 框架源码 — [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) · [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md)
-- 系统课程 — [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) · [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md)
+- 系统课程 — [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) · [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) · [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md)
 
 **GPU 与 Kernel**
 
@@ -142,6 +142,7 @@
 - [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md) — vLLM 官方中文文档（hyper.ai 翻译）：安装/量化/LoRA/分布式推理/部署/设计文档/API
 - [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) — 极简 vLLM 实现，学习推理框架核心原理（PagedAttention/Continuous Batching）
 - [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md) — 极简 SGLang 实现，学习推理框架另一技术路线（RadixAttention/前缀缓存）
+- [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) — Datawhale×RadixArk 联合出品推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR，中英双语
 - [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
 - [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md) — LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL
 
@@ -226,6 +227,7 @@
 - [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md) — 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度
 - [Machine Learning Systems (Harvard CS249r)](0-Resources/3-Tutorials/machine-learning-systems-book.md) — MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态
 - [Diy-LLM (Datawhale)](0-Resources/3-Tutorials/datawhale-diy-llm.md) — CS336 中文本土化实现课：16 章理论 + 6 个渐进代码作业，从手搓 tokenizer 到 GRPO
+- [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) — Datawhale×RadixArk 联合出品推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR，中英双语
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -368,6 +370,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-11-10 | Added zero-to-sglang (Datawhale × RadixArk) — 推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR（4 部分 20 章，中英双语） |
 | 2026-10-30 | Added Diy-LLM (Datawhale) — CS336 中文本土化实现课：16 章 + 6 个渐进代码作业（tokenizer/CUDA-Triton/ZeRO/GRPO） |
 | 2026-10-20 | Added Machine Learning Systems (Harvard CS249r) — MIT Press 2026 两卷本：单机→fleet 规模 28 章 + 完整课程生态 |
 | 2026-10-18 | Added Compiler Explorer (Godbolt) — 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器并行对比 |

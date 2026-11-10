@@ -88,6 +88,7 @@ ROADMAP = [
         "0-Resources/1-Official-Docs/vllm-docs-zh.md",
         "0-Resources/4-Tools-Frameworks/nano-vllm.md",
         "0-Resources/4-Tools-Frameworks/mini-sglang.md",
+        "0-Resources/3-Tutorials/zero-to-sglang.md",
         "0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md",
         "0-Resources/3-Tutorials/infra-seminars-2026.md",
     ]},
@@ -425,6 +426,7 @@ SKILLTREE = {
                 "0-Resources/4-Tools-Frameworks/nano-vllm.md",
                 "0-Resources/4-Tools-Frameworks/mini-sglang.md"]},
             {"name": "系统课程", "items": [
+                "0-Resources/3-Tutorials/zero-to-sglang.md",
                 "0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md",
                 "0-Resources/3-Tutorials/infra-seminars-2026.md"]},
         ]},

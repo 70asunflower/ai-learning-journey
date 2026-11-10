@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="802" viewBox="0 0 900 802" role="img" aria-label="学习地图：按学习顺序分轨列出全部资源" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
 <rect width="900" height="802" rx="14" fill="#fcfcfb" stroke="#e6e6e4"/>
 <text x="26" y="42" font-size="17" font-weight="650" fill="#1c1c1c">学习地图</text>
-<text x="26" y="64" font-size="12.5" fill="#6b6b6b">按轨道分组，组内从左到右是建议阅读顺序 · 全部 39 份资源</text>
+<text x="26" y="64" font-size="12.5" fill="#6b6b6b">按轨道分组，组内从左到右是建议阅读顺序 · 全部 40 份资源</text>
 <line x1="26" y1="80" x2="874" y2="80" stroke="#efefec"/>
 <circle cx="31" cy="122.0" r="3.5" fill="#2f6df6"/>
 <text x="42" y="126.5" font-size="12.5" font-weight="600" fill="#1c1c1c">建立全局观</text>
@@ -95,14 +95,18 @@
 <circle cx="772.2" cy="398.0" r="7.5" fill="#d9730d" fill-opacity="0.16"/>
 <text x="772.2" y="401.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d9730d">5</text>
 <text x="785.2" y="402.2" font-size="11.5" fill="#1c1c1c">mini-sglang</text>
-<rect x="188.0" y="422" width="188.3" height="28" rx="14" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.45"/>
+<rect x="188.0" y="422" width="128.6" height="28" rx="14" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.45"/>
 <circle cx="203.0" cy="436.0" r="7.5" fill="#d9730d" fill-opacity="0.16"/>
 <text x="203.0" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d9730d">6</text>
-<text x="216.0" y="440.2" font-size="11.5" fill="#1c1c1c">Infinitensor 冬令营 2025</text>
-<rect x="384.4" y="422" width="160.2" height="28" rx="14" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.45"/>
-<circle cx="399.4" cy="436.0" r="7.5" fill="#d9730d" fill-opacity="0.16"/>
-<text x="399.4" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d9730d">7</text>
-<text x="412.4" y="440.2" font-size="11.5" fill="#1c1c1c">Infra Seminars 2026</text>
+<text x="216.0" y="440.2" font-size="11.5" fill="#1c1c1c">zero-to-sglang</text>
+<rect x="324.6" y="422" width="188.3" height="28" rx="14" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.45"/>
+<circle cx="339.6" cy="436.0" r="7.5" fill="#d9730d" fill-opacity="0.16"/>
+<text x="339.6" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d9730d">7</text>
+<text x="352.6" y="440.2" font-size="11.5" fill="#1c1c1c">Infinitensor 冬令营 2025</text>
+<rect x="520.9" y="422" width="160.2" height="28" rx="14" fill="#ffffff" stroke="#d9730d" stroke-opacity="0.45"/>
+<circle cx="535.9" cy="436.0" r="7.5" fill="#d9730d" fill-opacity="0.16"/>
+<text x="535.9" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d9730d">8</text>
+<text x="548.9" y="440.2" font-size="11.5" fill="#1c1c1c">Infra Seminars 2026</text>
 <circle cx="31" cy="490.0" r="3.5" fill="#cf222e"/>
 <text x="42" y="494.5" font-size="12.5" font-weight="600" fill="#1c1c1c">GPU Kernel 与性能</text>
 <rect x="188.0" y="476" width="179.2" height="28" rx="14" fill="#ffffff" stroke="#cf222e" stroke-opacity="0.45"/>
