@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="802" viewBox="0 0 900 802" role="img" aria-label="学习地图：按学习顺序分轨列出全部资源" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
 <rect width="900" height="802" rx="14" fill="#101011" stroke="#2c2c30"/>
 <text x="26" y="42" font-size="17" font-weight="650" fill="#e9e9e7">学习地图</text>
-<text x="26" y="64" font-size="12.5" fill="#a6a6a6">按轨道分组，组内从左到右是建议阅读顺序 · 全部 40 份资源</text>
+<text x="26" y="64" font-size="12.5" fill="#a6a6a6">按轨道分组，组内从左到右是建议阅读顺序 · 全部 41 份资源</text>
 <line x1="26" y1="80" x2="874" y2="80" stroke="#232327"/>
 <circle cx="31" cy="122.0" r="3.5" fill="#6f9bf2"/>
 <text x="42" y="126.5" font-size="12.5" font-weight="600" fill="#e9e9e7">建立全局观</text>
@@ -107,6 +107,10 @@
 <circle cx="535.9" cy="436.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
 <text x="535.9" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">8</text>
 <text x="548.9" y="440.2" font-size="11.5" fill="#e9e9e7">Infra Seminars 2026</text>
+<rect x="689.1" y="422" width="78.0" height="28" rx="14" fill="#1b1b1d" stroke="#e8913a" stroke-opacity="0.45"/>
+<circle cx="704.1" cy="436.0" r="7.5" fill="#e8913a" fill-opacity="0.16"/>
+<text x="704.1" y="439.6" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e8913a">9</text>
+<text x="717.1" y="440.2" font-size="11.5" fill="#e9e9e7">AIPerf</text>
 <circle cx="31" cy="490.0" r="3.5" fill="#ff7b72"/>
 <text x="42" y="494.5" font-size="12.5" font-weight="600" fill="#e9e9e7">GPU Kernel 与性能</text>
 <rect x="188.0" y="476" width="179.2" height="28" rx="14" fill="#1b1b1d" stroke="#ff7b72" stroke-opacity="0.45"/>

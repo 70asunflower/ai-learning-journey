@@ -91,6 +91,7 @@ ROADMAP = [
         "0-Resources/3-Tutorials/zero-to-sglang.md",
         "0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md",
         "0-Resources/3-Tutorials/infra-seminars-2026.md",
+        "0-Resources/4-Tools-Frameworks/aiperf.md",
     ]},
     {"track": "GPU Kernel 与性能", "items": [
         "0-Resources/1-Official-Docs/cuda-programming-guide.md",
@@ -429,6 +430,8 @@ SKILLTREE = {
                 "0-Resources/3-Tutorials/zero-to-sglang.md",
                 "0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md",
                 "0-Resources/3-Tutorials/infra-seminars-2026.md"]},
+            {"name": "性能测量", "items": [
+                "0-Resources/4-Tools-Frameworks/aiperf.md"]},
         ]},
         {"name": "GPU 与 Kernel", "skills": [
             {"name": "CUDA 编程", "items": [

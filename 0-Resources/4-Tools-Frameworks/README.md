@@ -19,6 +19,7 @@ Commonly used tools, frameworks, and libraries.
 | [InferFlux 推理系统可视化](inferflux.md) | 零依赖交互式动画：PD分离模拟/吞吐计算/3D请求生命周期/GPU集合通信（Three.js） | 2026-08-01 |
 | [LLM Visualization (bbycroft)](llm-viz.md) | GPT 风格 LLM 推理 3D 交互可视化，逐层看注意力/FFN/词元流动（WebGL） | 2026-08-01 |
 | [Compiler Explorer (Godbolt)](compiler-explorer.md) | 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器对比，验证向量化 | 2026-10-18 |
+| [AIPerf (NVIDIA)](aiperf.md) | GenAI-Perf 官方继任者，底层重写：多进程负载生成 + 15+ 端点 + 泊松/伽马流量 + TTFT/ITL 分位数 | 2026-11-14 |
 <!-- BUILD:TABLE:END -->
 
 ---

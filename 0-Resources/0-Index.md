@@ -60,6 +60,7 @@ _Empty — add your first paper!_
 | [InferFlux 推理系统可视化](4-Tools-Frameworks/inferflux.md) | `#inference #visualization #llm #interactive #simulation #sglang #vllm #threejs` | 2026-08-01 |
 | [LLM Visualization (bbycroft)](4-Tools-Frameworks/llm-viz.md) | `#llm #transformer #visualization #gpt #interactive #threejs #interpretability` | 2026-08-01 |
 | [Compiler Explorer (Godbolt)](4-Tools-Frameworks/compiler-explorer.md) | `#compiler #optimization #cpp #rust #cuda #interactive` | 2026-10-18 |
+| [AIPerf (NVIDIA)](4-Tools-Frameworks/aiperf.md) | `#inference #benchmarking #llm #serving #gpu #tool #vllm #sglang #telemetry #open-source` | 2026-11-14 |
 
 ## Datasets
 

@@ -66,6 +66,7 @@
 - 推理引擎 — [vLLM 中文文档](0-Resources/1-Official-Docs/vllm-docs-zh.md)
 - 框架源码 — [nano-vllm](0-Resources/4-Tools-Frameworks/nano-vllm.md) · [mini-sglang](0-Resources/4-Tools-Frameworks/mini-sglang.md)
 - 系统课程 — [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) · [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) · [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md)
+- 性能测量 — [AIPerf (NVIDIA)](0-Resources/4-Tools-Frameworks/aiperf.md)
 
 **GPU 与 Kernel**
 
@@ -145,6 +146,7 @@
 - [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) — Datawhale×RadixArk 联合出品推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR，中英双语
 - [Infinitensor 冬令营 2025](0-Resources/3-Tutorials/infinitensor-winter-camp-2025.md) — 推理 infra 全栈训练营，覆盖模型层/框架层/算子层
 - [Infra Seminars 2026](0-Resources/3-Tutorials/infra-seminars-2026.md) — LCPU 出品 AI 基础设施系列课：Kernel&编译器 / 互联通信 / 推理服务 / 分布式 RL
+- [AIPerf (NVIDIA)](0-Resources/4-Tools-Frameworks/aiperf.md) — GenAI-Perf 官方继任者，底层重写：多进程负载生成 + 15+ 端点 + 泊松/伽马流量 + TTFT/ITL 分位数
 
 **5. GPU Kernel 与性能**
 
@@ -247,6 +249,7 @@
 - [InferFlux 推理系统可视化](0-Resources/4-Tools-Frameworks/inferflux.md) — 零依赖交互式动画：PD分离模拟/吞吐计算/3D请求生命周期/GPU集合通信（Three.js）
 - [LLM Visualization (bbycroft)](0-Resources/4-Tools-Frameworks/llm-viz.md) — GPT 风格 LLM 推理 3D 交互可视化，逐层看注意力/FFN/词元流动（WebGL）
 - [Compiler Explorer (Godbolt)](0-Resources/4-Tools-Frameworks/compiler-explorer.md) — 在线编译器探索：实时汇编/LLVM IR/优化管线，多编译器对比，验证向量化
+- [AIPerf (NVIDIA)](0-Resources/4-Tools-Frameworks/aiperf.md) — GenAI-Perf 官方继任者，底层重写：多进程负载生成 + 15+ 端点 + 泊松/伽马流量 + TTFT/ITL 分位数
 - [📄 Tools & Frameworks Index](0-Resources/4-Tools-Frameworks/README.md)
 
 </details>
@@ -370,6 +373,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-11-14 | Added AIPerf (NVIDIA) — GenAI-Perf 官方继任者，底层重写的多进程推理压测工具：15+ 端点 / 泊松流量 / TTFT·ITL 分位数 / GPU 遥测 |
 | 2026-11-10 | Added zero-to-sglang (Datawhale × RadixArk) — 推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR（4 部分 20 章，中英双语） |
 | 2026-10-30 | Added Diy-LLM (Datawhale) — CS336 中文本土化实现课：16 章 + 6 个渐进代码作业（tokenizer/CUDA-Triton/ZeRO/GRPO） |
 | 2026-10-20 | Added Machine Learning Systems (Harvard CS249r) — MIT Press 2026 两卷本：单机→fleet 规模 28 章 + 完整课程生态 |
