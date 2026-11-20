@@ -19,6 +19,7 @@ SIBLINGS = [
 ]
 TITLE = "AI Learning Journey"
 SUBTITLE = "学习路径索引"
+HEADING = "AI 技术栈与学习路径"
 MAX_CONTENT = 6000
 GH = "https://github.com/" + REPO + "/blob/master/"
 
@@ -78,6 +79,7 @@ def build(skilltree=None):
             .replace("__MARKED__", marked_js.replace("</script>", "<\\/script>"))
             .replace("__TITLE__", TITLE)
             .replace("__SUBTITLE__", SUBTITLE)
+            .replace("__HEADING__", HEADING)
             .replace("__REPO_URL__", REPO_URL))
 
 
@@ -669,7 +671,7 @@ footer {
 </header>
 
 <section class="intro">
-  <h1>AI 技术栈与学习路径</h1>
+  <h1>__HEADING__</h1>
   <p>从左侧根节点向右依次展开为<b>学习方向</b>、<b>具体技能</b>与<b>学习资源</b>。悬停资源可高亮所属完整路径，点击资源可查看详情与仓库原文链接。</p>
   <div class="meta">
     包含 <b id="nTrunk">1 个基础层 + 7 个技术方向</b> · <b id="nSkill">24</b> 个技能模块 · <b id="nLeaf">41</b> 份精选资源
