@@ -31,6 +31,7 @@ import sys
 from xml.sax.saxutils import escape
 
 import generate_index
+import generate_tree_index
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RES = ROOT / "0-Resources"
@@ -695,9 +696,8 @@ def build(check: bool = False) -> int:
     targets.append((readme_p, splice(readme, NAV_START, NAV_END,
                                      render_nav(groups), "README.md")))
 
-    # index.html consumes the freshly rendered README nav + 0-Index
     targets.append((ROOT / "index.html",
-                    generate_index.build(targets[-1][1], index_md)))
+                    generate_tree_index.build(SKILLTREE)))
 
     for theme in ("light", "dark"):
         targets.append((ROOT / "assets" / f"roadmap-{theme}.svg",
