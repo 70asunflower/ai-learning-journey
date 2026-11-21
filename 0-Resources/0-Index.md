@@ -43,6 +43,7 @@ _Empty — add your first paper!_
 | [Machine Learning Systems (Harvard CS249r)](3-Tutorials/machine-learning-systems-book.md) | `#ml-systems #ai-infra #tinyml #distributed-training #inference #hardware #mit #book #open-access` | 2026-10-20 |
 | [Diy-LLM (Datawhale)](3-Tutorials/datawhale-diy-llm.md) | `#cs336 #llm #from-scratch #datawhale #chinese #tokenizer #moe #cuda #kernel #distributed-training #inference #alignment #grpo #course` | 2026-10-30 |
 | [zero-to-sglang (Datawhale × RadixArk)](3-Tutorials/zero-to-sglang.md) | `#sglang #inference #from-scratch #course #chinese #datawhale #llm #serving` | 2026-11-10 |
+| [AI Infra 大话西游 (Ringi)](3-Tutorials/ai-infra-odyssey.md) | `#ai-infra #llm #gpu #cuda #distributed-training #inference #tutorial #chinese #book #kernel #serving #optimization` | 2026-11-21 |
 
 ## Tools & Frameworks
 

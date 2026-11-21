@@ -68,6 +68,7 @@ ROADMAP = [
         "0-Resources/3-Tutorials/bojieli-ai-infra-book.md",
         "0-Resources/3-Tutorials/mengyuan-llm-articles-index.md",
         "0-Resources/3-Tutorials/sebastian-raschka-blog.md",
+        "0-Resources/3-Tutorials/ai-infra-odyssey.md",
     ]},
     {"track": "LLM 原理与从零实现", "items": [
         "0-Resources/3-Tutorials/dive-into-deep-learning.md",
@@ -394,7 +395,8 @@ SKILLTREE = {
             "0-Resources/3-Tutorials/mit-65840-distributed-systems.md"]},
         {"name": "AI Infra 全景", "items": [
             "0-Resources/3-Tutorials/ai-infra-nothing-new.md",
-            "0-Resources/3-Tutorials/bojieli-ai-infra-book.md"]},
+            "0-Resources/3-Tutorials/bojieli-ai-infra-book.md",
+            "0-Resources/3-Tutorials/ai-infra-odyssey.md"]},
         {"name": "路线与索引", "items": [
             "0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md",
             "0-Resources/3-Tutorials/mengyuan-llm-articles-index.md",

@@ -45,7 +45,7 @@
 
 - 深度学习 — [Dive into Deep Learning](0-Resources/3-Tutorials/dive-into-deep-learning.md) · [强化学习直观理解 (VZstudio)](0-Resources/3-Tutorials/rl-intuitive-explanation-vzstudio.md)
 - 系统与体系结构 — [10 门"地狱级"CS 公开课](0-Resources/3-Tutorials/top-10-hell-level-cs-courses.md) · [MIT 6.5840 (原 6.824) 分布式系统](0-Resources/3-Tutorials/mit-65840-distributed-systems.md)
-- AI Infra 全景 — [AI Infra 其实没有多少新东西](0-Resources/3-Tutorials/ai-infra-nothing-new.md) · [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md)
+- AI Infra 全景 — [AI Infra 其实没有多少新东西](0-Resources/3-Tutorials/ai-infra-nothing-new.md) · [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md) · [AI Infra 大话西游 (Ringi)](0-Resources/3-Tutorials/ai-infra-odyssey.md)
 - 路线与索引 — [LLM 算法与工程学习路线](0-Resources/3-Tutorials/llm-algorithm-engineering-roadmap.md) · [猛猿大模型技术文章导航](0-Resources/3-Tutorials/mengyuan-llm-articles-index.md) · [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md)
 
 **LLM 原理**
@@ -119,6 +119,7 @@
 - [深入理解 AI Infra](0-Resources/3-Tutorials/bojieli-ai-infra-book.md) — 李博杰开源书：数据搬移主线 + 量化估算方法论，12 章覆盖加速器/推理/训练/网络/调度
 - [猛猿大模型技术文章导航](0-Resources/3-Tutorials/mengyuan-llm-articles-index.md) — 知乎猛猿图解 LLM 系列总索引：训练并行/微调/RLHF/推理加速/扩散/多模态
 - [Sebastian Raschka Blog](0-Resources/3-Tutorials/sebastian-raschka-blog.md) — 深度学习、LLM、PyTorch 技术博客
+- [AI Infra 大话西游 (Ringi)](0-Resources/3-Tutorials/ai-infra-odyssey.md) — 大厂工程师 Ringi 的 AI Infra 全栈专栏：9 卷 44 讲 + 5 个 Capstone，三账本/算子/GPU 互联/分布式训练/推理/云原生
 
 **2. LLM 原理与从零实现**
 
@@ -230,6 +231,7 @@
 - [Machine Learning Systems (Harvard CS249r)](0-Resources/3-Tutorials/machine-learning-systems-book.md) — MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态
 - [Diy-LLM (Datawhale)](0-Resources/3-Tutorials/datawhale-diy-llm.md) — CS336 中文本土化实现课：16 章理论 + 6 个渐进代码作业，从手搓 tokenizer 到 GRPO
 - [zero-to-sglang (Datawhale × RadixArk)](0-Resources/3-Tutorials/zero-to-sglang.md) — Datawhale×RadixArk 联合出品推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR，中英双语
+- [AI Infra 大话西游 (Ringi)](0-Resources/3-Tutorials/ai-infra-odyssey.md) — 大厂工程师 Ringi 的 AI Infra 全栈专栏：9 卷 44 讲 + 5 个 Capstone，三账本/算子/GPU 互联/分布式训练/推理/云原生
 - [📄 Tutorials Index](0-Resources/3-Tutorials/README.md)
 
 </details>
@@ -373,6 +375,7 @@ ai-learning-journey/
 
 | Date       | Content                                          |
 |------------|--------------------------------------------------|
+| 2026-11-21 | Added AI Infra 大话西游 (Ringi) — 9 卷 44 讲 + 5 个 Capstone：三账本/GPU 互联/CUDA 算子/分布式训练/推理/云原生全栈专栏 |
 | 2026-11-14 | Added AIPerf (NVIDIA) — GenAI-Perf 官方继任者，底层重写的多进程推理压测工具：15+ 端点 / 泊松流量 / TTFT·ITL 分位数 / GPU 遥测 |
 | 2026-11-10 | Added zero-to-sglang (Datawhale × RadixArk) — 推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR（4 部分 20 章，中英双语） |
 | 2026-10-30 | Added Diy-LLM (Datawhale) — CS336 中文本土化实现课：16 章 + 6 个渐进代码作业（tokenizer/CUDA-Triton/ZeRO/GRPO） |

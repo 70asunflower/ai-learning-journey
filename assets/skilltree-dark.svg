@@ -111,6 +111,7 @@
 <text x="450.0" y="370" font-size="10.0" fill="#e9e9e7">AI Infra 全景</text>
 <text x="450.0" y="381.5" font-size="9.2" fill="#a6a6a6">AI Infra 其实没有多少新东西</text>
 <text x="450.0" y="393.0" font-size="9.2" fill="#a6a6a6">深入理解 AI Infra</text>
+<text x="450.0" y="404.5" font-size="9.2" fill="#a6a6a6">AI Infra 大话西游</text>
 <text x="656.0" y="370" font-size="10.0" fill="#e9e9e7">路线与索引</text>
 <text x="656.0" y="381.5" font-size="9.2" fill="#a6a6a6">LLM 算法与工程学习路线</text>
 <text x="656.0" y="393.0" font-size="9.2" fill="#a6a6a6">猛猿大模型技术文章导航</text>
@@ -118,5 +119,5 @@
 <line x1="450.0" y1="453.5" x2="450.0" y2="423.5" stroke="#3c3c43" stroke-width="1.3"/>
 <rect x="398.9" y="453.5" width="102.1" height="34" rx="17.0" fill="#e9e9e7"/>
 <text x="450.0" y="474.9" text-anchor="middle" font-size="13" font-weight="700" fill="#101011">AI 技术栈</text>
-<text x="26" y="514" font-size="10.5" fill="#8c8c8c">共 41 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ai-learning-journey</text>
+<text x="26" y="514" font-size="10.5" fill="#8c8c8c">共 42 份资源 · 灰色「待补充」= 该技能还没有收录资源　·　70asunflower.github.io/ai-learning-journey</text>
 </svg>

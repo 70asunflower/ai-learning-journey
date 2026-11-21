@@ -32,6 +32,7 @@ Quality tutorials, blog posts, and video courses.
 | [Machine Learning Systems (Harvard CS249r)](machine-learning-systems-book.md) | MIT Press 2026 两卷本：单机→fleet 规模 28 章，配 TinyTorch/MLSys·im/Labs 生态 | 2026-10-20 |
 | [Diy-LLM (Datawhale)](datawhale-diy-llm.md) | CS336 中文本土化实现课：16 章理论 + 6 个渐进代码作业，从手搓 tokenizer 到 GRPO | 2026-10-30 |
 | [zero-to-sglang (Datawhale × RadixArk)](zero-to-sglang.md) | Datawhale×RadixArk 联合出品推理引擎课：概念→手搓 mini-sglang→读 SGLang 源码→提 PR，中英双语 | 2026-11-10 |
+| [AI Infra 大话西游 (Ringi)](ai-infra-odyssey.md) | 大厂工程师 Ringi 的 AI Infra 全栈专栏：9 卷 44 讲 + 5 个 Capstone，三账本/算子/GPU 互联/分布式训练/推理/云原生 | 2026-11-21 |
 <!-- BUILD:TABLE:END -->
 
 ---
